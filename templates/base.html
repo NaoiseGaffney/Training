@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% block meta %}
     <meta charset="UTF-8">
@@ -33,36 +34,58 @@
 
     <title>Professional Training and Development - {% block extra_title %}{% endblock %}</title>
 </head>
+
 <body>
     <header>
         <!-- Main Navigation Bar -->
         <div class="navbar-fixed">
             <ul id="dropdown_test" class="dropdown-content">
-                <li><a href="{% url 'shop:product_list' %}" class="black-text">All Training<i class="material-icons right black-text">cast_for_education</i></a></li>
+                <li><a href="{% url 'shop:product_list' %}" class="black-text">All Training<i
+                            class="material-icons right black-text">cast_for_education</i></a></li>
                 <li class="divider"></li>
-                <li><a href="/shop/courses/" class="black-text">Courses<i class="material-icons right black-text">school</i></a></li>
+                <li><a href="/shop/courses/" class="black-text">Courses<i
+                            class="material-icons right black-text">school</i></a></li>
                 <li class="divider"></li>
-                <li><a href="/shop/coaching/" class="black-text">Coaching<i class="material-icons right black-text">model_training</i></a></li>
+                <li><a href="/shop/coaching/" class="black-text">Coaching<i
+                            class="material-icons right black-text">model_training</i></a></li>
             </ul>
             <nav class="nav-wrapper white">
                 <div class="container">
                     <a href="{% url 'home' %}" target="_self"><img src="/media/PCC Logo.png" height="58"></a>
-                    <a href="#" class="sidenav-trigger" data-target="mobile-links"><i class="material-icons">menu</i></a>
+                    <a href="#" class="sidenav-trigger" data-target="mobile-links"><i
+                            class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="dropdown-trigger black-text" href="#" data-target="dropdown_test">Courses &amp; Coaching<i
-                                    class="material-icons black-text right">arrow_drop_down</i></a></li>
-                        <li><a href="{% url 'dashboard' %}" class="black-text">Character<i class="material-icons right black-text">how_to_reg</i></a></li>
-                        <li><a href="#cart" class="black-text">Cart: <span class="cart black-text">Empty</span><i class="material-icons right black-text">shopping_cart</i></a></li>
+                        <li><a class="dropdown-trigger black-text" href="#" data-target="dropdown_test">Courses &amp;
+                                Coaching<i class="material-icons black-text right">arrow_drop_down</i></a></li>
+                        <li><a href="{% url 'dashboard' %}" class="black-text">Character<i
+                                    class="material-icons right black-text">how_to_reg</i></a></li>
+                        <li><a href="#cart" class="black-text">Cart: <span class="cart black-text">
+                                    {% with total_items=cart|length %}
+                                    {% if total_items > 0 %}
+                                    Your cart:
+                                    <a href="{% url 'cart:cart_detail' %}">
+                                        {{ total_items }} item{{ total_items|pluralize }},
+                                        ${{ cart.get_total_price }}
+                                    </a>
+                                    {% else %}
+                                    Empty.
+                                    {% endif %}
+                                    {% endwith %}
+                                </span><i class="material-icons right black-text">shopping_cart</i></a></li>
                     </ul>
                 </div>
             </nav>
         </div>
         <!-- Nav for Mobile devices using the Hamburger-menu must be defined outside of <nav></nav> to work. -->
         <ul id="mobile-links" class="sidenav orange">
-            <li><a href="/shop/courses/" class="white-text">Courses<i class="material-icons right white-text">school</i></a></li>
-            <li><a href="/shop/coaching/" class="white-text">Coaching<i class="material-icons right white-text">model_training</i></a></li>
-            <li><a href="{% url 'dashboard' %}" class="white-text">Character<i class="material-icons right white-text">how_to_reg</i></a></li>
-            <li><a href="#cart" class="white-text">Cart: <span class="cart white-text">Empty</span><i class="material-icons right white-text">shopping_cart</i></a></li>
+            <li><a href="/shop/courses/" class="white-text">Courses<i
+                        class="material-icons right white-text">school</i></a></li>
+            <li><a href="/shop/coaching/" class="white-text">Coaching<i
+                        class="material-icons right white-text">model_training</i></a></li>
+            <li><a href="{% url 'dashboard' %}" class="white-text">Character<i
+                        class="material-icons right white-text">how_to_reg</i></a></li>
+            <li><a href="#cart" class="white-text">Cart: <span class="cart white-text">Empty</span><i
+                        class="material-icons right white-text">shopping_cart</i></a></li>
         </ul>
     </header>
 
@@ -89,7 +112,9 @@
         <footer class="page-footer orange">
             <div class="container">
                 <div class="col l4 offset-l2 s12 center">
-                    Connect: <a class="white-text" href="https://www.linkedin.com/in/naoisegaffney/" target="_blank" rel=”noreferrer” alt="LinkedIn Profile">LinkedIn<i class="material-icons white-text">link</i></a>
+                    Connect: <a class="white-text" href="https://www.linkedin.com/in/naoisegaffney/" target="_blank"
+                        rel=”noreferrer” alt="LinkedIn Profile">LinkedIn<i
+                            class="material-icons white-text">link</i></a>
                 </div>
             </div>
 
@@ -106,8 +131,9 @@
     <!-- Initialise MaterializeCSS 1.0.0 Features -->
     <script src="{% static '/scripts/vendor/materialize.js' %}"></script>
     {% endblock %}
-    
+
     {# *** Allow sub-templates to insert extra html to the bottom of the body *** #}
     {% block extra_scripts %}{% endblock %}
 </body>
+
 </html>

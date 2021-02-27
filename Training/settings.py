@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'account.apps.AccountConfig',
     'shop.apps.ShopConfig',
+    'cart.apps.CartConfig',
     'django.contrib.admin',
 ]
 
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart', # (Shopping) Cart context processor for global updates to the cart.
             ],
         },
     },
@@ -144,3 +146,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'dashboard' # Django redirect after a successful login. Will update.
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+# Django session (think Flask-session (cookies)) key to ensure the cart is unique to each buyer
+CART_SESSION_ID = 'cart'

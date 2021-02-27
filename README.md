@@ -133,6 +133,29 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 ```
 
+#### Django Training Project Applications
+
+* Training (Project)
+* home
+* account
+* shop
+* cart
+
+Create application `python3 manage.py startapp <app-name>`.
+Add application to `Training/settings.py` INSTALLED_APPS before `'django.contrib.admin',`.
+(Optional) Create a new python file with classes and methods (functions).
+Update and/or create a form in `<app-name>/forms.py` -> ClassName in python file.
+Update and/or create a View in `<app-name>/views.py` -> FormName in `<app-name>/forms.py`.
+Update and/or create a URL in `<app-name>/urls.py` -> ViewName in `<app-name>/views.py`.
+Update Django Project URL in `Training/urls.py` -> `<app-name>/urls.py`.
+Create a template in `<app-name>/templates/<app-name>` -> `<app-name>/urls.py`.
+
+#### Create a Context Processor to (instead of using Django Signals) to make the Cart Update Global
+
+Create `cart/context_processor.py` context processor called `cart`.
+Update `settings.py` with the new context processor -> `cart/context_processors.py` in TEMPLATES.
+
+
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
@@ -154,4 +177,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from my first Code Institute Milestone Project, a Training and Development website. I have turned it into an e-commerce site, and will fork this to expand upon it further to turn it into a professional Training and Development Learning and Content Management System.
+- I clearly relied heavily upon the Boutique_Ado walkthrough, NetNinja, Udemy Course, and YouTube videos to understand and apply the concepts for this project.
+- My Code Institute mentor Spencer Barriball for keeping me sane throughout this coding journey.
+- My wife, Fiona, for putting up with long days and late nights locked in the back garden Tea Room/Shed (man-cave).
+- The Code Institute for giving me this opportunity to gain new knowledge and applicable job skills.
