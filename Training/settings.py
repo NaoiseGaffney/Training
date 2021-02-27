@@ -140,6 +140,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # login_required -> redirect to login is not authenticated
-LOGIN_REDIRECT_URL = 'dashboard' # Django redirect after a successful login.
+LOGIN_REDIRECT_URL = 'dashboard' # Django redirect after a successful login. Will change.
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
