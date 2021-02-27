@@ -140,15 +140,24 @@ DEBUG = os.environ.get('DEBUG')
 * account
 * shop
 * cart
+* orders
+* payment
+
+
+Work order (some steps are optional, and some dependent on previous steps): Application -> Models -> Admin Views -> Makemigrations and Migrate -> Classes -> Forms -> Views -> Application URL's -> Project URL's -> Templates.
 
 Create application `python3 manage.py startapp <app-name>`.
 Add application to `Training/settings.py` INSTALLED_APPS before `'django.contrib.admin',`.
-(Optional) Create a new python file with classes and methods (functions).
+Create a new models (database schema) file in `<app-name>/models.py`.
+Create new admin views for the models created previously in `<app-name>/admin.py` -> `<app-name>/models.py`.
+Run `python3 manage.py makemigrations` followed by `python3 manage.py migrate`.
+Create a new python file with classes and methods (functions).
 Update and/or create a form in `<app-name>/forms.py` -> ClassName in python file.
 Update and/or create a View in `<app-name>/views.py` -> FormName in `<app-name>/forms.py`.
 Update and/or create a URL in `<app-name>/urls.py` -> ViewName in `<app-name>/views.py`.
 Update Django Project URL in `Training/urls.py` -> `<app-name>/urls.py`.
 Create a template in `<app-name>/templates/<app-name>` -> `<app-name>/urls.py`.
+
 
 #### Create a Context Processor to (instead of using Django Signals) to make the Cart Update Global
 
