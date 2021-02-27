@@ -90,14 +90,15 @@
     </header>
 
     {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li class="{{ message.tags }}">
-            {{ message|safe }}
-            <a href="#" class="close">x</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -112,9 +113,9 @@
         <footer class="page-footer orange">
             <div class="container">
                 <div class="col l4 offset-l2 s12 center">
-                    Connect: <a class="white-text" href="https://www.linkedin.com/in/naoisegaffney/" target="_blank"
-                        rel=”noreferrer” alt="LinkedIn Profile">LinkedIn<i
-                            class="material-icons white-text">link</i></a>
+                    <a class="black-text" href="https://www.linkedin.com/in/naoisegaffney/" target="_blank"
+                        rel=”noreferrer” alt="LinkedIn Profile">Connect: LinkedIn<i
+                            class="material-icons black-text">link</i></a>
                 </div>
             </div>
 
@@ -130,6 +131,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Initialise MaterializeCSS 1.0.0 Features -->
     <script src="{% static '/scripts/vendor/materialize.js' %}"></script>
+    <!-- Clear Pop-up Messages after a defined period of time -->
+    <script src="{% static '/scripts/message.js' %}"></script>
     {% endblock %}
 
     {# *** Allow sub-templates to insert extra html to the bottom of the body *** #}
