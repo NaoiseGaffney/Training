@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'account.apps.AccountConfig',
+    'shop.apps.ShopConfig',
     'django.contrib.admin',
 ]
 
@@ -139,7 +140,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# login_required -> redirect to login is not authenticated
-LOGIN_REDIRECT_URL = 'dashboard' # Django redirect after a successful login. Will change.
+# login_required -> redirect to login when not authenticated
+LOGIN_REDIRECT_URL = 'dashboard' # Django redirect after a successful login. Will update.
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
