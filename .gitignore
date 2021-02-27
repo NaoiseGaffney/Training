@@ -4,3 +4,7 @@ core.python*
 env.py
 __pycache__/
 *.py[cod]
+.venv
+.env
+Training/.env
+/Snippets

@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block meta %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Developer and Designer: Naoise Gaffney - 'Gaff'. Title: Professional Training and Development
+    Reason: fourth milestone project for the Code Institute Diploma in Full Stack Development using HTML 5, CSS3, JavaScript,
+    Python 3.8, Django 3.1.7, PostgreSQL, Materialize CSS 1.0.0, and Braintree payment system. Description: Professional Training and Development for
+    GaffCo Consulting provides organisations with professional communication and presentation skills courses, and individuals with
+    professional communication and presentation skills coaching. This is a full stack e-commerce site.">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block core_css %}
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Import Local CSS -->
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    <title>Professional Training and Development - {% block extra_title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <!-- Main Navigation Bar -->
+        <div class="navbar-fixed">
+            <ul id="dropdown_test" class="dropdown-content">
+                <li><a href="#all_training" class="black-text">All Training<i class="material-icons right black-text">cast_for_education</i></a></li>
+                <li class="divider"></li>
+                <li><a href="#courses" class="black-text">Courses<i class="material-icons right black-text">school</i></a></li>
+                <li class="divider"></li>
+                <li><a href="#coaching" class="black-text">Coaching<i class="material-icons right black-text">model_training</i></a></li>
+            </ul>
+            <nav class="nav-wrapper white">
+                <div class="container">
+                    <a href="" target="_self"><img src="/media/PCC Logo.png" height="58"></a>
+                    <a href="#" class="sidenav-trigger" data-target="mobile-links"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="dropdown-trigger black-text" href="#" data-target="dropdown_test">Courses &amp; Coaching<i
+                                    class="material-icons black-text right">arrow_drop_down</i></a></li>
+                        <li><a href="#character" class="black-text">Character<i class="material-icons right black-text">how_to_reg</i></a></li>
+                        <li><a href="#cart" class="black-text">Cart<i class="material-icons right black-text">shopping_cart</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- Nav for Mobile devices using the Hamburger-menu must be defined outside of <nav></nav> to work. -->
+        <ul id="mobile-links" class="sidenav orange">
+            <li><a href="#courses" class="white-text">Courses<i class="material-icons right white-text">school</i></a></li>
+            <li><a href="#coaching" class="white-text">Coaching<i class="material-icons right white-text">model_training</i></a></li>
+            <li><a href="#character" class="white-text">Character<i class="material-icons right white-text">how_to_reg</i></a></li>
+            <li><a href="#cart" class="white-text">Cart<i class="material-icons right white-text">shopping_cart</i></a></li>
+        </ul>
+    </header>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">
+            {{ message|safe }}
+            <a href="#" class="close">x</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+    <!-- footer -->
+    <div class="transparent shadow">
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="col l4 offset-l2 s12 center">
+                    Connect: <a class="white-text" href="https://www.linkedin.com/in/naoisegaffney/" target="_blank" rel=”noreferrer” alt="LinkedIn Profile">LinkedIn<i class="material-icons white-text">link</i></a>
+                </div>
+            </div>
+
+            <div class="footer-copyright black">
+                <div class="container center-align white-text">&copy; 2021 GaffCo Consulting</div>
+            </div>
+        </footer>
+    </div>
+    {% endblock %}
+
+    {% block core_scripts %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Initialise MaterializeCSS 1.0.0 Features -->
+    <script src="{% static '/scripts/vendor/materialize.js' %}"></script>
+    {% endblock %}
+    
+    {# *** Allow sub-templates to insert extra html to the bottom of the body *** #}
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

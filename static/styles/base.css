@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
+
+/* --- // Main Styling and Layout */
+/* Reset values */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Use Raleway font throughout the site, and provide room for the scrolling under the fixed nav-bar and footer */
+html,
+body {
+    font-family: 'Raleway', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* --- // Navigation Bar, Hamburger-bar, and Fixed Footer Styling and Layout */
+/* Navigation Bar: fixed and MaterializeCSS styling. */
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+nav>div>a {
+    margin-top: 3px;
+}
+
+.sidenav {
+    width: 230px;
+}
+
+.section {
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}
+
+.tabs .indicator {
+    background-color: rgb(26, 35, 126);
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background: transparent;
+}
+
+/* Footer: fixed and MaterializeCSS styling. */
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
