@@ -96,21 +96,21 @@ WSGI_APPLICATION = 'Training.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': dj_database_url.parse('postgres://aptrfhgxklnaky:3e77625707258a36545be22d16522bb29e7581519f4bd9c193c307fa591c6ad0@ec2-54-74-14-109.eu-west-1.compute.amazonaws.com:5432/ddokn8bcha7ufm')
-# }
+DATABASES = {
+    'default': dj_database_url.parse('postgres://aptrfhgxklnaky:3e77625707258a36545be22d16522bb29e7581519f4bd9c193c307fa591c6ad0@ec2-54-74-14-109.eu-west-1.compute.amazonaws.com:5432/ddokn8bcha7ufm')
+}
 # if 'DATABASE_URL' in os.environ:
 #     DATABASES = {
 #         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 #     }
 # else:
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -186,7 +186,7 @@ BRAINTREE_CONF = braintree.Configuration(
     BRAINTREE_PUBLIC_KEY,
     BRAINTREE_PRIVATE_KEY
 )
-"""
+
 # AWS S3 Bucket Configuration, used both in Development and Production to
 # adequately test the feature.
 AWS_STORAGE_BUCKET_NAME = 'trainingdjango'
@@ -204,4 +204,3 @@ MEDIAFILES_LOCATION = 'media'
 # Static and Media files override in Production (Heroku)
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-"""
