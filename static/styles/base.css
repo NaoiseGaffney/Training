@@ -14,6 +14,88 @@ html,
 body {
     font-family: 'Raleway', sans-serif;
     scroll-behavior: smooth;
+    padding-bottom: 3rem;
+}
+
+/* Create breathing space between paragraph elements */
+p {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Google Design recommended link colour (good contrast) */
+a {
+    color: #3367d6;
+}
+
+/* Messages */
+ul.messages {
+    margin: 10px 100px;
+    padding: 0;
+    list-style-type:
+        none;
+}
+
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error,
+ul.messages li.info {
+    margin: 0;
+    padding: 14px 20px;
+    list-style: none;
+    color: #fff;
+}
+
+ul.messages li.success {
+    background: #81ce81;
+}
+
+ul.messages li.success a {
+    color: #0ac33e;
+}
+
+ul.messages li.error {
+    background: #a30029;
+    color: #e9828e;
+}
+
+ul.messages li.error a {
+    color: #e9828e;
+}
+
+ul.messages li.info {
+    background: #faffae;
+    color: #696b4e;
+}
+
+ul.messages li.info a {
+    color: #1586de;
+}
+
+ul.messages li.warning {
+    background: #de9404;
+}
+
+ul.messages li.warning a {
+    color: #f49000;
+}
+
+ul.messages li a.close {
+    margin: 0;
+    float: right;
+    opacity: 1;
+    border: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+ul.errorlist {
+    float: left;
+    color: #ff0000;
+    clear: both;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
 }
 
 /* --- // Navigation Bar, Hamburger-bar, and Fixed Footer Styling and Layout */
@@ -38,7 +120,7 @@ nav>div>a {
 }
 
 .tabs .indicator {
-    background-color: rgb(26, 35, 126);
+    background-color: black;
 }
 
 .tabs .tab a:focus,
@@ -46,9 +128,171 @@ nav>div>a {
     background: transparent;
 }
 
+.page-footer {
+    padding-top: 0.7rem;
+}
+
 /* Footer: fixed and MaterializeCSS styling. */
 footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    z-index: 10;
+}
+
+/* --- // Taken from 'materialize.css' (1.0.0) to style the input fields to match the UX Design */
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid black;
+    -webkit-box-shadow: 0 1px 0 0 black;
+    box-shadow: 0 1px 0 0 black;
+}
+
+/* Ensuring the carousel images are large enough to see on desktops */
+.carousel .carousel-item {
+    width: 350px !important;
+}
+
+/* All Submit Buttons */
+a.button,
+input[type="submit"] {
+    color: #fff;
+    background: black;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: 0;
+}
+
+/* Table Styling for Orders */
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    text-align: left;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0;
+}
+
+tbody tr:nth-child(odd) {
+    background: #efefef;
+}
+
+tbody tr.subtotal {
+    background: #ccc;
+}
+
+thead th,
+tbody tr.total {
+    background: orange;
+    color: black;
+    font-weight: bold;
+}
+
+table.cart {
+    margin-bottom: 40px;
+}
+
+table.cart img {
+    width: 180px;
+}
+
+tbody td.num {
+    text-align: right;
+}
+
+td input[type="submit"] {
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+.product-list .item {
+    width: 25%;
+    padding: 10px 20px 10px 0;
+    float: left;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.product-list .item img {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.product-detail .price {
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.product-detail img {
+    width: 95%;
+    float: left;
+    padding: 0 20px 20px 0;
+}
+
+.order-form {
+    float: left;
+}
+
+.order-info {
+    float: right;
+    width: 300px;
+    background: #efefef;
+    padding: 10px 20px;
+    color: #333;
+    border-bottom: 4px solid #5993bb;
+}
+
+.order-info h3 {
+    color: #5993bb;
+}
+
+.order-info ul li {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.order-info p {
+    font-weight: bold;
+    float: right;
+}
+
+.order-info span {
+    float: right;
+}
+
+.neg {
+    color: #dc1616;
+}
+
+/* Braintree (Payment Service) Form Fields */
+form div.field {
+    font-size: 13px;
+    color: #666;
+    width: 300px;
+    height: 22px;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    border: 0;
+    background: #efefef;
+    color: #666;
+    border-radius: 4px;
 }

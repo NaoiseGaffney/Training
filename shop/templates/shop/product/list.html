@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="carousel">
+        {% for product in products %}
+        <a class="carousel-item no-autoinit" href="{{ product.get_absolute_url }}"><img
+                src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="Courses and Coaching">
+                {{product.name }} ${{ product.price }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
