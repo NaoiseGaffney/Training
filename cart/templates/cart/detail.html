@@ -24,7 +24,7 @@ Your shopping cart
             <tr>
                 <td>
                     <a href="{{ product.get_absolute_url }}">
-                        <img height="50" src="{% if product.image %}{{ product.image.url }}
+                        <img src="{% if product.image %}{{ product.image.url }}
                 {% else %}{% static 'img/no_image.png' %}{% endif %}">
                     </a>
                 </td>

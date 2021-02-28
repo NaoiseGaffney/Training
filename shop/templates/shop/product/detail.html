@@ -7,14 +7,13 @@
 {% block content %}
 <div class="container">
     <div class="product-detail">
-        <img height="50" src="{% if product.image %}{{ product.image.url }}{% else %}
-    {% static 'img/no_image.png' %}{% endif %}">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
         <h3>{{ product.name }}</h3>
-        <h2>
+        <h5>
             <a href="{{ product.category.get_absolute_url }}">
                 {{ product.category }}
             </a>
-        </h2>
+        </h5>
         <p class="price">${{ product.price }}</p>
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
