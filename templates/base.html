@@ -43,15 +43,15 @@
                 <li><a href="{% url 'shop:product_list' %}" class="black-text">All Training<i
                             class="material-icons right black-text">cast_for_education</i></a></li>
                 <li class="divider"></li>
-                <li><a href="/shop/courses/" class="black-text">Courses<i
+                <li><a href="shop/courses/" class="black-text">Courses<i
                             class="material-icons right black-text">school</i></a></li>
                 <li class="divider"></li>
-                <li><a href="/shop/coaching/" class="black-text">Coaching<i
+                <li><a href="shop/coaching/" class="black-text">Coaching<i
                             class="material-icons right black-text">model_training</i></a></li>
             </ul>
             <nav class="nav-wrapper white">
                 <div class="container">
-                    <a href="{% url 'home' %}" target="_self"><img src="/media/PCC_Logo.png" height="58" alt="Logo"></a>
+                    <a href="{% url 'home' %}" target="_self"><img src="media/PCC_Logo.png" height="58" alt="Logo"></a>
                     <a href="#" class="sidenav-trigger black-text" data-target="mobile-links"><i
                             class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -77,9 +77,9 @@
         </div>
         <!-- Nav for Mobile devices using the Hamburger-menu must be defined outside of <nav></nav> to work. -->
         <ul id="mobile-links" class="sidenav orange">
-            <li><a href="/shop/courses/" class="black-text">Courses<i
+            <li><a href="shop/courses/" class="black-text">Courses<i
                         class="material-icons right black-text">school</i></a></li>
-            <li><a href="/shop/coaching/" class="black-text">Coaching<i
+            <li><a href="shop/coaching/" class="black-text">Coaching<i
                         class="material-icons right black-text">model_training</i></a></li>
             <li><a href="{% url 'dashboard' %}" class="black-text">Character<i
                         class="material-icons right black-text">how_to_reg</i></a></li>
@@ -138,9 +138,9 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Initialise MaterializeCSS 1.0.0 Features -->
-    <script src="{% static '/scripts/vendor/materialize.js' %}"></script>
+    <script src="{% static 'scripts/vendor/materialize.js' %}"></script>
     <!-- Clear Pop-up Messages after a defined period of time -->
-    <script src="{% static '/scripts/message.js' %}"></script>
+    <script src="{% static 'scripts/message.js' %}"></script>
     {% endblock %}
 
     {# *** Allow sub-templates to insert extra html to the bottom of the body *** #}
