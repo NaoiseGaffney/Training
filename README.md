@@ -164,7 +164,9 @@ Create a template in `<app-name>/templates/<app-name>` -> `<app-name>/urls.py`.
 Create `cart/context_processor.py` context processor called `cart`.
 Update `settings.py` with the new context processor -> `cart/context_processors.py` in TEMPLATES.
 
+#### Styling and Layout using Materialize CSS 1.0.0
 
+CSS classes in HTML templates and 'base.css'.
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 

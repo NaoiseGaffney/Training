@@ -14,43 +14,17 @@ html,
 body {
     font-family: 'Raleway', sans-serif;
     scroll-behavior: smooth;
+    padding-bottom: 3rem;
 }
 
-/* --- // Navigation Bar, Hamburger-bar, and Fixed Footer Styling and Layout */
-/* Navigation Bar: fixed and MaterializeCSS styling. */
-nav {
-    position: fixed;
-    top: 0;
-    z-index: 10;
+/* Create breathing space between paragraph elements */
+p {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
-nav>div>a {
-    margin-top: 3px;
-}
-
-.sidenav {
-    width: 230px;
-}
-
-.section {
-    padding-top: 4vw;
-    padding-bottom: 4vw;
-}
-
-.tabs .indicator {
-    background-color: rgb(26, 35, 126);
-}
-
-.tabs .tab a:focus,
-.tabs .tab a:focus.active {
-    background: transparent;
-}
-
-/* Footer: fixed and MaterializeCSS styling. */
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+a {
+    color: #3367d6;
 }
 
 /* Messages */
@@ -112,4 +86,65 @@ ul.messages li a.close {
     border: 0;
     box-shadow: none;
     text-shadow: none;
+}
+
+/* --- // Navigation Bar, Hamburger-bar, and Fixed Footer Styling and Layout */
+/* Navigation Bar: fixed and MaterializeCSS styling. */
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+nav>div>a {
+    margin-top: 3px;
+}
+
+.sidenav {
+    width: 230px;
+}
+
+.section {
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}
+
+.tabs .indicator {
+    background-color: black;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background: transparent;
+}
+
+.page-footer {
+    padding-top: 0.5rem;
+}
+
+/* Footer: fixed and MaterializeCSS styling. */
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+}
+
+/* --- // Taken from 'materialize.css' (1.0.0) to style the input fields to match the UX Design */
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid black;
+    -webkit-box-shadow: 0 1px 0 0 black;
+    box-shadow: 0 1px 0 0 black;
 }

@@ -9,7 +9,7 @@
     <div class="product-detail">
         <img height="50" src="{% if product.image %}{{ product.image.url }}{% else %}
     {% static 'img/no_image.png' %}{% endif %}">
-        <h1>{{ product.name }}</h1>
+        <h3>{{ product.name }}</h3>
         <h2>
             <a href="{{ product.category.get_absolute_url }}">
                 {{ product.category }}
