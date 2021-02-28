@@ -168,6 +168,16 @@ Update `settings.py` with the new context processor -> `cart/context_processors.
 
 CSS classes in HTML templates and 'base.css'.
 
+#### AWS S3 Bucket Configuration
+
+#### PostgreSQL Configuration
+
+
+
+
+
+
+
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
 In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
