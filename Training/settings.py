@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://training-and-development.herokuapp.com/', 'localhost']
 
 
 # Application definition
@@ -186,7 +186,7 @@ BRAINTREE_CONF = braintree.Configuration(
 
 # AWS S3 Bucket Configuration, used both in Development and Production to
 # adequately test the feature.
-AWS_STORAGE_BUCKET_NAME = 'myshop-gaff'
+AWS_STORAGE_BUCKET_NAME = 'trainingdjango'
 AWS_S3_REGION_NAME = 'eu-west-1'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
