@@ -242,8 +242,8 @@ td input[type="submit"] {
 }
 
 .product-detail img {
-    width: 90%;
-    float: right;
+    width: 95%;
+    float: left;
     padding: 0 20px 20px 0;
 }
 
