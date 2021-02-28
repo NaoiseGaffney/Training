@@ -5,7 +5,7 @@
 <!-- parallax -->
 <div class="parallax-container">
     <div class="parallax">
-        <img src="media/MountainsSuccess.webp" alt="Successful Mountain Runner">
+        <img src="{% static 'img/MountainsSuccess.webp' %}" alt="Successful Mountain Runner">
     </div>
 </div>
 
@@ -21,7 +21,7 @@
 <!-- parallax -->
 <div class="parallax-container">
     <div class="parallax">
-        <img src="media/MountainsSuccess.webp" alt="Successful Mountain Runner">
+        <img src="{% static 'img/MountainsSuccess.webp' %}" alt="Successful Mountain Runner">
     </div>
 </div>
 
@@ -29,7 +29,7 @@
     <section class="container section">
         <div class="row">
             <div class="col s12 l4">
-                <img src="media/Gaffco_Logo.png" alt="Organisational Courses Marketing Photo"
+                <img src="{% static 'img/Gaffco_Logo.png' %}" alt="Organisational Courses Marketing Photo"
                     class="responsive-img materialboxed" data-caption="Organisational Course">
                 <h2 class="black-text">What I do...</h2>
                 <p>I’m a Professional Trainer, Facilitator, and Coach with more than 3 decades experience enabling
@@ -53,19 +53,19 @@
                     </li>
                 </ul>
                 <div class="col s12" id="tab_courses">
-                    <p><a href="shop/4/communiction-skills/"><i class="material-icons left">keyboard_arrow_right</i>Communication Skills</a></p>
+                    <p><a href="{% url 'shop:product_detail' 3 'communication-skills' %}"><i class="material-icons left">keyboard_arrow_right</i>Communication Skills</a></p>
                     <p>The purpose of this course is to equip the learner with the relevant knowledge, skill and
                         competence to communicate
                         verbally and non-verbally in standard everyday tasks and in work-related tasks, operating
                         independently while under
                         general direction.</p>
-                    <p><a href="shop/6/presentation-and-whiteboarding-skills/"><i class="material-icons left">keyboard_arrow_right</i>Presentation and Whiteboarding Skills</a></p>
+                    <p><a href="{% url 'shop:product_detail' 5 'presentation-and-whiteboarding-skills' %}"><i class="material-icons left">keyboard_arrow_right</i>Presentation and Whiteboarding Skills</a></p>
                     <p>This Presentation Skills course gives you the knowledge and skills you need to prepare, practice
                         and present
                         professional presentations to any audience. This is a hands-on and pragmatic course with ample
                         opportunity to practice
                         your new and improved knowledge and skills to gain confidence and comfort.</p>
-                    <p><a href="shop/5/train-trainer/"><i class="material-icons left">keyboard_arrow_right</i>Train the Trainer</a></p>
+                    <p><a href="{% url 'shop:product_detail' 4 'train-trainer' %}"><i class="material-icons left">keyboard_arrow_right</i>Train the Trainer</a></p>
                     <p>The purpose of this course is to equip the learner with the knowledge, skill and competence to
                         identify training and
                         development needs at an organisation and or individual level, to devise a training plan and to
@@ -74,20 +74,20 @@
                 </div>
                 <div class="col s12" id="tab_coaching">
                     <!-- <p class="flow-text black-text">Coaching</p> -->
-                    <p><a href="shop/1/presentation-skills/"><i class="material-icons left">keyboard_arrow_right</i>Presentation Skills</a></p>
+                    <p><a href="{% url 'shop:product_detail' 1 'presentation-skills' %}"><i class="material-icons left">keyboard_arrow_right</i>Presentation Skills</a></p>
                     <p>You'll have the knowledge, skills, and attitude to make your audiences feel, think, and do
                         something as a result of your
                         presentations and/or demonstrations through pragmatic and hands-on approaches to designing,
                         developing, and delivering
                         presentations.</p>
-                    <p><a href="shop/7/powerpoint-design-and-delivery/"><i class="material-icons left">keyboard_arrow_right</i>PowerPoint Design and Delivery</a></p>
+                    <p><a href="{% url 'shop:product_detail' 6 'powerpoint-design-and-delivery' %} "><i class="material-icons left">keyboard_arrow_right</i>PowerPoint Design and Delivery</a></p>
                     <p>Together we'll work on your presentation, from design to delivery, creating an impactful story
                         with a supportive
                         structure and strong content to get your message across and maintain audience interest. We'll
                         create an eye-catching
                         presentation in PowerPoint. Together we'll improve your presentation style, leveraging the 7 P's
                         of Presentation, and get past potential presentation phobia.</p>
-                    <p><a href="shop/2/whiteboarding-and-visual-notetaking/"><i class="material-icons left">keyboard_arrow_right</i>Whiteboarding and Visual Notetaking</a></p>
+                    <p><a href="{% url 'shop:product_detail' 2 'whiteboarding-and-visual-notetaking' %} "><i class="material-icons left">keyboard_arrow_right</i>Whiteboarding and Visual Notetaking</a></p>
                     <p>You'll better explain complex subjects and ideas to your audience, getting your message across in
                         a clear, concise, and
                         constructive manner. Your audience will remember you, and retain far more of the important
@@ -102,7 +102,7 @@
 <!-- parallax -->
 <div class="parallax-container">
     <div class="parallax">
-        <img src="media/MountainsSuccess.webp" alt="Successful Mountain Runner">
+        <img src="{% static 'img/MountainsSuccess.webp' %}" alt="Successful Mountain Runner">
     </div>
 </div>
 {% endblock %}
