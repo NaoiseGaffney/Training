@@ -6,6 +6,14 @@
 {% block content %}
 
 <div class="container">
+    {% if 'courses' in request.path %}
+        <h3>Courses</h3>
+    {% elif 'coaching' in request.path %}
+        <h3>Coaching</h3>
+    {% else %}
+        <h3>All Training</h3>
+    {% endif %}
+    
     <div class="carousel">
         {% for product in products %}
         <a class="carousel-item no-autoinit" href="{{ product.get_absolute_url }}"><img

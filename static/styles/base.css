@@ -186,7 +186,7 @@ table th,
 table td {
     text-align: left;
     font-size: 14px;
-    padding: 10px;
+    /* padding: 10px; */
     margin: 0;
 }
 
@@ -282,6 +282,18 @@ td input[type="submit"] {
 .neg {
     color: #dc1616;
 }
+
+/* Order Card Styling - to provide a consistent look-and-feel.
+Overriding Materialize CSS 1.0.0 defaults */
+.card {
+    height: 400px;
+}
+
+.card .card-content {
+    bottom: 0;
+    position: absolute;
+}
+
 
 /* Braintree (Payment Service) Form Fields */
 form div.field {

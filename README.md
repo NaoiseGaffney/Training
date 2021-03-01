@@ -167,11 +167,35 @@ Update `settings.py` with the new context processor -> `cart/context_processors.
 #### Styling and Layout using Materialize CSS 1.0.0
 
 CSS classes in HTML templates and 'base.css'.
+Updated the (Shopping) Cart to use cards instead of a table as the table doesn't work well on mobiles. Added styling to the cards in `base.css`.
+Added a dynamic `<h3>` header to the Shop for All Training, Courses, and Coaching checking request.path for the relevant link contents. This shows the user/buyer what products s/he is looking at.
+
+
 
 #### AWS S3 Bucket Configuration
 
 #### PostgreSQL Configuration
 
+
+#### Issues
+
+Heroku and AWS S3 Bucket (static and media folders and files): Bad Request (400).
+
+```
+Dear Coders,
+I have resolved an issue with Heroku, AWS S3, hard-coded URL’s, and static plus media files that occurred after configuring AWS S3 and deploying (successful build) to Heroku. Accessing the Heroku URL I received a “Bad Request (400)“. I had the same issue locally after configuring to use AWS S3 locally too. I didn’t have this issue with Boutique_Ado, nor with a test project I did before my MS4 to get my head around it all.
+Running locally in Debug mode I received an error message stating “Suspicious activity… /static/base.css…AWS S3”.
+Turns out I had two issues:
+Using leading slashes  in my / URL’s, for example <link rel="stylesheet" href="{% static '/styles/base.css' %}">  and removing the leading slash to this <link rel="stylesheet" href="{% static 'styles/base.css' %}"> worked.
+Hard-coded URL’s for images and links. I’ve changed all my links to:
+{% static 'img/Gaffco_Logo.png' %} and uploading my images to AWS S3 manually to correspond to the links in my templates.
+{% url 'shop:product_list' %}  = https://trainingdjango.s3.amazonaws.com/static/img/Gaffco_Logo.png
+ or {% url 'shop:product_list' %}coaching/  = <a href="/shop/coaching/"
+… or {% url 'shop:product_detail' 3 'communication-skills' %} = <a href="/shop/3/communication-skills/">
+Some of you may already know this, I didn’t. It’s a learning experience, especially at half-past-four in the morning. :slightly_smiling_face:
+Sláinte!
+Gaff
+```
 
 
 
