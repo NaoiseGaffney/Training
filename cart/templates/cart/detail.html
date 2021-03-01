@@ -14,7 +14,6 @@ Your shopping cart
             <div class="card">
                 <div class="card-image">
                     <a href="{{ product.get_absolute_url }}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"></a>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
                 </div>
                 <div class="card-content">
                     <span class="card-title black-text grey lighten-4">{{ product.name }}</span>
@@ -33,11 +32,17 @@ Your shopping cart
                         {% csrf_token %}
                     </form>
                     </span>
+                    <p>Item Price: ${{ item.price }}</p><p>Total Item Price: ${{ item.total_price }}</p>
                 </div>
             </div>
         </div>
         {% endwith %}
         {% endfor %}
     </div>
+    <p>Total Price: ${{ cart.get_total_price }}</p>
+    <p id="cart_buttons_bottom_padding">
+        <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
+        <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
+    </p>
 </div>
 {% endblock %}
