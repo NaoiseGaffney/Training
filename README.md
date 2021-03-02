@@ -203,6 +203,7 @@ Course and Coaching Detail Form Block to allow for a better display on desktop s
 }
 ```
 
+Added navigation links to account, cart and payment templates to improve user navigation and experience. Removed the Checkout button on the Total Price = 0 (empty cart) so no empty orders are ordered, nor paid for.
 
 
 #### AWS S3 Bucket Configuration

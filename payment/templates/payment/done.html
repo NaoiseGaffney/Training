@@ -5,5 +5,10 @@
 <div class="container">
 <h3>Your payment was successful</h3>
 <p class="padding">Your payment has been processed successfully.</p>
+{% if request.user.is_authenticated %}
+<a href="{% url 'dashboard' %}">Character Dashboard</a>
+{% else %}
+<a href="{% url 'home' %}">Home</a>
+{% endif %}
 </div>
 {% endblock %}

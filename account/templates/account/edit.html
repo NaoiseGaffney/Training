@@ -11,5 +11,6 @@
         {% csrf_token %}
         <p><input type="submit" value="Save changes"></p>
     </form>
+    <p><a href="{% url 'dashboard' %}">Character Dashboard</a></p>
 </div>
 {% endblock %}
