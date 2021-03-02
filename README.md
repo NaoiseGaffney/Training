@@ -169,6 +169,39 @@ Update `settings.py` with the new context processor -> `cart/context_processors.
 CSS classes in HTML templates and 'base.css'.
 Updated the (Shopping) Cart to use cards instead of a table as the table doesn't work well on mobiles. Added styling to the cards in `base.css`.
 Added a dynamic `<h3>` header to the Shop for All Training, Courses, and Coaching checking request.path for the relevant link contents. This shows the user/buyer what products s/he is looking at.
+Spacing for paragraphs (empty space = cleaner look and easier to read), except for paragraph buttons, nor for the carousel. Used CSS selectors for Django forms to style the p elements:
+
+```
+/* Create breathing space between paragraph elements */
+p.padding, div > form + p, div > form + p + p {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+```
+
+Your order summary space between product and price:
+
+```
+li > span {
+    padding-left: 0.5rem;
+}
+```
+
+Course and Coaching Detail Form Block to allow for a better display on desktop screens. Media query providing a better view on desktop screens (relies upon the 'display: inline-block' to contain the form label):
+
+```
+.inline_form_block {
+    display: inline-block;
+}
+
+@media only screen and (min-width: 800px) {
+    .product-detail img {
+        width: 50%;
+        float: left;
+        padding: 0 20px 20px 0;
+    }
+}
+```
 
 
 

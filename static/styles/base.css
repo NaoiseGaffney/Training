@@ -17,12 +17,6 @@ body {
     padding-bottom: 3rem;
 }
 
-/* Create breathing space between paragraph elements */
-p {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
 /* Google Design recommended link colour (good contrast) */
 a {
     color: #3367d6;
@@ -249,19 +243,19 @@ td input[type="submit"] {
 
 .order-form {
     float: left;
+    padding-bottom: 3rem;
 }
 
 .order-info {
     float: right;
-    width: 300px;
     background: #efefef;
     padding: 10px 20px;
     color: #333;
-    border-bottom: 4px solid #5993bb;
+    border-bottom: 4px solid orange;
 }
 
 .order-info h3 {
-    color: #5993bb;
+    color: black;
 }
 
 .order-info ul li {
@@ -283,11 +277,6 @@ td input[type="submit"] {
     color: #dc1616;
 }
 
-/* Added order cart padding-bottom of 1rem to create space to the fixed footer */
-#cart_buttons_bottom_padding {
-    padding-bottom: 1rem;
-}
-
 /* Braintree (Payment Service) Form Fields */
 form div.field {
     font-size: 13px;
@@ -300,4 +289,39 @@ form div.field {
     background: #efefef;
     color: #666;
     border-radius: 4px;
+}
+
+
+/* --- // Specific styling for individual and block elements to improve readability on all devices.
+Improved viewing on desktops as the project design is mobile-first-oriented. */
+
+/* Create breathing space between paragraph elements */
+p.padding,
+div>form+p,
+div>form+p+p {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Order cart padding-bottom to create space to the fixed footer */
+#cart_buttons_bottom_padding {
+    padding-bottom: 1rem;
+}
+
+/* Your order summary space between product and price */
+li>span {
+    padding-left: 0.5rem;
+}
+
+/* Course and Coaching Detail Form Block to allow for a better display on desktop screens */
+.inline_form_block {
+    display: inline-block;
+}
+
+@media only screen and (min-width: 800px) {
+    .product-detail img {
+        width: 50%;
+        float: left;
+        padding: 0 20px 20px 0;
+    }
 }

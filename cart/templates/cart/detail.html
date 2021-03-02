@@ -32,15 +32,15 @@ Your shopping cart
                         {% csrf_token %}
                     </form>
                     </span>
-                    <p>Item Price: ${{ item.price }}</p><p>Total Item Price: ${{ item.total_price }}</p>
+                    <p class="padding">Item Price: ${{ item.price }}</p><p class="padding">Total Item Price: ${{ item.total_price }}</p>
                 </div>
             </div>
         </div>
         {% endwith %}
         {% endfor %}
     </div>
-    <p>Total Price: ${{ cart.get_total_price }}</p>
-    <p id="cart_buttons_bottom_padding">
+    <p class="padding">Total Price: ${{ cart.get_total_price }}</p>
+    <p class="padding" id="cart_buttons_bottom_padding">
         <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
         <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
     </p>

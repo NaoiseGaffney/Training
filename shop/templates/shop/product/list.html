@@ -16,9 +16,10 @@
     
     <div class="carousel">
         {% for product in products %}
-        <a class="carousel-item no-autoinit" href="{{ product.get_absolute_url }}"><img
+        <a class="carousel-item" href="{{ product.get_absolute_url }}"><img
                 src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="Courses and Coaching">
-                {{product.name }} ${{ product.price }}</a>
+                <p class="center">{{product.name }}</p>
+                <p class="center">${{ product.price }}</p></a>
         {% endfor %}
     </div>
 </div>
