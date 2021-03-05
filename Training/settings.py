@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://training-and-development.herokuapp.com/', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'Training.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://aptrfhgxklnaky:3e77625707258a36545be22d16522bb29e7581519f4bd9c193c307fa591c6ad0@ec2-54-74-14-109.eu-west-1.compute.amazonaws.com:5432/ddokn8bcha7ufm')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 # if 'DATABASE_URL' in os.environ:
 #     DATABASES = {

@@ -8,7 +8,53 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
 
 ![Section Divider: Title and Business](documentation/section%20divider.png)
 
-PLACEHOLDER FOR THE TABLE-OF-CONTENTS
+## Table of Contents
+
+<details><summary>Please click to expand: Table of Contents</summary>
+
+- [Business](#business)
+  * [External User's (Consumer) Goals](#external-user-s--consumer--goals)
+  * [Site Owner's Goals](#site-owner-s-goals)
+- [User Experience](#user-experience)
+  * [Persona Summary of the Consumer](#persona-summary-of-the-consumer)
+  * [Strategy Trade-Off](#strategy-trade-off)
+    + [Opportunity Matrices for Training and Development](#opportunity-matrices-for-training-and-development)
+  * [User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation](#user-stories--use-cases--and-tasks-mapped-to-information-architecture-and-navigation)
+  * [Wireframes](#wireframes)
+- [Features](#features)
+  * [Existing Features](#existing-features)
+  * [Features Left to Implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+  * [Database Schema](#database-schema)
+- [Testing](#testing)
+  * [Validation of HTML, CSS, JS, and Python Code](#validation-of-html--css--js--and-python-code)
+  * [Manual Beahviour Driven Development Testing](#manual-beahviour-driven-development-testing)
+  * [Automated Behaviour Driven Development Testing using Selenium IDE and PyTest](#automated-behaviour-driven-development-testing-using-selenium-ide-and-pytest)
+    + [BDD Test '.env' File](#bdd-test--env--file)
+    + [BDD PyTest Code](#bdd-pytest-code)
+    + [BDD Test Results - PASS](#bdd-test-results---pass)
+- [Deployment](#deployment)
+  * [GitHub](#github)
+  * [Configure Visual Studio Code environment](#configure-visual-studio-code-environment)
+  * [Create the Initial Django Project](#create-the-initial-django-project)
+  * [Django Migrations (Version Control System for the Database Schema)'](#django-migrations--version-control-system-for-the-database-schema--)
+  * [Heroku Platform Configuration and Deployment](#heroku-platform-configuration-and-deployment)
+  * [Configure static and media for Django](#configure-static-and-media-for-django)
+  * [Install django-environ to read a .env file with both confidential and useful variables -> Heroku Variables](#install-django-environ-to-read-a-env-file-with-both-confidential-and-useful-variables----heroku-variables)
+    + [Django Training Project Applications](#django-training-project-applications)
+    + [Create a Context Processor to (instead of using Django Signals) to make the Cart Update Global](#create-a-context-processor-to--instead-of-using-django-signals--to-make-the-cart-update-global)
+    + [Styling and Layout using Materialize CSS 1.0.0](#styling-and-layout-using-materialize-css-100)
+    + [AWS S3 Bucket Configuration](#aws-s3-bucket-configuration)
+    + [PostgreSQL Configuration](#postgresql-configuration)
+    + [Issues](#issues)
+- [Credits](#credits)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+</details>
 
 ![Section Divider: Title and Business](documentation/section%20divider.png)
 
@@ -60,7 +106,7 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 
 ---
 
-* **User Story 001 (Consumer):** As a consumer I want to view and purchase the courses and coaching sessions on offer so that I can attend them to imorove my professional presentation and communication skills.
+* **User Story 001 (Consumer):** As a consumer, I want to view and purchase the courses and coaching sessions on offer so that I can attend them to improve my professional presentation and communication skills.
 	* **Use Case 001-001 - View Home / Index Page and LinkedIn Profile:** As a consumer I want to view what GaffCo Consulting is all about, and what is on offer.
 		* **Task 1:** Access the home / index page [Training and Development](https://training-and-development.herokuapp.com/). Scroll through the content on the page.
 		* **Task 2:** Click on the LinkedIn Profile link to access further details about the owner of GaffCo Consulting.
@@ -103,7 +149,7 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 	* **Use Case 002-001 - Authentication and Authorization:** As an admin I want to manage users and groups on the site. - [Authentication and Authorization](http://127.0.0.1:8000/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. 
 	* **Use Case 002-002 - Account:** As an admin I want to manage Character Profiles. - [Account](http://127.0.0.1:8000/admin/account/). Consumer updates to their Character Profile is managed here.
 	* **Use Case 002-003 - Shop:** As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](http://127.0.0.1:8000/admin/shop/).
-	* **Use Case 002-002 - Orders:** As an admin I want to manage the orders placed by Consumers. - [Orders](http://127.0.0.1:8000/admin/orders/)
+	* **Use Case 002-004 - Orders:** As an admin I want to manage the orders placed by Consumers. - [Orders](http://127.0.0.1:8000/admin/orders/)
 
 ---
 
@@ -112,12 +158,6 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 [Wireframes for Desktops (Large) and Tablets (Medium), and Mobile (Small) - PDF](documentation/MS4%20Wireframes.pdf)
 
 The wireframes cover Desktop and Tablet sized devices as one, as the design and look is the same for both. Mobile devices are similar, with the main difference being the hamburger-nav-bar instead of a full navigation bar, and the fact that most text and images flows to one column. I did this on purpose, to keep the style and layout both functional and simple, requiring less CSS "shenanigans".
-
-Strategy Plane: User Needs & Site Objectives
-Scope Plane: Specifications & Content Requirements
-Structure Plane: Interaction Design & Information Architecture
-Skeleton Plane: Information Design, Interface Design & Navigation Design
-Surface Plane: Visual Design
 
 ![Section Divider: Title and Business](documentation/section%20divider.png)
 
@@ -164,7 +204,7 @@ A feature is some action that can be performed by a user of an application, or i
 * **NEW - Django App - Order Rating and Comments:**
 * **NEW - Django App - Courses:** Add online course content for some courses linked to YouTube videos.
 * **NEW - Django App - Accreditation:** Create accrediation views, course diplomas, and success trees for consumers.
-* **Existing - Django App - Account:** Add additional e-mail notifications.
+* **Existing - Django App - Account:** Add additional e-mail notifications. Add a subscription model to access online courses and coaching sessions.
 * **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
 * **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists.
 
@@ -172,41 +212,75 @@ A feature is some action that can be performed by a user of an application, or i
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+Some of the technology choices are governed by the Milestone Project requirements, while all others are my own choice (good, bad, and downright awful).
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+For the fourth Milestone Project for the Diploma in Full Stack Development at the Code Institute, the following mandatory technology choices apply: HTML5, CSS 3, JavaScript, Python 3, Django Framework, Payment System, and PostgreSQL.
+
+* [HTML 5.2. - W3C Recommendation, 14 December 2017](https://www.w3.org/TR/html52/)
+	* The project uses HTML 5 to create the content.
+* [CSS 3 CSS - Snapshot 2018 W3C Working Group Note, 22 January 2019](https://www.w3.org/TR/css-2018/)
+	* The project uses CSS 3 to style the content and provide the layout.
+* [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
+	* The project uses JavaScript, based on the ECMAScript language specification and implemented by numerous browser vendors. As a general rule, I read the implementation of this at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+* [Python](https://www.python.org/)
+	* An interpreted, high-level, and general-purpose programming language.
+* [Code Institute GitPod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+	* Using the GitPod Full Template from the Code Institute for my project.
+* [DropBox](https://www.dropbox.com/)
+	* Using DropBox as a staging area for Visual Studio Code, and synching this with GitHub.
+* [Visual Studio Code](https://code.visualstudio.com/)
+	* Main development editor (IDE).
+* [GitHub](https://github.com/)
+	* Project repository.
+* [Heroku](https://heroku.com/)
+	* Review Application, Staging, and Production environments.
+* [Gunicorn - WSGI Server](https://docs.gunicorn.org/en/stable/)
+	* Web Server used on Heroku for this project.
+* [Microsoft PowerPoint](https://office.live.com/start/powerpoint.aspx)
+	* Training logo, the Information Architecture diagrams, the Opportunity Matrices, and Persona Summary.
+* [Quick Database Diagrams](https://app.quickdatabasediagrams.com/#/)
+	* Book Repository PostgreSQL Schema was drawn using QDD.
+* [Tables Generator](https://www.tablesgenerator.com/markdown_tables)
+	* Tables are created using MarkDown Tables Generator.
+* [MacDown](https://macdown.uranusjr.com/)
+	* Document is created with MacDown.
+* [GitHub Wiki TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
+	* Creating the Table-of-Contents.
+* "Pen and Paper" on an e-ink device converted to PDF for the Wireframe Diagrams.
+
+### Database Schema
+![Database Schema](documentation/Training%20DB%20Schema.png)
+Please note that the there is currently no database link between the auth_user or account_profile to orders_orders. As a future feature, having the order form populated with data from the auth_user and account_profile when authtenticated would add a useful feature to the consumer.
+
+Please note that the Django tables are not included in this diagram.
 
 ![Section Divider: Title and Business](documentation/section%20divider.png)
 
 ## Testing
-
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-
-
-
 Business Driven Development aims to overcome the common mismatch between the Business and IT. BDD consists of a continuous cycle of Modelling -> Building -> Deploying -> Managing. Testing is a part of Building, through unit, integration, and regression testing. These tests won't validate the user experience in the form of user stories and use cases. Behaviour Driven Development (BDD) is a branch of Test Driven Development (TDD). BDD uses human-readable descriptions of software user requirements as the basis for software tests.
 
-BDD Testing is performed manually, and automated using Selenium IDE.
+BDD Testing is performed manually, and automated using Selenium IDE exported to PyTest code.
 
 ### Validation of HTML, CSS, JS, and Python Code
-### Manual Testing
+Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 Online](http://pep8online.com/), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/) and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
+
+### Manual Beahviour Driven Development Testing
+Running the manual tasks validate the Use Case, and in turn the User Story. A test will either Pass or Fail.
+
+| User Story                                                                                                                                                                                                   | Use Case                                                                                                                                                                                                                                                                      | Pass / Fail |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| User Story 001 (Consumer): As a consumer, I want to view and purchase the courses and coaching sessions on offer so that I can attend them to improve my professional presentation and communication skills. | Use Case 001-001 - View Home / Index Page and LinkedIn Profile: As a consumer, I want to view what GaffCo Consulting is all about, and what is on offer.                                                                                                                      | Pass        |
+|                                                                                                                                                                                                              | Use Case 001-002 - Register, Login, Logout: As a consumer, I want to register, login, and logout to access further future content and details.                                                                                                                                | Pass        |
+|                                                                                                                                                                                                              | Use Case 001-003 - View and Purchase Courses and Coaching Sessions: As a consumer, I want to view and purchase courses and coaching sessions to increase my knowledge and improve my skills.                                                                                  | Pass        |
+|                                                                                                                                                                                                              | Use Case 001-004 - Edit / Update the Character (Consumer) Profile: As a consumer I want to edit / update my Character (Consumer) Profile for future features and content.                                                                                                     | Pass        |
+|                                                                                                                                                                                                              | Use Case 001-005 - Change Password: As a consumer I want to change my password.                                                                                                                                                                                               | Pass        |
+|                                                                                                                                                                                                              | Use Case 001-006 - Password Reset: As a consumer I want to reset my password as I have forgotten my current password and want to gain access to my account.                                                                                                                   | Pass        |
+|                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                               |             |
+| User Story 002 (Admin): As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.                                                               | Use Case 002-001 - Authentication and Authorisation: As an admin I want to manage users and groups on the site. - [Authentication and Authorization](http://127.0.0.1:8000/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-002 - Account: As an admin I want to manage Character Profiles. - [Account](http://127.0.0.1:8000/admin/account/). Consumer updates to their Character Profile is managed here.                                                                                  | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-003 - Shop: As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](http://127.0.0.1:8000/admin/shop/).                                                                                                             | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-004 - Orders: As an admin I want to manage the orders placed by Consumers. - [Orders](http://127.0.0.1:8000/admin/orders/4                                                                                                                                       | Pass        |
+
 
 ### Automated Behaviour Driven Development Testing using Selenium IDE and PyTest
 Selenium IDE runs automated, and scripted tests when configured. In this case the Selenium IDE recording function is used to create the scripts, the scripts are exported to PyTest code, and then run to validate the test cases.
@@ -219,6 +293,10 @@ To prepare for the tests:
 * * * Unzip and copy 'chromedriver 2' to the virtual Python/bin directory. Rename it to 'chromedriver'.
 * * * Execute chromedriver in the terminal to ensure the correct version is running; it has to match the version in "About Google Chrome". If using other browsers, other webdrivers must be installed. Don't do "pip3 install ChromeDriver" as it's likely to install an older version which means that the tests won't run as Chrome can't be controlled.
 * Create a new '.env' file at the Project Root. Add the following variables, with values:
+
+#### BDD Test '.env' File
+
+<details><summary>Please click to expand: Test '.env' File with Variables</summary>
 
 ```
 USER_TEST_NAME=<name>
@@ -235,6 +313,11 @@ PROFILE_POST_CODE=<profile_post_code>
 PROFILE_CITY=<profile_city>
 PASSWORD_CHANGE_PASSWORD=<change_to_this_password>
 ```
+</details>
+
+#### BDD PyTest Code
+
+<details><summary>Please click to expand: PyTest Code</summary>
 
 * Execute the test: `pytest`. Runs `test_trainingBDDSuite.py`.
 
@@ -395,47 +478,50 @@ class TestTrainingBDDSuite():
     self.driver.find_element(By.ID, "id_email").send_keys(os.environ.get("NEW_USER_EMAIL"))
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
 ```
+</details>
 
+#### BDD Test Results - PASS
 
 ```
 (.venv) gaff@Naoises-MacBook-Pro Training % pytest
-======================================================================================================= test session starts =======================================================================================================
+========================================================== test session starts
 platform darwin -- Python 3.8.2, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
 rootdir: /Users/gaff/Dropbox/GaffCo/Repository/Training
-collected 6 items                                                                                                                                                                                                                 
+collected 6 items
 
-test_trainingBDDSuite.py ......                                                                                                                                                                                             [100%]
+test_trainingBDDSuite.py ......                                                 [100%]
 
-================================================================================================== 6 passed in 80.03s (0:01:20) ===================================================================================================
+========================================================= 6 passed in 80.03s (0:01:20)
 (.venv) gaff@Naoises-MacBook-Pro Training % 
 ```
+
 
 ![Section Divider: Title and Business](documentation/section%20divider.png)
 
 ## Deployment
 ### GitHub
 
-1. Create GitHub Repository using the CI Full Template.
-2. Create a development branch (master + development).
+* Create GitHub Repository using the CI Full Template.
+* Create a development branch (master + development).
 
 ### Configure Visual Studio Code environment
 
-3. New Window.
-4. Clone Repository -> GitHub -> [Training-and-Development](https://github.com/NaoiseGaffney/Training-and-Development).
-5. Select development branch.
-6. Create a virtual Python environment - Terminal: `python3 -m venv .venv`
-7. Activate virtual Python environment - Terminal: `source .venv/bin/activate`
-8. Install Django 3.1 - Terminal: `pip3 install Django`
-9. Upgrade pip - Terminal: `pip3 install pip --upgrade`
-10. Check Django version - Terminal: `python3 -m django --version` = 3.1.7
-11. Update `.gitignore` to include `.venv` and `/Snippets`(my local test and fail code directory).
+* New Window.
+* Clone Repository -> GitHub -> [Training-and-Development](https://github.com/NaoiseGaffney/Training-and-Development).
+* Select development branch.
+* Create a virtual Python environment - Terminal: `python3 -m venv .venv`
+* Activate virtual Python environment - Terminal: `source .venv/bin/activate`
+* Install Django 3.1 - Terminal: `pip3 install Django`
+* Upgrade pip - Terminal: `pip3 install pip --upgrade`
+* Check Django version - Terminal: `python3 -m django --version` = 3.1.7
+* Update `.gitignore` to include `.venv` and `/Snippets`(my local test and fail code directory).
 
 ### Create the Initial Django Project
 
-12. Create a Django **Project** called "Training" - Terminal: `django-admin startproject Training .` (created in the current folder)
-13. Verify that the initial Django project works - Terminal: `python3 manage.py runserver 8000`, `http://127.0.0.1:8000/`
+* Create a Django **Project** called "Training" - Terminal: `django-admin startproject Training .` (created in the current folder)
+* Verify that the initial Django project works - Terminal: `python3 manage.py runserver 8000`, `http://127.0.0.1:8000/`
 
-### Django Migrations (Version Control System for the Database Schema)'
+### Django Migrations (Version Control System for the Database Schema)
 
 > *migrate*, which is responsible for applying and unapplying migrations.
 >
@@ -446,159 +532,86 @@ test_trainingBDDSuite.py ......                                                 
 > *showmigrations*, which lists a project’s migrations and their status.
 
 Link: https://docs.djangoproject.com/en/3.1/topics/migrations/
-14. Apply the initial Django migrations: `python3 manage.py migrate`, add `--plan`to validate before commit.
-15. Create Django Admin superuser account: `python3 manage.py createsuperuser`, `gaff`, `naoise.gaff.gaffney@gmail.com`, `password...
-
-
-### Heroku Platform Configuration and Deployment
-
-16. Install gunicorn: `pip3 install gunicorn`, create requirements.txt using `pip3 freeze > requirements.txt`, and create the Procfile: `web: gunicorn myshop.wsgi:application`.
-17. Create `.slugignore`with `/Documentation` and `README.md` as we don't want the documentation to upload to Heroku.
-18. Link: https://dashboard.heroku.com/apps.
-19. VS Code Source Control: `Stage All Changes` -> `Commit All` -> `Push`.
-20. Create a new Pipeline: `training-and-development` and connect to GitHub Repository https://dashboard.heroku.com/pipelines/NaoiseGaffney/Training-and-Development.
-21. Enable Review Apps: `Create new review apps for new pull requests automatically` and region: `Europe` -> GitHub. New App -> GitHub *development* branch. Name: `training-and-development-<random sequence>`
-22. Add app to Heroku *Staging* (GitHub). Create new app: `Create new review apps for new pull requests automatically` and region: `Europe` -> GitHub. New App -> GitHub *master* branch. Name: `training-and-development`.
-23. Add app to Heroku *Production*: `Europe` -> GitHub. Name: `training-and-development-prod`.
-24. Add `DISABLE_COLLECTSTATIC = 1` to Review App, Staging App, and Production App Configuration Variables (temporary until AWS S3 Bucket configured).
+* Apply the initial Django migrations: `python3 manage.py migrate`, add `--plan`to validate before commit.
+* Create Django Admin superuser account: `python3 manage.py createsuperuser`, `gaff`, `naoise.gaff.gaffney@gmail.com`, `password...
 
 ### Configure static and media for Django
 
-25. Create the media folder in the Project root.
-26. Create the static folder with the following sub-folders: scripts (js), scripts/vendors (vendor js), styles (css).
-27. Configure 'settings.py' and 'urls.py' to accommodate the static and media folders.
+* Create the media folder in the Project root.
+* Create the static folder with the following sub-folders: scripts (js), scripts/vendors (vendor js), styles (css).
+* Configure 'settings.py' and 'urls.py' to accommodate the static and media folders.
 
-### Install django-environ to read a .env file with both confidential and useful variables -> Heroku Variables
+### Install django-environ to read a '.env' file with both confidential and useful variables -> Heroku Variables and PyTest Variables
 
-28. Link: https://django-environ.readthedocs.io/en/latest/.
-29. Install: `pip3 install django-environ`.
-30. Configure `settings.py` to use django-environ and copy `.env` file from previous Django Project.
+* Link: https://django-environ.readthedocs.io/en/latest/.
+* Install: `pip3 install django-environ`.
+* Configure `settings.py` to use django-environ and copy `.env` file from previous Django Project.
 
-```
-from pathlib import Path
-import os
-import environ
+#### Heroku Platform Configuration and Deployment
 
-root = environ.Path(__file__) - 3  # get root of the project
-env = environ.Env()
-environ.Env.read_env()  # reading .env file
-...
-SECRET_KEY = os.environ.get('SECRET_KEY')
+* Install gunicorn: `pip3 install gunicorn`, create requirements.txt using `pip3 freeze > requirements.txt`, and create the Procfile: `web: gunicorn myshop.wsgi:application`.
+* Create `.slugignore`with `/Documentation` and `README.md` as we don't want the documentation to upload to Heroku.
+* [Heroku](https://dashboard.heroku.com/apps).
+* VS Code Source Control: `Stage All Changes` -> `Commit All` -> `Push`.
+* Create a new Pipeline: `training-and-development` and connect to GitHub Repository https://dashboard.heroku.com/pipelines/NaoiseGaffney/Training-and-Development.
+* Enable Review Apps: `Create new review apps for new pull requests automatically` and region: `Europe` -> GitHub. New App -> GitHub *development* branch. Name: `training-and-development-<random sequence>`
+* Add app to Heroku *Staging* (GitHub). Create new app: `Create new review apps for new pull requests automatically` and region: `Europe` -> GitHub. New App -> GitHub *master* branch. Name: `training-and-development`.
+* Add app to Heroku *Production*: `Europe` -> GitHub. Name: `training-and-development-prod`.
+* Add `DISABLE_COLLECTSTATIC = 1` to Review App, Staging App, and Production App Configuration Variables (temporary until AWS S3 Bucket configured).
 
-DEBUG = os.environ.get('DEBUG')
-```
+##### Herokue Config Vars (minus `DISABLE_COLLECTSTATIC=1` which is a temporary variable)
+![Heroku Config Vars](documentation/Heroku%20Config%20Vars.png)
 
-#### Django Training Project Applications
-
-* Training (Project)
-* home
-* account
-* shop
-* cart
-* orders
-* payment
-
-
-Work order (some steps are optional, and some dependent on previous steps): Application -> Models -> Admin Views -> Makemigrations and Migrate -> Classes -> Forms -> Views -> Application URL's -> Project URL's -> Templates.
-
-Create application `python3 manage.py startapp <app-name>`.
-Add application to `Training/settings.py` INSTALLED_APPS before `'django.contrib.admin',`.
-Create a new models (database schema) file in `<app-name>/models.py`.
-Create new admin views for the models created previously in `<app-name>/admin.py` -> `<app-name>/models.py`.
-Run `python3 manage.py makemigrations` followed by `python3 manage.py migrate`.
-Create a new python file with classes and methods (functions).
-Update and/or create a form in `<app-name>/forms.py` -> ClassName in python file.
-Update and/or create a View in `<app-name>/views.py` -> FormName in `<app-name>/forms.py`.
-Update and/or create a URL in `<app-name>/urls.py` -> ViewName in `<app-name>/views.py`.
-Update Django Project URL in `Training/urls.py` -> `<app-name>/urls.py`.
-Create a template in `<app-name>/templates/<app-name>` -> `<app-name>/urls.py`.
-
-
-#### Create a Context Processor to (instead of using Django Signals) to make the Cart Update Global
-
-Create `cart/context_processor.py` context processor called `cart`.
-Update `settings.py` with the new context processor -> `cart/context_processors.py` in TEMPLATES.
-
-#### Styling and Layout using Materialize CSS 1.0.0
-
-CSS classes in HTML templates and 'base.css'.
-Updated the (Shopping) Cart to use cards instead of a table as the table doesn't work well on mobiles. Added styling to the cards in `base.css`.
-Added a dynamic `<h3>` header to the Shop for All Training, Courses, and Coaching checking request.path for the relevant link contents. This shows the user/buyer what products s/he is looking at.
-Spacing for paragraphs (empty space = cleaner look and easier to read), except for paragraph buttons, nor for the carousel. Used CSS selectors for Django forms to style the p elements:
+#### PostgreSQL Configuration
+* Install PostgreSQL support: `pip3 install psycopg2-binary` and `pip3 install dj-database-url`.
+* Update the Heroku requirements file: `pip3 freeze > requirements.txt`
+* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABSE_URL` variable under Appliction -> Settings -> Config Vars. Copy this URL.
+* Add the URL to the '.env' file: `DATABASE_URL=<Database URL>`. Update 'settings.py':
 
 ```
-/* Create breathing space between paragraph elements */
-p.padding, div > form + p, div > form + p + p {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-```
-
-Your order summary space between product and price:
-
-```
-li > span {
-    padding-left: 0.5rem;
-}
-```
-
-Course and Coaching Detail Form Block to allow for a better display on desktop screens. Media query providing a better view on desktop screens (relies upon the 'display: inline-block' to contain the form label):
-
-```
-.inline_form_block {
-    display: inline-block;
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
-@media only screen and (min-width: 800px) {
-    .product-detail img {
-        width: 50%;
-        float: left;
-        padding: 0 20px 20px 0;
-    }
-}
 ```
 
-Added navigation links to account, cart and payment templates to improve user navigation and experience. Removed the Checkout button on the Total Price = 0 (empty cart) so no empty orders are ordered, nor paid for.
+* Migrate the Django Models to the PostgreSQL Database:
 
-Created Favicon: https://www.favicon-generator.org/. Added Favicon, updated `templates/base.html` header with Favicon links, and placed the icons in `static/img/`.
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser
+
+```
+
+* Update the allowed hosts in 'settings.py': `ALLOWED_HOSTS = ['https://training-and-development.herokuapp.com/', 'localhost', '127.0.0.1']`.
+* VS Code: Create the commit message. Changes -> Stage All CHanges, Commit -> Commit All, Push.
 
 #### AWS S3 Bucket Configuration
 
-#### PostgreSQL Configuration
+## Key Issues
 
-#### Issues
-
-Heroku and AWS S3 Bucket (static and media folders and files): Bad Request (400).
-
-```
-Dear Coders,
-I have resolved an issue with Heroku, AWS S3, hard-coded URL’s, and static plus media files that occurred after configuring AWS S3 and deploying (successful build) to Heroku. Accessing the Heroku URL I received a “Bad Request (400)“. I had the same issue locally after configuring to use AWS S3 locally too. I didn’t have this issue with Boutique_Ado, nor with a test project I did before my MS4 to get my head around it all.
+* **Issue:** Heroku and AWS S3 Bucket (static and media folders and files): Bad Request (400) on Heroku.
+	* Reason:
+		* Issue using hard-coded URL's for static and media files on AWS S3.
+	* Resolution:
+		* I have resolved an issue with Heroku, AWS S3, hard-coded URL’s, and static plus media files that occurred after configuring AWS S3 and deploying (successful build) to Heroku. Accessing the Heroku URL I received a “Bad Request (400)“. I had the same issue locally after configuring to use AWS S3 locally too. I didn’t have this issue with Boutique_Ado, nor with a test project I did before my MS4 to get my head around it all.
 Running locally in Debug mode I received an error message stating “Suspicious activity… /static/base.css…AWS S3”.
-Turns out I had two issues:
-Using leading slashes  in my / URL’s, for example <link rel="stylesheet" href="{% static '/styles/base.css' %}">  and removing the leading slash to this <link rel="stylesheet" href="{% static 'styles/base.css' %}"> worked.
-Hard-coded URL’s for images and links. I’ve changed all my links to:
+		* Using leading slashes in my / URL’s, for example <link rel="stylesheet" href="{% static '/styles/base.css' %}">  and removing the leading slash to this <link rel="stylesheet" href="{% static 'styles/base.css' %}"> worked.
+		* Hard-coded URL’s for images and links. I’ve changed all my links to:
 {% static 'img/Gaffco_Logo.png' %} and uploading my images to AWS S3 manually to correspond to the links in my templates.
-{% url 'shop:product_list' %}  = https://trainingdjango.s3.amazonaws.com/static/img/Gaffco_Logo.png
- or {% url 'shop:product_list' %}coaching/  = <a href="/shop/coaching/"
-… or {% url 'shop:product_detail' 3 'communication-skills' %} = <a href="/shop/3/communication-skills/">
-Some of you may already know this, I didn’t. It’s a learning experience, especially at half-past-four in the morning. :slightly_smiling_face:
-Sláinte!
-Gaff
-```
 
+* **Issue:** Styling and layout issues with templates on different device sizes.
+	* Reason:
+		* Complicated and detailed (element styling) CSS making it look good on one screen size and not another.
+	* Resolution:
+		* Started from scratch, creating a new 'base.css' with minimum CSS. Used additional Materialize CSS 1.0.0 features too. This aided in a consitent flow across different devices.
 
-
-
-
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
+* **Issue:** Accidentaly committed 'settings-py' with the PostgreSQL DATABASE_URL.
+	* Reason:
+		* Was testing it locally with the URL in 'settings.py'.
+	* Resolution:
+		* Remvoed the Heroku Postgres add-on, and added a new one. Executed the steps to migrate the Django Models to the new database instance, with the new URL in the '.env' file.
 
 ![Section Divider: Title and Business](documentation/section%20divider.png)
 
@@ -612,7 +625,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 * YouTube Django Course: [Django E-Commerce Website by Dennis Ivy (Ivanov)](https://www.youtube.com/watch?v=_ELCMngbM0E&ab_channel=DennisIvy)
 * Udemy Course: [Python and Django Full Stack Web Developer Bootcamp](https://www.udemy.com/course/python-and-django-full-stack-web-developer-bootcamp/)
 * [Materialize CSS 1.0.0](https://materializecss.com/)
-* Django 3 Web Development Cookbook.
+* Django 3 Web Development Cookbook, and Web Development with Django.
 * First Milestone Project - Professional Training and Development
 	* [Code on GitHub](https://github.com/NaoiseGaffney/Professional-Training-Development)
 	* [Website on GitHub Pages](https://naoisegaffney.github.io/Professional-Training-Development/index.html)
