@@ -16,10 +16,10 @@ import environ
 import braintree
 import dj_database_url
 
-
-root = environ.Path(__file__) - 3  # get root of the project
-env = environ.Env()
-environ.Env.read_env()  # reading .env file
+if os.environ.get('DEBUG'):
+    root = environ.Path(__file__) - 3  # get root of the project
+    env = environ.Env()
+    environ.Env.read_env()  # reading .env file
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['https://training-and-development.herokuapp.com/', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['training-and-development.herokuapp.com/', 'localhost', '127.0.0.1']
 
 
 # Application definition
