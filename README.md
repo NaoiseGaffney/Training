@@ -1,4 +1,4 @@
-![GaffCo Consulting Logo](documentation/PCC_Logo.png)
+![GaffCo Consulting Logo](Documentation/PCC_Logo.png)
 
 # Professional Communication and Presentation Skills E-Commerce Website
 
@@ -6,7 +6,7 @@
 
 Professional Communication and Presentation Skills - 4th Milestone Project for the Code Institute's Diploma in Full Stack Development. Project requirements: HTML 5, CSS 3, JavaScript, Python 3, Django, PostgreSQL, Payment System, and API's. This project website is an e-commerce site for a Professional Communications and Presentation Skills Company (Sole Trader) called GaffCo Consulting.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Table of Contents
 
@@ -56,7 +56,7 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
 
 </details>
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Business
 The Business goals describe the expected consumer and site owner goals, and drive the design, development, and deployment of the application which in this case is the Professional Training and Development E-commerce site. The fulfilment of these goals determine the success of the application.
@@ -67,13 +67,13 @@ Find suitable courses and coaching sessions to improve presentation and communic
 ### Site Owner's Goals
 Motivate and inspire learners (consumers) to achieve excellent results through presentation and communication skills by attending the courses and coaching sessions provided on this site.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## User Experience
 User experience (UX) design is the design process used to create applications and websites that provide meaningful and relevant experiences to users.
 
 ### Persona Summary of the Consumer
-![Persona Summary](documentation/persona_summary.png)
+![Persona Summary](Documentation/persona_summary.png)
 This site is aimed at individuals at age 18 and above, and businessess seeking professional courses and coaching on presentation and communication skills. Consumers can view the courses and coaching sessions on offer to select the ones most suitable to their requirements to increase their knowledge, improve their skills and give them the confidence to put the new knowledge and skills to good use.
 
 ### Strategy Trade-Off
@@ -82,11 +82,11 @@ UX Design is driven by business goals and user needs, and features developed are
 The selected features are driven by the opportunity matrix, which helps us understand what is both more important and viable to create. In this case all features mentioned below are implemented as the features made sense to provide in this initial release. Additional and future features are documented under the Features section, and not documented here.
 
 #### Opportunity Matrices for Training and Development
-![Opportunty Matrix - Account Management](documentation/OppMatrix_Account.png)
+![Opportunty Matrix - Account Management](Documentation/OppMatrix_Account.png)
 
-![Opportunty Matrix - Shop to Pay](documentation/OppMatrix_ShopToPay.png)
+![Opportunty Matrix - Shop to Pay](Documentation/OppMatrix_ShopToPay.png)
 
-[Initial Plans for MS4](documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time contraints and continuous assessments changed the initial plan.
+[Initial Plans for MS4](Documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time contraints and continuous assessments changed the initial plan.
 
 ### User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation
 
@@ -96,7 +96,7 @@ A user story has one or more use cases with one or more tasks with steps associa
 
 ---
 
-![Information Architecture and Navigation](documentation/InformationArchitectureNavigation.png)
+![Information Architecture and Navigation](Documentation/InformationArchitectureNavigation.png)
 
 The User Experience links the Business goals of the external user (consumer) and site owner to a number of user stories. A user story captures a description of a software feature from an end-user perspective. A user story describes the type of user, what they want and why. A use case is a list of actions or event steps describing the interactions between a role and a system to achieve a goal.
 
@@ -155,11 +155,11 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 
 ### Wireframes
 
-[Wireframes for Desktops (Large) and Tablets (Medium), and Mobile (Small) - PDF](documentation/MS4%20Wireframes.pdf)
+[Wireframes for Desktops (Large) and Tablets (Medium), and Mobile (Small) - PDF](Documentation/MS4%20Wireframes.pdf)
 
 The wireframes cover Desktop and Tablet sized devices as one, as the design and look is the same for both. Mobile devices are similar, with the main difference being the hamburger-nav-bar instead of a full navigation bar, and the fact that most text and images flows to one column. I did this on purpose, to keep the style and layout both functional and simple, requiring less CSS "shenanigans".
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Features
 
@@ -208,7 +208,7 @@ A feature is some action that can be performed by a user of an application, or i
 * **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
 * **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Technologies Used
 
@@ -249,12 +249,12 @@ For the fourth Milestone Project for the Diploma in Full Stack Development at th
 * "Pen and Paper" on an e-ink device converted to PDF for the Wireframe Diagrams.
 
 ### Database Schema
-![Database Schema](documentation/Training%20DB%20Schema.png)
+![Database Schema](Documentation/Training%20DB%20Schema.png)
 Please note that the there is currently no database link between the auth_user or account_profile to orders_orders. As a future feature, having the order form populated with data from the auth_user and account_profile when authtenticated would add a useful feature to the consumer.
 
 Please note that the Django tables are not included in this diagram.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Testing
 Business Driven Development aims to overcome the common mismatch between the Business and IT. BDD consists of a continuous cycle of Modelling -> Building -> Deploying -> Managing. Testing is a part of Building, through unit, integration, and regression testing. These tests won't validate the user experience in the form of user stories and use cases. Behaviour Driven Development (BDD) is a branch of Test Driven Development (TDD). BDD uses human-readable descriptions of software user requirements as the basis for software tests.
@@ -496,7 +496,7 @@ test_trainingBDDSuite.py ......                                                 
 ```
 
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Deployment
 ### GitHub
@@ -560,7 +560,7 @@ Link: https://docs.djangoproject.com/en/3.1/topics/migrations/
 * Add `DISABLE_COLLECTSTATIC = 1` to Review App, Staging App, and Production App Configuration Variables (temporary until AWS S3 Bucket configured).
 
 ##### Herokue Config Vars (minus `DISABLE_COLLECTSTATIC=1` which is a temporary variable)
-![Heroku Config Vars](documentation/Heroku%20Config%20Vars.png)
+![Heroku Config Vars](Documentation/Heroku%20Config%20Vars.png)
 
 #### PostgreSQL Configuration
 * Install PostgreSQL support: `pip3 install psycopg2-binary` and `pip3 install dj-database-url`.
@@ -622,7 +622,7 @@ Running locally in Debug mode I received an error message stating “Suspicious 
 	* Resolution:
 		* Remvoed the Heroku Postgres add-on, and added a new one. Executed the steps to migrate the Django Models to the new database instance, with the new URL in the '.env' file.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Credits
 
