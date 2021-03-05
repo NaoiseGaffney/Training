@@ -1,4 +1,4 @@
-![GaffCo Consulting Logo](documentation/PCC_Logo.png)
+![GaffCo Consulting Logo](blob/development/documentation/PCC_Logo.png)
 
 # Professional Communication and Presentation Skills E-Commerce Website
 
@@ -6,7 +6,7 @@
 
 Professional Communication and Presentation Skills - 4th Milestone Project for the Code Institute's Diploma in Full Stack Development. Project requirements: HTML 5, CSS 3, JavaScript, Python 3, Django, PostgreSQL, Payment System, and API's. This project website is an e-commerce site for a Professional Communications and Presentation Skills Company (Sole Trader) called GaffCo Consulting.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](blob/development/documentation/section%20divider.png)
 
 ## Table of Contents
 
@@ -56,7 +56,7 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
 
 </details>
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](blob/development/documentation/section%20divider.png)
 
 ## Business
 The Business goals describe the expected consumer and site owner goals, and drive the design, development, and deployment of the application which in this case is the Professional Training and Development E-commerce site. The fulfilment of these goals determine the success of the application.
@@ -67,7 +67,7 @@ Find suitable courses and coaching sessions to improve presentation and communic
 ### Site Owner's Goals
 Motivate and inspire learners (consumers) to achieve excellent results through presentation and communication skills by attending the courses and coaching sessions provided on this site.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](blob/development/documentation/section%20divider.png)
 
 ## User Experience
 User experience (UX) design is the design process used to create applications and websites that provide meaningful and relevant experiences to users.
