@@ -588,6 +588,15 @@ python3 manage.py createsuperuser
 * VS Code: Create the commit message. Changes -> Stage All CHanges, Commit -> Commit All, Push.
 
 #### AWS S3 Bucket Configuration
+* Create an account on AWS.
+* Add and configure the AWS S3 Bucket: `trainingdjango`, All all public access. ACL: Everyone Objects -> List.
+* Create the Bucket Policy.
+* Create the Cross-Origin Resource Sharing (CORS)
+* Access AWS IAM and create a user for the Training Project. Create a group, with the user attached. Download the CSV file with the credentials and save it in a safe place. Updated the '.env' file with the relevant variables.
+* Execute `python3 managae.py collectstatic` to upload static files to the AWS S3 Bucket.
+* Upload the 'media' folder and files manually.
+* Remove `DISABLE_COLLECTSTATIC` variable from Heroku Config Vars.
+
 
 ## Key Issues
 
