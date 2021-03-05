@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://training-and-development.herokuapp.com/', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'Training.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://aptrfhgxklnaky:3e77625707258a36545be22d16522bb29e7581519f4bd9c193c307fa591c6ad0@ec2-54-74-14-109.eu-west-1.compute.amazonaws.com:5432/ddokn8bcha7ufm')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 # if 'DATABASE_URL' in os.environ:
 #     DATABASES = {
@@ -187,20 +187,20 @@ BRAINTREE_CONF = braintree.Configuration(
     BRAINTREE_PRIVATE_KEY
 )
 
-# AWS S3 Bucket Configuration, used both in Development and Production to
-# adequately test the feature.
-AWS_STORAGE_BUCKET_NAME = 'trainingdjango'
-AWS_S3_REGION_NAME = 'eu-west-1'
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# # AWS S3 Bucket Configuration, used both in Development and Production to
+# # adequately test the feature.
+# AWS_STORAGE_BUCKET_NAME = 'trainingdjango'
+# AWS_S3_REGION_NAME = 'eu-west-1'
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-# Static and Media Files -> 'custom_storages.py'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-STATICFILES_LOCATION = 'static'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-MEDIAFILES_LOCATION = 'media'
+# # Static and Media Files -> 'custom_storages.py'
+# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+# STATICFILES_LOCATION = 'static'
+# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+# MEDIAFILES_LOCATION = 'media'
 
-# Static and Media files override in Production (Heroku)
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+# # Static and Media files override in Production (Heroku)
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'

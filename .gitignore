@@ -8,3 +8,6 @@ __pycache__/
 .env
 Training/.env
 /Snippets
+chromedriver*
+Documentation/Continuous Delivery and Deployment.pptx
+Documentation/~$Continuous Delivery and Deployment.pptx

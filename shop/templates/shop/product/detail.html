@@ -7,6 +7,7 @@
 {% block content %}
 <div class="container">
     <div class="product-detail">
+        <div>
         <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
         <h3>{{ product.name }}</h3>
         <h5>
@@ -14,13 +15,16 @@
                 {{ product.category }}
             </a>
         </h5>
+        </div>
         <p class="price">${{ product.price }}</p>
+        <div class="inline_form_block">
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
             <input type="submit" value="Add to cart">
         </form>
         {{ product.description|linebreaks }}
+        </div>
     </div>
 </div>
 {% endblock %}
