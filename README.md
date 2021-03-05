@@ -1,4 +1,4 @@
-![GaffCo Consulting Logo](blob/development/documentation/PCC_Logo.png)
+![GaffCo Consulting Logo](/documentation/PCC_Logo.png)
 
 # Professional Communication and Presentation Skills E-Commerce Website
 
