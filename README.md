@@ -1,18 +1,46 @@
-![GaffCo Consulting Logo](https://github.com/NaoiseGaffney/CI-PTD-II/blob/development/Documentation/Gaffco_Logo.png)
+![GaffCo Consulting Logo](documentation/PCC_Logo.png)
 
-# GaffCo Consulting Professional Training and Development: Professional Communication and Presentation Skills E-Commerce Website
+# Professional Communication and Presentation Skills E-Commerce Website
 
-Professional Communication and Presentation Skills - 4th Milestone Project for the Code Institute's Diploma in Full Stack Development. Project requirements: HTML 5, CSS 3, JavaScript, Python 3, Django, PostgreSQL, and API's. This project website is an e-commerce site for a Professional Communications and Presentation Skills Company (Sole Trader) called GaffCo Consulting.
- 
-Model-View-Template: Model -> View -> URL -> Template or Form -> View -> URL -> Template
-## UX
- 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+"Organisations Achieve Greater Value through Professionally Coached Employees." - Gaff
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+Professional Communication and Presentation Skills - 4th Milestone Project for the Code Institute's Diploma in Full Stack Development. Project requirements: HTML 5, CSS 3, JavaScript, Python 3, Django, PostgreSQL, Payment System, and API's. This project website is an e-commerce site for a Professional Communications and Presentation Skills Company (Sole Trader) called GaffCo Consulting.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+![Section Divider: Title and Business](documentation/section%20divider.png)
+
+PLACEHOLDER FOR THE TABLE-OF-CONTENTS
+
+![Section Divider: Title and Business](documentation/section%20divider.png)
+
+## Business
+The Business goals describe the expected consumer and site owner goals, and drive the design, development, and deployment of the application which in this case is the Professional Training and Development E-commerce site. The fulfilment of these goals determine the success of the application.
+
+### External User's (Consumer) Goals
+Find suitable courses and coaching sessions to improve presentation and communication skills to get their audience to feel, think, and ideally do something as a result of a presentation.
+
+### Site Owner's Goals
+Motivate and inspire learners (consumers) to achieve excellent results through presentation and communication skills by attending the courses and coaching sessions provided on this site.
+
+![Section Divider: Title and Business](documentation/section%20divider.png)
+
+## User Experience
+User experience (UX) design is the design process used to create applications and websites that provide meaningful and relevant experiences to users.
+
+### Persona Summary of the Consumer
+![Persona Summary](documentation/persona_summary.png)
+This site is aimed at individuals at age 18 and above, and businessess seeking professional courses and coaching on presentation and communication skills. Consumers can view the courses and coaching sessions on offer to select the ones most suitable to their requirements to increase their knowledge, improve their skills and give them the confidence to put the new knowledge and skills to good use.
+
+### Strategy Trade-Off
+UX Design is driven by business goals and user needs, and features developed are aligned to these. However, each feature requires time and effort, and often time is constrained as is effort as the greater the effort the higher the cost. Therefore some features are prioritised or mandatory, while others are optional and developed pending time and ultimately cost.
+
+The selected features are driven by the opportunity matrix, which helps us understand what is both more important and viable to create. In this case all features mentioned below are implemented as the features made sense to provide in this initial release. Additional and future features are documented under the Features section, and not documented here.
+
+#### Opportunity Matrices for Training and Development
+![Opportunty Matrix - Account Management](documentation/OppMatrix_Account.png)
+
+![Opportunty Matrix - Shop to Pay](documentation/OppMatrix_ShopToPay.png)
+
+[Initial Plans for MS4](documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time contraints and continuous assessments changed the initial plan.
 
 ### User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation
 
@@ -20,20 +48,127 @@ The User Experience links the Business goals of the external user and site owner
 
 A user story has one or more use cases with one or more tasks with steps associated with it, describing how the user story, and subsequent fulfilment of the external user's and site owner's business goals are realised: Business Goals -> User Story -> Use Case(s) -> Task(s).
 
+---
+
+![Information Architecture and Navigation](documentation/InformationArchitectureNavigation.png)
+
+The User Experience links the Business goals of the external user (consumer) and site owner to a number of user stories. A user story captures a description of a software feature from an end-user perspective. A user story describes the type of user, what they want and why. A use case is a list of actions or event steps describing the interactions between a role and a system to achieve a goal.
+
+A user story has one or more use cases with one or more tasks with steps associated with it, describing how the user story, and subsequent fulfilment of the external user's and site owner's business goals are realised: Business Goals -> User Story -> Use Case(s) -> Task(s).
+
+Information Architecture is hierarchical (home -> shop, home -> character, home -> cart) and sequential (shop -> cart -> orders -> payment). The navigation bar provides the same options for anymous and logged in consumers.
+
+---
+
+* **User Story 001 (Consumer):** As a consumer I want to view and purchase the courses and coaching sessions on offer so that I can attend them to imorove my professional presentation and communication skills.
+	* **Use Case 001-001 - View Home / Index Page and LinkedIn Profile:** As a consumer I want to view what GaffCo Consulting is all about, and what is on offer.
+		* **Task 1:** Access the home / index page [Training and Development](https://training-and-development.herokuapp.com/). Scroll through the content on the page.
+		* **Task 2:** Click on the LinkedIn Profile link to access further details about the owner of GaffCo Consulting.
+	* **Use Case 001-002 - Register, Login, Logout:** As a consumer I want to register, login, and logout to access further future content and details.
+		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 2:** Click on [Register Here](https://training-and-development.herokuapp.com/account/register/) to create an account. Fill in the details in the form and click on "Create my account" button.
+		* **Task 3:** Click on [Log-in](http://127.0.0.1:8000/account/login/), enter your username and password, and click on the "Log-in" button.
+		* **Task 4:** Perform the relevant actions on the website.
+		* **Task 5:** Click on [Logout](http://127.0.0.1:8000/account/logout/) when done.
+	* **Use Case 001-003 - View and Purchase Courses and Coaching Sessions:** As a consumer I want to view and purchase courses and coaching sessions to increase my knowledge and improve my skills.
+		* **Task 1:** Access the home / index page [Training and Development](https://training-and-development.herokuapp.com/).
+		* **Task 2:** Click on "Courses & Coaching" in the naviagation bar and select either "All Training" or "Courses" or "Coaching".
+		* **Task 3:** Use the carousel to find a course or coaching session you want to view the details of, and potentially purchase.
+		* **Task 4:** Select (click on) on the course or coaching session you want further details on, and potentially want to purchase.
+		* **Task 5:** Review the details of the course or coaching session. If required, updated the number of course seats or coaching sessions, and click on "Add to cart".
+		* **Task 6:** Review your choice, update the number of course or coaching sessions, or remove if you change your mind. Review the price, item price, total item price, and the total price. If you want to add further courses or coaching sessions, click on "Continue shopping". If happy with your choice click on the "Checkout" button.
+		* **Task 7:** Review your order before filling in the Checkout Form. If happy click on the "Place order" button.
+		* **Task 8:** Fill in the credit-card payment form and click on the "Pay" button.
+		* **Task 9:** Continue shopping, or click on [Home](http://127.0.0.1:8000/), or close the browser.
+	* **Use Case 001-004 - Edit / Update the Character (Consumer) Profile:** As a consumer I want to edit / update my Character (Consumer) Profile for future features and content.
+		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 2:** Click on [Log-in](http://127.0.0.1:8000/account/login/), enter your username and password, and click on the "Log-in" button.
+		* **Task 3:** Click on [edit your profile](http://127.0.0.1:8000/account/edit/).
+		* **Task 4:** Update the Character Profile form and click on "Save changes" when done. A Django message pop-up provides feedback on whether the update is successful or not. Click on [Character Dashboard](http://127.0.0.1:8000/account/dashboard/).
+	* **Use Case 001-005 - Change Password:** As a consumer I want to change my password.
+		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 2:** Click on [Log-in](http://127.0.0.1:8000/account/login/), enter your username and password, and click on the "Log-in" button.
+		* **Task 3:** Click on [change your password](http://127.0.0.1:8000/account/password_change/), enter your current password, your new password, your new password a second time, and click on the "Change" button.
+		* **Task 4:** Click on the [Character Dashboard](http://127.0.0.1:8000/account/dashboard/) and [Logout](http://127.0.0.1:8000/account/logout/).
+	* **Use Case 001-006 - Password Reset:** As a consumer I want to reset my password as I have forgotten my current password and want to gain access to my account.
+		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 2:** Click on [Forgotten your password?](http://127.0.0.1:8000/account/password_reset/).
+		* **Task 3:** Enter your e-mail address (same one used to register) and click on the "Send e-mail" button.
+		* **Task 4:** Once you receive your password reset e-mail, click on the link to reset your password.
+		* **Task 5:** Enter your new password, confirm your new password and click on the "Change my password" button.
+
+---
+
+* **User Story 002 (Admin):** As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.
+	* **Use Case 002-001 - Authentication and Authorization:** As an admin I want to manage users and groups on the site. - [Authentication and Authorization](http://127.0.0.1:8000/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. 
+	* **Use Case 002-002 - Account:** As an admin I want to manage Character Profiles. - [Account](http://127.0.0.1:8000/admin/account/). Consumer updates to their Character Profile is managed here.
+	* **Use Case 002-003 - Shop:** As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](http://127.0.0.1:8000/admin/shop/).
+	* **Use Case 002-002 - Orders:** As an admin I want to manage the orders placed by Consumers. - [Orders](http://127.0.0.1:8000/admin/orders/)
+
+---
+
+### Wireframes
+
+[Wireframes for Desktops (Large) and Tablets (Medium), and Mobile (Small) - PDF](documentation/MS4%20Wireframes.pdf)
+
+The wireframes cover Desktop and Tablet sized devices as one, as the design and look is the same for both. Mobile devices are similar, with the main difference being the hamburger-nav-bar instead of a full navigation bar, and the fact that most text and images flows to one column. I did this on purpose, to keep the style and layout both functional and simple, requiring less CSS "shenanigans".
+
+Strategy Plane: User Needs & Site Objectives
+Scope Plane: Specifications & Content Requirements
+Structure Plane: Interaction Design & Information Architecture
+Skeleton Plane: Information Design, Interface Design & Navigation Design
+Surface Plane: Visual Design
+
+![Section Divider: Title and Business](documentation/section%20divider.png)
+
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+A feature is some action that can be performed by a user of an application, or is some internal function of an application. The features support the User Experience mentioned above and are implemented based on the business goals, user stories and use cases.
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
-
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+* **Django App - Home:** Home / Index Page provides an introduction to GaffCo Consulting, and overview of the courses and coaching sessions that are provided.
+	* Navigation Bar / Hamburger-Nav-Bar (Materialize CSS 1.0.0)
+		* Logo Link to Home / Index Page (Logo is my own)
+		* Courses & Coaching Drop-Dowm (Materialize CSS 1.0.0) -> *Django App - Shop*
+			* All Training (all categories) -> Carousel
+			* Courses (category) -> Courses Carousel
+			* Coaching (category) -> Coaching Carousel
+	* Parallax - Mountain Success x 3 (Materialize CSS 1.0.0)
+	* Banner / Tagline for Professional Training and Development
+	* GaffCo Consulting description, course and coaching tabs with links and descriptions to courses and coaching sessions.
+	* Fixed Footer
+		* LinkedIn Profile Link
+		* Copyright Notice
+* **Django App - Shop:** All Training / Courses / Coaching Carousel.
+	* Views of available courses and coaching sessions in a carouesel.
+	* Carousel courses and coaching sessions are selectable to view in greater detail and are available to purchase.
+	* Detailed view of course or coaching session.
+	* Ability to select number of courses and coaching sessions and add to cart.
+	* Submit cart -> *Django App - Cart*
+* **Django App - Cart:** View and checkout course and coaching items in cart.
+	* View cart contents, with image, title, number of the item, item price, total item price, and total price of all products.
+	* Add additional number of items and update cart contents, updating item price and total item price, as well as the total price of all products.
+	* Products can be removed with the remove button.
+	* Consumer can continue shopping, add further products/items.
+	* Consumer can checkout -> *Django App - Checkout*
+* **Django App - Checkout:** Fill in the checkout form to place the order.
+	* Checkout form to place the order and receive an e-mail confirmation -> *Django App - Payment*
+* **Django App - Payment:** Fill in the credit-card details and click Pay to purchase the items.
+	* Consumer can fill in the credit-card details to purchase the items ordered.
+	* Consumer gets a payment done (success or failure) wiht a link to home -> *Django App - Home*
+* **Django App - Account:** Consumer Authentication and Authorisation.
+	* Consumer can register, login, edit character profile, change password, reset password (e-mail notification), and logout.
+	* Consumer Dashboard access.
 
 ### Features Left to Implement
-- Another feature idea
+* **NEW - Django App - Order Rating and Comments:**
+* **NEW - Django App - Courses:** Add online course content for some courses linked to YouTube videos.
+* **NEW - Django App - Accreditation:** Create accrediation views, course diplomas, and success trees for consumers.
+* **Existing - Django App - Account:** Add additional e-mail notifications.
+* **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
+* **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists.
+
+![Section Divider: Title and Business](documentation/section%20divider.png)
 
 ## Technologies Used
 
@@ -42,6 +177,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
+![Section Divider: Title and Business](documentation/section%20divider.png)
 
 ## Testing
 
@@ -274,6 +410,8 @@ test_trainingBDDSuite.py ......                                                 
 (.venv) gaff@Naoises-MacBook-Pro Training % 
 ```
 
+![Section Divider: Title and Business](documentation/section%20divider.png)
+
 ## Deployment
 ### GitHub
 
@@ -462,18 +600,33 @@ In particular, you should provide all details of the differences between the dep
 
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
+![Section Divider: Title and Business](documentation/section%20divider.png)
+
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+* Code Institute Boutique-Ado Walkthrough
+* Code Institute June 2020 Hackathon - ElderCareSupreme
+	* Code on GitHub: [Elder Care Supreme - master](https://github.com/NaoiseGaffney/ElderCareSupreme)
+	* Website on Heroku: [Elder Care Supreme](https://elder-care-supreme.herokuapp.com/)
+* YouTube Django Course: [Django E-Commerce Website by Dennis Ivy (Ivanov)](https://www.youtube.com/watch?v=_ELCMngbM0E&ab_channel=DennisIvy)
+* Udemy Course: [Python and Django Full Stack Web Developer Bootcamp](https://www.udemy.com/course/python-and-django-full-stack-web-developer-bootcamp/)
+* [Materialize CSS 1.0.0](https://materializecss.com/)
+* Django 3 Web Development Cookbook.
+* First Milestone Project - Professional Training and Development
+	* [Code on GitHub](https://github.com/NaoiseGaffney/Professional-Training-Development)
+	* [Website on GitHub Pages](https://naoisegaffney.github.io/Professional-Training-Development/index.html)
 
 ### Media
-- The photos used in this site were obtained from ...
+* Google Font - [Raleway](https://fonts.googleapis.com/css?family=Raleway|&display=swap).
+* Background Image on the Home / Index Page is: [Pixabay Free Images](https://cdn.pixabay.com/photo/2019/01/27/22/32/mountains-3959204_1280.jpg)
+* All icons: [Material Design Icons](https://material.io/resources/icons/)
+* All other logos and images are my own.
 
 ### Acknowledgements
 
-- I received inspiration for this project from my first Code Institute Milestone Project, a Training and Development website. I have turned it into an e-commerce site, and will fork this to expand upon it further to turn it into a professional Training and Development Learning and Content Management System.
-- I clearly relied heavily upon the Boutique_Ado walkthrough, NetNinja, Udemy Course, and YouTube videos to understand and apply the concepts for this project.
-- My Code Institute mentor Spencer Barriball for keeping me sane throughout this coding journey.
-- My wife, Fiona, for putting up with long days and late nights locked in the back garden Tea Room/Shed (man-cave).
-- The Code Institute for giving me this opportunity to gain new knowledge and applicable job skills.
+* I received inspiration for this project from my first Code Institute Milestone Project, a Training and Development website. I have turned it into an e-commerce site, and will fork this to expand upon it further to turn it into a professional Training and Development Learning website.
+* I clearly relied heavily upon the Boutique_Ado walkthrough, NetNinja, Udemy Courses, YouTube videos and several books to understand and apply the concepts for this project.
+* My Code Institute mentor Spencer Barriball for keeping me sane throughout this coding journey.
+* My wife, Fiona, for putting up with long days and late nights locked in the back garden Tea Room/Shed (man-cave).
+* The Code Institute for giving me this opportunity to gain new knowledge and applicable job skills.
