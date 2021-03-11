@@ -563,7 +563,7 @@ Link: https://docs.djangoproject.com/en/3.1/topics/migrations/
 #### PostgreSQL Configuration
 * Install PostgreSQL support: `pip3 install psycopg2-binary` and `pip3 install dj-database-url`.
 * Update the Heroku requirements file: `pip3 freeze > requirements.txt`
-* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABSE_URL` variable under Appliction -> Settings -> Config Vars. Copy this URL.
+* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABASE_URL` variable under Appliction -> Settings -> Config Vars. Copy this URL.
 * Add the URL to the '.env' file: `DATABASE_URL=<Database URL>`. Update 'settings.py':
 
 ```
@@ -591,7 +591,7 @@ python3 manage.py createsuperuser
 * Create the Bucket Policy.
 * Create the Cross-Origin Resource Sharing (CORS)
 * Access AWS IAM and create a user for the Training Project. Create a group, with the user attached. Download the CSV file with the credentials and save it in a safe place. Updated the '.env' file with the relevant variables.
-* Execute `python3 managae.py collectstatic` to upload static files to the AWS S3 Bucket.
+* Execute `python3 manage.py collectstatic` to upload static files to the AWS S3 Bucket.
 * Upload the 'media' folder and files manually.
 * Remove `DISABLE_COLLECTSTATIC` variable from Heroku Config Vars.
 

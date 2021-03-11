@@ -4,7 +4,8 @@
 
 <div class="container">
     <h3>Character Dashboard</h3>
-    <p class="padding">Welcome to your dashboard. You can <a href="{% url 'edit' %}">edit your profile</a> or <a href="{% url 'password_change' %}">change your password</a>.</p>
+    <p class="padding">Welcome to your dashboard. You can <a href="{% url 'edit' %}">edit your profile</a> or <a
+            href="{% url 'password_change' %}">change your password</a>.</p>
 
     <span class="user">
         {% if request.user.is_authenticated %}
@@ -14,5 +15,17 @@
         <a href="{% url 'login' %}">Log-in</a>
         {% endif %}
     </span>
+    <div>
+        <h4>Order List for {{ user }}</h4>
+        {% for ord in order %}
+        {% if ord.email == request.user.email %}
+        <p>{{ord}}</p>
+        <p><a href="{% url 'comment_edit' ord.id %}">{{ ord.id }} {{ ord.rating }} {{ ord.comment }}<button
+                    class="comment_button">Edit</button></a></p>
+        <p><a href="{% url 'comment_delete' ord.id %}">{{ ord.id }} {{ ord.rating }} {{ ord.comment }}<button
+                    class="comment_button">Delete</button></a></p>
+        {% endif %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

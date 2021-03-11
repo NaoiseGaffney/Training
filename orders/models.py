@@ -2,7 +2,16 @@ from django.db import models
 from shop.models import Product
 
 
+"""
+Models for:
+- Order, used to create the order and submit it for payment.
+- OrderItems, summary of the Orders from Orders and Product.
+"""
+
+
 class Order(models.Model):
+    CHOICES = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
+               (6, 6), (7, 7), (8, 8), (9, 9), (10, 10)]
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -12,7 +21,11 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
-    braintree_id = models.CharField(max_length=150, blank=True) # Braintree Payment System
+    braintree_id = models.CharField(
+        max_length=150,
+        blank=True)  # Braintree Payment System
+    rating = models.IntegerField(choices=CHOICES, blank=True, null=True)
+    comment = models.CharField(max_length=250, blank=True, null=True)
 
     class Meta:
         ordering = ('-created',)

@@ -11,6 +11,13 @@ from .forms import OrderCreateForm
 from .tasks import order_created
 
 
+"""
+Order methods for:
+- Create order.
+- View order details in the Admin View.
+"""
+
+
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':

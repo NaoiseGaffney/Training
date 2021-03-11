@@ -2,6 +2,12 @@ from django.db import models
 from django.urls import reverse
 
 
+"""
+Models for the Categories (currently two, 'courses' and 'coaching') and
+Products. Slug field for URL's. Meta class describes the order in the DB.
+"""
+
+
 class Category(models.Model):
     name = models.CharField(max_length=200,
                             db_index=True)

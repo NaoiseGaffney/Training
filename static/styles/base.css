@@ -158,8 +158,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
     width: 350px !important;
 }
 
-/* All Submit Buttons */
-a.button,
+/* All Buttons */
+button,
 input[type="submit"] {
     color: #fff;
     background: black;
@@ -316,6 +316,11 @@ li>span {
 /* Course and Coaching Detail Form Block to allow for a better display on desktop screens */
 .inline_form_block {
     display: inline-block;
+}
+
+/* Google LightHouse highlighted contrast issues with the form labels and the white background */
+label {
+    color: #333;
 }
 
 @media only screen and (min-width: 800px) {
