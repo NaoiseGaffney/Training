@@ -17,140 +17,229 @@ root = environ.Path(__file__) - 3  # get root of the project
 env = environ.Env()
 environ.Env.read_env()  # reading .env file
 
+
 class TestTrainingBDDSuite():
-  def setup_method(self, method):
-    self.driver = webdriver.Chrome()
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def wait_for_window(self, timeout = 2):
-    time.sleep(round(timeout / 1000))
-    wh_now = self.driver.window_handles
-    wh_then = self.vars["window_handles"]
-    if len(wh_now) > len(wh_then):
-      return set(wh_now).difference(set(wh_then)).pop()
-  
-  def test_useCase001ViewHomePageandLinkedIn(self):
-    self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1680, 975)
-    self.vars["window_handles"] = self.driver.window_handles
-    time.sleep(5)
-    self.driver.find_element(By.LINK_TEXT, "Connect: LinkedInlink").click()
-    self.vars["win7260"] = self.wait_for_window(2000)
-    self.driver.switch_to.window(self.vars["win7260"])
-  
-  def test_useCase002RegisterLoginLogout(self):
-    self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1680, 975)
-    self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
-    self.driver.find_element(By.LINK_TEXT, "register here").click()
-    self.driver.find_element(By.ID, "id_username").send_keys(os.environ.get("NEW_USER_USERNAME"))
-    self.driver.find_element(By.ID, "id_first_name").send_keys(os.environ.get("NEW_USER_FIRST_NAME"))
-    self.driver.find_element(By.ID, "id_email").send_keys(os.environ.get("NEW_USER_EMAIL"))
-    self.driver.find_element(By.ID, "id_password").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.ID, "id_password2").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    time.sleep(5)
-    self.driver.find_element(By.LINK_TEXT, "log in").click()
-    self.driver.find_element(By.ID, "id_username").send_keys(os.environ.get("NEW_USER_USERNAME"))
-    self.driver.find_element(By.ID, "id_password").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    self.driver.find_element(By.LINK_TEXT, "Logout").click()
-  
-  def test_useCase003ViewandPurchaseCourseandCoachinganonymoususer(self):
-    self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1680, 975)
-    self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/")
-    self.driver.find_element(By.CSS_SELECTOR, ".active").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.UP)
-    self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.ENTER)
-    self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/courses/")
-    self.driver.find_element(By.CSS_SELECTOR, ".active").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.DOWN)
-    self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.TAB)
-    self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(2) input:nth-child(3)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/coaching/")
-    self.driver.find_element(By.CSS_SELECTOR, ".active").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/")
-    self.driver.find_element(By.CSS_SELECTOR, ".carousel-item:nth-child(2)").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".active").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".col:nth-child(2) .waves-button-input").click()
-    self.driver.get("http://127.0.0.1:8000/orders/create/")
-    self.driver.find_element(By.ID, "id_first_name").send_keys(os.environ.get("PROFILE_FIRST_NAME"))
-    self.driver.find_element(By.ID, "id_last_name").send_keys(os.environ.get("PROFILE_LAST_NAME"))
-    self.driver.find_element(By.ID, "id_email").send_keys(os.environ.get("PROFILE_EMAIL"))
-    self.driver.find_element(By.ID, "id_address").send_keys(os.environ.get("PROFILE_ADDRESS"))
-    self.driver.find_element(By.ID, "id_postal_code").send_keys(os.environ.get("PROFILE_POST_CODE"))
-    self.driver.find_element(By.ID, "id_city").send_keys(os.environ.get("PROFILE_CITY"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    time.sleep(6)
-    self.driver.switch_to.frame(0)
-    self.driver.find_element(By.ID, "credit-card-number").send_keys("4242 4242 4242 4242")
-    self.driver.switch_to.default_content()
-    self.driver.switch_to.frame(1)
-    self.driver.find_element(By.ID, "cvv").send_keys("123")
-    self.driver.switch_to.default_content()
-    self.driver.switch_to.frame(2)
-    self.driver.find_element(By.ID, "expiration").send_keys("12 / 28")
-    self.driver.switch_to.default_content()
-    time.sleep(6)
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(9)").click()
-  
-  def test_useCase004EditProfileLoginEditProfileLogout(self):
-    self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1680, 975)
-    self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
-    self.driver.find_element(By.ID, "id_username").send_keys(os.environ.get("NEW_USER_USERNAME"))
-    self.driver.find_element(By.ID, "id_password").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    self.driver.find_element(By.LINK_TEXT, "edit your profile").click()
-    self.driver.find_element(By.ID, "id_last_name").send_keys(os.environ.get("PROFILE_LAST_NAME"))
-    self.driver.find_element(By.ID, "id_address").send_keys(os.environ.get("PROFILE_ADDRESS"))
-    self.driver.find_element(By.ID, "id_post_code").send_keys(os.environ.get("PROFILE_POST_CODE"))
-    self.driver.find_element(By.ID, "id_city").send_keys(os.environ.get("PROFILE_CITY"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    time.sleep(5)
-    self.driver.find_element(By.LINK_TEXT, "Character Dashboard").click()
-    self.driver.find_element(By.LINK_TEXT, "Logout").click()
-  
-  def test_useCase005ChangePassword(self):
-    self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1680, 975)
-    self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
-    self.driver.find_element(By.ID, "id_username").send_keys(os.environ.get("NEW_USER_USERNAME"))
-    self.driver.find_element(By.ID, "id_password").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    self.driver.find_element(By.LINK_TEXT, "change your password").click()
-    self.driver.find_element(By.ID, "id_old_password").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.ID, "id_new_password1").send_keys(os.environ.get("PASSWORD_CHANGE_PASSWORD"))
-    self.driver.find_element(By.ID, "id_new_password2").send_keys(os.environ.get("PASSWORD_CHANGE_PASSWORD"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    self.driver.find_element(By.LINK_TEXT, "Character Dashboard").click()
-    self.driver.find_element(By.LINK_TEXT, "change your password").click()
-    self.driver.find_element(By.ID, "id_old_password").send_keys(os.environ.get("PASSWORD_CHANGE_PASSWORD"))
-    self.driver.find_element(By.ID, "id_new_password1").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.ID, "id_new_password2").send_keys(os.environ.get("NEW_USER_PASSWORD"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-    self.driver.find_element(By.LINK_TEXT, "Character Dashboard").click()
-    self.driver.find_element(By.LINK_TEXT, "Logout").click()
-  
-  def test_useCase006PasswordReset(self):
-    self.driver.get("http://127.0.0.1:8000/")
-    self.driver.set_window_size(1680, 975)
-    self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
-    self.driver.find_element(By.LINK_TEXT, "Forgotten your password?").click()
-    self.driver.find_element(By.ID, "id_email").send_keys(os.environ.get("NEW_USER_EMAIL"))
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
-  
+    def setup_method(self, method):
+        self.driver = webdriver.Chrome()
+        self.vars = {}
+
+    def teardown_method(self, method):
+        self.driver.quit()
+
+    def wait_for_window(self, timeout=2):
+        time.sleep(round(timeout / 1000))
+        wh_now = self.driver.window_handles
+        wh_then = self.vars["window_handles"]
+        if len(wh_now) > len(wh_then):
+            return set(wh_now).difference(set(wh_then)).pop()
+
+    def test_useCase001ViewHomePageandLinkedIn(self):
+        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.set_window_size(1680, 975)
+        self.vars["window_handles"] = self.driver.window_handles
+        time.sleep(5)
+        self.driver.find_element(By.LINK_TEXT, "Connect: LinkedInlink").click()
+        self.vars["win7260"] = self.wait_for_window(2000)
+        self.driver.switch_to.window(self.vars["win7260"])
+
+    def test_useCase002RegisterLoginLogout(self):
+        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.set_window_size(1680, 975)
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#nav-mobile > li:nth-child(2) > .black-text").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".container > a:nth-child(1)").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#nav-mobile > li:nth-child(2) > .black-text").click()
+        self.driver.find_element(By.LINK_TEXT, "register here").click()
+        self.driver.find_element(
+            By.ID, "id_username").send_keys(
+            os.environ.get("NEW_USER_USERNAME"))
+        self.driver.find_element(
+            By.ID, "id_first_name").send_keys(
+            os.environ.get("NEW_USER_FIRST_NAME"))
+        self.driver.find_element(
+            By.ID, "id_email").send_keys(
+            os.environ.get("NEW_USER_EMAIL"))
+        self.driver.find_element(
+            By.ID, "id_password").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(
+            By.ID, "id_password2").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        time.sleep(5)
+        self.driver.find_element(By.LINK_TEXT, "log in").click()
+        self.driver.find_element(
+            By.ID, "id_username").send_keys(
+            os.environ.get("NEW_USER_USERNAME"))
+        self.driver.find_element(
+            By.ID, "id_password").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        self.driver.find_element(By.LINK_TEXT, "Logout").click()
+
+    def test_useCase003ViewandPurchaseCourseandCoachinganonymoususer(self):
+        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.set_window_size(1680, 975)
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".container > a:nth-child(1)").click()
+        self.driver.get("http://127.0.0.1:8000/shop/")
+        self.driver.find_element(By.CSS_SELECTOR, ".active").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.UP)
+        self.driver.find_element(
+            By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.ENTER)
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".container > a:nth-child(1)").click()
+        self.driver.get("http://127.0.0.1:8000/shop/courses/")
+        self.driver.find_element(By.CSS_SELECTOR, ".active").click()
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.DOWN)
+        self.driver.find_element(
+            By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.TAB)
+        self.driver.find_element(By.CSS_SELECTOR,
+                                 "span:nth-child(2) input:nth-child(3)").click()
+        self.driver.get("http://127.0.0.1:8000/shop/coaching/")
+        self.driver.find_element(By.CSS_SELECTOR, ".active").click()
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
+        self.driver.get("http://127.0.0.1:8000/shop/")
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".carousel-item:nth-child(2)").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".active").click()
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".col:nth-child(2) .waves-button-input").click()
+        self.driver.get("http://127.0.0.1:8000/orders/create/")
+        self.driver.find_element(
+            By.ID, "id_first_name").send_keys(
+            os.environ.get("PROFILE_FIRST_NAME"))
+        self.driver.find_element(
+            By.ID, "id_last_name").send_keys(
+            os.environ.get("PROFILE_LAST_NAME"))
+        self.driver.find_element(
+            By.ID, "id_email").send_keys(
+            os.environ.get("PROFILE_EMAIL"))
+        self.driver.find_element(
+            By.ID, "id_address").send_keys(
+            os.environ.get("PROFILE_ADDRESS"))
+        self.driver.find_element(
+            By.ID, "id_postal_code").send_keys(
+            os.environ.get("PROFILE_POST_CODE"))
+        self.driver.find_element(
+            By.ID, "id_city").send_keys(
+            os.environ.get("PROFILE_CITY"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        time.sleep(6)
+        self.driver.switch_to.frame(0)
+        self.driver.find_element(
+            By.ID, "credit-card-number").send_keys("4242 4242 4242 4242")
+        self.driver.switch_to.default_content()
+        self.driver.switch_to.frame(1)
+        self.driver.find_element(By.ID, "cvv").send_keys("123")
+        self.driver.switch_to.default_content()
+        self.driver.switch_to.frame(2)
+        self.driver.find_element(By.ID, "expiration").send_keys("12 / 28")
+        self.driver.switch_to.default_content()
+        time.sleep(6)
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(9)").click()
+
+    def test_useCase004EditProfileLoginEditProfileLogout(self):
+        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.set_window_size(1680, 975)
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".container > a:nth-child(1)").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#nav-mobile > li:nth-child(2) > .black-text").click()
+        self.driver.find_element(
+            By.ID, "id_username").send_keys(
+            os.environ.get("NEW_USER_USERNAME"))
+        self.driver.find_element(
+            By.ID, "id_password").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        self.driver.find_element(By.LINK_TEXT, "edit your profile").click()
+        self.driver.find_element(
+            By.ID, "id_last_name").send_keys(
+            os.environ.get("PROFILE_LAST_NAME"))
+        self.driver.find_element(
+            By.ID, "id_address").send_keys(
+            os.environ.get("PROFILE_ADDRESS"))
+        self.driver.find_element(
+            By.ID, "id_post_code").send_keys(
+            os.environ.get("PROFILE_POST_CODE"))
+        self.driver.find_element(
+            By.ID, "id_city").send_keys(
+            os.environ.get("PROFILE_CITY"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        time.sleep(5)
+        self.driver.find_element(By.LINK_TEXT, "Character Dashboard").click()
+        self.driver.find_element(By.LINK_TEXT, "Logout").click()
+
+    def test_useCase005ChangePassword(self):
+        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.set_window_size(1680, 975)
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".container > a:nth-child(1)").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#nav-mobile > li:nth-child(2) > .black-text").click()
+        self.driver.find_element(
+            By.ID, "id_username").send_keys(
+            os.environ.get("NEW_USER_USERNAME"))
+        self.driver.find_element(
+            By.ID, "id_password").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        self.driver.find_element(By.LINK_TEXT, "change your password").click()
+        self.driver.find_element(
+            By.ID, "id_old_password").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(
+            By.ID, "id_new_password1").send_keys(
+            os.environ.get("PASSWORD_CHANGE_PASSWORD"))
+        self.driver.find_element(
+            By.ID, "id_new_password2").send_keys(
+            os.environ.get("PASSWORD_CHANGE_PASSWORD"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        self.driver.find_element(By.LINK_TEXT, "Character Dashboard").click()
+        self.driver.find_element(By.LINK_TEXT, "change your password").click()
+        self.driver.find_element(
+            By.ID, "id_old_password").send_keys(
+            os.environ.get("PASSWORD_CHANGE_PASSWORD"))
+        self.driver.find_element(
+            By.ID, "id_new_password1").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(
+            By.ID, "id_new_password2").send_keys(
+            os.environ.get("NEW_USER_PASSWORD"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()
+        self.driver.find_element(By.LINK_TEXT, "Character Dashboard").click()
+        self.driver.find_element(By.LINK_TEXT, "Logout").click()
+
+    def test_useCase006PasswordReset(self):
+        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.set_window_size(1680, 975)
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            ".container > a:nth-child(1)").click()
+        self.driver.find_element(
+            By.CSS_SELECTOR,
+            "#nav-mobile > li:nth-child(2) > .black-text").click()
+        self.driver.find_element(
+            By.LINK_TEXT, "Forgotten your password?").click()
+        self.driver.find_element(
+            By.ID, "id_email").send_keys(
+            os.environ.get("NEW_USER_EMAIL"))
+        self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(1)").click()

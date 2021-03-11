@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3>Edit / Update Comment</h3>
+    <form method="POST">
+    <div>
+        {% if request.user.is_authenticated %}
+        {{ form.as_p }}
+        {% csrf_token %}
+        {{ form.id }}
+        {% endif %}
+    </div>
+    <div>
+        <p>
+            <button class="update_button" type="submit">Update Item</button>
+        </p>
+    </div>
+    </form>
+</div>
+{% endblock %}

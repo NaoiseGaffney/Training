@@ -3,6 +3,12 @@ from django.conf import settings
 from shop.models import Product
 
 
+"""
+Cart methods to Create, Read/View, Update, and Delete the Cart.
+Methods to update the number of items/products in the Cart.
+"""
+
+
 class Cart(object):
 
     def __init__(self, request):

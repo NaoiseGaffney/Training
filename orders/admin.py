@@ -1,6 +1,3 @@
-# import csv
-# import datetime
-# from django.http import HttpResponse
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -21,6 +18,6 @@ def order_detail(obj):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
                     'address', 'postal_code', 'city', 'paid',
-                    'created', 'updated', order_detail]
+                    'created', 'updated', 'rating', 'comment']
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]

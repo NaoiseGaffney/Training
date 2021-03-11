@@ -16,10 +16,10 @@ import environ
 import braintree
 import dj_database_url
 
-if os.environ.get('DEBUG'):
-    root = environ.Path(__file__) - 3  # get root of the project
-    env = environ.Env()
-    environ.Env.read_env()  # reading .env file
+# if os.environ.get('DEBUG'):
+root = environ.Path(__file__) - 3  # get root of the project
+env = environ.Env()
+environ.Env.read_env()  # reading .env file
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -83,7 +83,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.context_processors.cart', # (Shopping) Cart context processor for global updates to the cart.
+                'cart.context_processors.cart',
+                # (Shopping) Cart context processor for global updates to the cart.
             ],
         },
     },
@@ -96,21 +97,21 @@ WSGI_APPLICATION = 'Training.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# }
 # if 'DATABASE_URL' in os.environ:
 #     DATABASES = {
 #         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 #     }
 # else:
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -160,11 +161,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # login_required -> redirect to login when not authenticated
-LOGIN_REDIRECT_URL = 'dashboard' # Django redirect after a successful login. Will update.
+# Django redirect after a successful login. Will update.
+LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-# Django session (think Flask-session (cookies)) key to ensure the cart is unique to each buyer
+# Django session (think Flask-session (cookies)) key to ensure the cart is
+# unique to each buyer
 CART_SESSION_ID = 'cart'
 
 # E-mail notifications for both Development and Production

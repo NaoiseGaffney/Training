@@ -1,4 +1,4 @@
-![GaffCo Consulting Logo](documentation/PCC_Logo.png)
+![GaffCo Consulting Logo](Documentation/PCC_Logo.png)
 
 # Professional Communication and Presentation Skills E-Commerce Website
 
@@ -6,7 +6,7 @@
 
 Professional Communication and Presentation Skills - 4th Milestone Project for the Code Institute's Diploma in Full Stack Development. Project requirements: HTML 5, CSS 3, JavaScript, Python 3, Django, PostgreSQL, Payment System, and API's. This project website is an e-commerce site for a Professional Communications and Presentation Skills Company (Sole Trader) called GaffCo Consulting.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Table of Contents
 
@@ -37,16 +37,14 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
   * [GitHub](#github)
   * [Configure Visual Studio Code environment](#configure-visual-studio-code-environment)
   * [Create the Initial Django Project](#create-the-initial-django-project)
-  * [Django Migrations (Version Control System for the Database Schema)'](#django-migrations--version-control-system-for-the-database-schema--)
-  * [Heroku Platform Configuration and Deployment](#heroku-platform-configuration-and-deployment)
+  * [Django Migrations (Version Control System for the Database Schema)](#django-migrations--version-control-system-for-the-database-schema-)
   * [Configure static and media for Django](#configure-static-and-media-for-django)
-  * [Install django-environ to read a .env file with both confidential and useful variables -> Heroku Variables](#install-django-environ-to-read-a-env-file-with-both-confidential-and-useful-variables----heroku-variables)
-    + [Django Training Project Applications](#django-training-project-applications)
-    + [Create a Context Processor to (instead of using Django Signals) to make the Cart Update Global](#create-a-context-processor-to--instead-of-using-django-signals--to-make-the-cart-update-global)
-    + [Styling and Layout using Materialize CSS 1.0.0](#styling-and-layout-using-materialize-css-100)
-    + [AWS S3 Bucket Configuration](#aws-s3-bucket-configuration)
+  * [Install django-environ to read a '.env' file with both confidential and useful variables -> Heroku Variables and PyTest Variables](#install-django-environ-to-read-a--env--file-with-both-confidential-and-useful-variables----heroku-variables-and-pytest-variables)
+    + [Heroku Platform Configuration and Deployment](#heroku-platform-configuration-and-deployment)
+      - [Herokue Config Vars (minus `DISABLE_COLLECTSTATIC=1` which is a temporary variable)](#herokue-config-vars--minus--disable-collectstatic-1--which-is-a-temporary-variable-)
     + [PostgreSQL Configuration](#postgresql-configuration)
-    + [Issues](#issues)
+    + [AWS S3 Bucket Configuration](#aws-s3-bucket-configuration)
+- [Key Issues](#key-issues)
 - [Credits](#credits)
   * [Content](#content)
   * [Media](#media)
@@ -56,7 +54,7 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
 
 </details>
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Business
 The Business goals describe the expected consumer and site owner goals, and drive the design, development, and deployment of the application which in this case is the Professional Training and Development E-commerce site. The fulfilment of these goals determine the success of the application.
@@ -67,13 +65,13 @@ Find suitable courses and coaching sessions to improve presentation and communic
 ### Site Owner's Goals
 Motivate and inspire learners (consumers) to achieve excellent results through presentation and communication skills by attending the courses and coaching sessions provided on this site.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## User Experience
 User experience (UX) design is the design process used to create applications and websites that provide meaningful and relevant experiences to users.
 
 ### Persona Summary of the Consumer
-![Persona Summary](documentation/persona_summary.png)
+![Persona Summary](Documentation/persona_summary.png)
 This site is aimed at individuals at age 18 and above, and businessess seeking professional courses and coaching on presentation and communication skills. Consumers can view the courses and coaching sessions on offer to select the ones most suitable to their requirements to increase their knowledge, improve their skills and give them the confidence to put the new knowledge and skills to good use.
 
 ### Strategy Trade-Off
@@ -82,11 +80,11 @@ UX Design is driven by business goals and user needs, and features developed are
 The selected features are driven by the opportunity matrix, which helps us understand what is both more important and viable to create. In this case all features mentioned below are implemented as the features made sense to provide in this initial release. Additional and future features are documented under the Features section, and not documented here.
 
 #### Opportunity Matrices for Training and Development
-![Opportunty Matrix - Account Management](documentation/OppMatrix_Account.png)
+![Opportunty Matrix - Account Management](Documentation/OppMatrix_Account.png)
 
-![Opportunty Matrix - Shop to Pay](documentation/OppMatrix_ShopToPay.png)
+![Opportunty Matrix - Shop to Pay](Documentation/OppMatrix_ShopToPay.png)
 
-[Initial Plans for MS4](documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time contraints and continuous assessments changed the initial plan.
+[Initial Plans for MS4](Documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time contraints and continuous assessments changed the initial plan.
 
 ### User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation
 
@@ -96,7 +94,7 @@ A user story has one or more use cases with one or more tasks with steps associa
 
 ---
 
-![Information Architecture and Navigation](documentation/InformationArchitectureNavigation.png)
+![Information Architecture and Navigation](Documentation/InformationArchitectureNavigation.png)
 
 The User Experience links the Business goals of the external user (consumer) and site owner to a number of user stories. A user story captures a description of a software feature from an end-user perspective. A user story describes the type of user, what they want and why. A use case is a list of actions or event steps describing the interactions between a role and a system to achieve a goal.
 
@@ -113,9 +111,9 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 	* **Use Case 001-002 - Register, Login, Logout:** As a consumer I want to register, login, and logout to access further future content and details.
 		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 		* **Task 2:** Click on [Register Here](https://training-and-development.herokuapp.com/account/register/) to create an account. Fill in the details in the form and click on "Create my account" button.
-		* **Task 3:** Click on [Log-in](http://127.0.0.1:8000/account/login/), enter your username and password, and click on the "Log-in" button.
+		* **Task 3:** Click on [Log-in](https://training-and-development.herokuapp.com/account/login/), enter your username and password, and click on the "Log-in" button.
 		* **Task 4:** Perform the relevant actions on the website.
-		* **Task 5:** Click on [Logout](http://127.0.0.1:8000/account/logout/) when done.
+		* **Task 5:** Click on [Logout](https://training-and-development.herokuapp.com/account/logout/) when done.
 	* **Use Case 001-003 - View and Purchase Courses and Coaching Sessions:** As a consumer I want to view and purchase courses and coaching sessions to increase my knowledge and improve my skills.
 		* **Task 1:** Access the home / index page [Training and Development](https://training-and-development.herokuapp.com/).
 		* **Task 2:** Click on "Courses & Coaching" in the naviagation bar and select either "All Training" or "Courses" or "Coaching".
@@ -125,20 +123,20 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 		* **Task 6:** Review your choice, update the number of course or coaching sessions, or remove if you change your mind. Review the price, item price, total item price, and the total price. If you want to add further courses or coaching sessions, click on "Continue shopping". If happy with your choice click on the "Checkout" button.
 		* **Task 7:** Review your order before filling in the Checkout Form. If happy click on the "Place order" button.
 		* **Task 8:** Fill in the credit-card payment form and click on the "Pay" button.
-		* **Task 9:** Continue shopping, or click on [Home](http://127.0.0.1:8000/), or close the browser.
+		* **Task 9:** Continue shopping, or click on [Home](https://training-and-development.herokuapp.com/), or close the browser.
 	* **Use Case 001-004 - Edit / Update the Character (Consumer) Profile:** As a consumer I want to edit / update my Character (Consumer) Profile for future features and content.
 		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
-		* **Task 2:** Click on [Log-in](http://127.0.0.1:8000/account/login/), enter your username and password, and click on the "Log-in" button.
-		* **Task 3:** Click on [edit your profile](http://127.0.0.1:8000/account/edit/).
-		* **Task 4:** Update the Character Profile form and click on "Save changes" when done. A Django message pop-up provides feedback on whether the update is successful or not. Click on [Character Dashboard](http://127.0.0.1:8000/account/dashboard/).
+		* **Task 2:** Click on [Log-in](https://training-and-development.herokuapp.com/account/login/), enter your username and password, and click on the "Log-in" button.
+		* **Task 3:** Click on [edit your profile](https://training-and-development.herokuapp.com/account/edit/).
+		* **Task 4:** Update the Character Profile form and click on "Save changes" when done. A Django message pop-up provides feedback on whether the update is successful or not. Click on [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 	* **Use Case 001-005 - Change Password:** As a consumer I want to change my password.
 		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
-		* **Task 2:** Click on [Log-in](http://127.0.0.1:8000/account/login/), enter your username and password, and click on the "Log-in" button.
-		* **Task 3:** Click on [change your password](http://127.0.0.1:8000/account/password_change/), enter your current password, your new password, your new password a second time, and click on the "Change" button.
-		* **Task 4:** Click on the [Character Dashboard](http://127.0.0.1:8000/account/dashboard/) and [Logout](http://127.0.0.1:8000/account/logout/).
+		* **Task 2:** Click on [Log-in](https://training-and-development.herokuapp.com/account/login/), enter your username and password, and click on the "Log-in" button.
+		* **Task 3:** Click on [change your password](https://training-and-development.herokuapp.com/account/password_change/), enter your current password, your new password, your new password a second time, and click on the "Change" button.
+		* **Task 4:** Click on the [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/) and [Logout](https://training-and-development.herokuapp.com/account/logout/).
 	* **Use Case 001-006 - Password Reset:** As a consumer I want to reset my password as I have forgotten my current password and want to gain access to my account.
 		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
-		* **Task 2:** Click on [Forgotten your password?](http://127.0.0.1:8000/account/password_reset/).
+		* **Task 2:** Click on [Forgotten your password?](https://training-and-development.herokuapp.com/account/password_reset/).
 		* **Task 3:** Enter your e-mail address (same one used to register) and click on the "Send e-mail" button.
 		* **Task 4:** Once you receive your password reset e-mail, click on the link to reset your password.
 		* **Task 5:** Enter your new password, confirm your new password and click on the "Change my password" button.
@@ -146,20 +144,20 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 ---
 
 * **User Story 002 (Admin):** As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.
-	* **Use Case 002-001 - Authentication and Authorization:** As an admin I want to manage users and groups on the site. - [Authentication and Authorization](http://127.0.0.1:8000/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. 
-	* **Use Case 002-002 - Account:** As an admin I want to manage Character Profiles. - [Account](http://127.0.0.1:8000/admin/account/). Consumer updates to their Character Profile is managed here.
-	* **Use Case 002-003 - Shop:** As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](http://127.0.0.1:8000/admin/shop/).
-	* **Use Case 002-004 - Orders:** As an admin I want to manage the orders placed by Consumers. - [Orders](http://127.0.0.1:8000/admin/orders/)
+	* **Use Case 002-001 - Authentication and Authorization:** As an admin I want to manage users and groups on the site. - [Authentication and Authorization](https://training-and-development.herokuapp.com/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. 
+	* **Use Case 002-002 - Account:** As an admin I want to manage Character Profiles. - [Account](https://training-and-development.herokuapp.com/admin/account/). Consumer updates to their Character Profile is managed here.
+	* **Use Case 002-003 - Shop:** As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](https://training-and-development.herokuapp.com/admin/shop/).
+	* **Use Case 002-004 - Orders:** As an admin I want to manage the orders placed by Consumers. - [Orders](https://training-and-development.herokuapp.com/admin/orders/)
 
 ---
 
 ### Wireframes
 
-[Wireframes for Desktops (Large) and Tablets (Medium), and Mobile (Small) - PDF](documentation/MS4%20Wireframes.pdf)
+[Wireframes for Desktops (Large) and Tablets (Medium), and Mobile (Small) - PDF](Documentation/MS4%20Wireframes.pdf)
 
 The wireframes cover Desktop and Tablet sized devices as one, as the design and look is the same for both. Mobile devices are similar, with the main difference being the hamburger-nav-bar instead of a full navigation bar, and the fact that most text and images flows to one column. I did this on purpose, to keep the style and layout both functional and simple, requiring less CSS "shenanigans".
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Features
 
@@ -208,7 +206,7 @@ A feature is some action that can be performed by a user of an application, or i
 * **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
 * **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Technologies Used
 
@@ -249,12 +247,83 @@ For the fourth Milestone Project for the Diploma in Full Stack Development at th
 * "Pen and Paper" on an e-ink device converted to PDF for the Wireframe Diagrams.
 
 ### Database Schema
-![Database Schema](documentation/Training%20DB%20Schema.png)
+![Database Schema](Documentation/Training%20DB%20Schema.png)
 Please note that the there is currently no database link between the auth_user or account_profile to orders_orders. As a future feature, having the order form populated with data from the auth_user and account_profile when authtenticated would add a useful feature to the consumer.
+
+<details><summary>Please click to expand: Quick Databse Diagrams Description</summary>
+
+```
+account_profile
+--
+id PK int
+user_id int FK -< auth_user.id
+address varchar(80)
+post_code varchar(80)
+city varchar(80)
+ 
+auth_user
+--
+id PK int
+username varchar(150)
+password varchar(128)
+last_login datetime
+first_name varchar(150)
+last_name(150)
+email varchar(254)
+is_superuser bool
+is_staff bool
+is_active bool
+date_joined datetime
+ 
+orders_order
+--
+id PK int
+first_name varchar(50)
+last_name varchar(50)
+email varchar(254)
+address varchar(250)
+postal_code varchar(20)
+city varchar(100)
+created datetime
+updated datetime
+paid bool
+braintree_id varchar(150)
+ 
+orders_orderitem
+--
+id PK int
+price decimal
+quantity int
+order_id int FK >- orders_order.id
+product_id int FK >- shop_product.id
+rating int
+comment varchar(250)
+ 
+shop_category
+--
+id PK int
+name varchar(200)
+slug varchar(200)
+ 
+shop_product
+--
+id PK int
+name varchar(200)
+slug varchar(200)
+image varchar(100)
+description text
+price decimal
+available bool
+created datetime
+updated datetime
+category_id int FK >- shop_category.id
+```
+
+</display>
 
 Please note that the Django tables are not included in this diagram.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Testing
 Business Driven Development aims to overcome the common mismatch between the Business and IT. BDD consists of a continuous cycle of Modelling -> Building -> Deploying -> Managing. Testing is a part of Building, through unit, integration, and regression testing. These tests won't validate the user experience in the form of user stories and use cases. Behaviour Driven Development (BDD) is a branch of Test Driven Development (TDD). BDD uses human-readable descriptions of software user requirements as the basis for software tests.
@@ -276,10 +345,10 @@ Running the manual tasks validate the Use Case, and in turn the User Story. A te
 |                                                                                                                                                                                                              | Use Case 001-005 - Change Password: As a consumer I want to change my password.                                                                                                                                                                                               | Pass        |
 |                                                                                                                                                                                                              | Use Case 001-006 - Password Reset: As a consumer I want to reset my password as I have forgotten my current password and want to gain access to my account.                                                                                                                   | Pass        |
 |                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                               |             |
-| User Story 002 (Admin): As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.                                                               | Use Case 002-001 - Authentication and Authorisation: As an admin I want to manage users and groups on the site. - [Authentication and Authorization](http://127.0.0.1:8000/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. | Pass        |
-|                                                                                                                                                                                                              | Use Case 002-002 - Account: As an admin I want to manage Character Profiles. - [Account](http://127.0.0.1:8000/admin/account/). Consumer updates to their Character Profile is managed here.                                                                                  | Pass        |
-|                                                                                                                                                                                                              | Use Case 002-003 - Shop: As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](http://127.0.0.1:8000/admin/shop/).                                                                                                             | Pass        |
-|                                                                                                                                                                                                              | Use Case 002-004 - Orders: As an admin I want to manage the orders placed by Consumers. - [Orders](http://127.0.0.1:8000/admin/orders/4                                                                                                                                       | Pass        |
+| User Story 002 (Admin): As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.                                                               | Use Case 002-001 - Authentication and Authorisation: As an admin I want to manage users and groups on the site. - [Authentication and Authorization](https://training-and-development.herokuapp.com/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-002 - Account: As an admin I want to manage Character Profiles. - [Account](https://training-and-development.herokuapp.com/admin/account/). Consumer updates to their Character Profile is managed here.                                                                                  | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-003 - Shop: As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](https://training-and-development.herokuapp.com/admin/shop/).                                                                                                             | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-004 - Orders: As an admin I want to manage the orders placed by Consumers. - [Orders](https://training-and-development.herokuapp.com/admin/orders/4                                                                                                                                       | Pass        |
 
 
 ### Automated Behaviour Driven Development Testing using Selenium IDE and PyTest
@@ -287,11 +356,11 @@ Selenium IDE runs automated, and scripted tests when configured. In this case th
 
 To prepare for the tests:
 * Install pytest, selenium and the correct webdriver (ChromeDriver)
-* * pip3 install pytest
-* * pip3 install selenium
-* * http://chromedriver.chromium.org/downloads
-* * * Unzip and copy 'chromedriver 2' to the virtual Python/bin directory. Rename it to 'chromedriver'.
-* * * Execute chromedriver in the terminal to ensure the correct version is running; it has to match the version in "About Google Chrome". If using other browsers, other webdrivers must be installed. Don't do "pip3 install ChromeDriver" as it's likely to install an older version which means that the tests won't run as Chrome can't be controlled.
+	* pip3 install pytest
+	* pip3 install selenium
+	* http://chromedriver.chromium.org/downloads
+		* Unzip and copy 'chromedriver 2' to the virtual Python/bin directory. Rename it to 'chromedriver'.
+		* Execute chromedriver in the terminal to ensure the correct version is running; it has to match the version in "About Google Chrome". If using other browsers, other webdrivers must be installed. Don't do "pip3 install ChromeDriver" as it's likely to install an older version which means that the tests won't run as Chrome can't be controlled.
 * Create a new '.env' file at the Project Root. Add the following variables, with values:
 
 #### BDD Test '.env' File
@@ -357,7 +426,7 @@ class TestTrainingBDDSuite():
       return set(wh_now).difference(set(wh_then)).pop()
   
   def test_useCase001ViewHomePageandLinkedIn(self):
-    self.driver.get("http://127.0.0.1:8000/")
+    self.driver.get("https://training-and-development.herokuapp.com/")
     self.driver.set_window_size(1680, 975)
     self.vars["window_handles"] = self.driver.window_handles
     time.sleep(5)
@@ -366,7 +435,7 @@ class TestTrainingBDDSuite():
     self.driver.switch_to.window(self.vars["win7260"])
   
   def test_useCase002RegisterLoginLogout(self):
-    self.driver.get("http://127.0.0.1:8000/")
+    self.driver.get("https://training-and-development.herokuapp.com/")
     self.driver.set_window_size(1680, 975)
     self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
     self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
@@ -386,29 +455,29 @@ class TestTrainingBDDSuite():
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
   
   def test_useCase003ViewandPurchaseCourseandCoachinganonymoususer(self):
-    self.driver.get("http://127.0.0.1:8000/")
+    self.driver.get("https://training-and-development.herokuapp.com/")
     self.driver.set_window_size(1680, 975)
     self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/")
+    self.driver.get("https://training-and-development.herokuapp.com/shop/")
     self.driver.find_element(By.CSS_SELECTOR, ".active").click()
     self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.UP)
     self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.ENTER)
     self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/courses/")
+    self.driver.get("https://training-and-development.herokuapp.com/shop/courses/")
     self.driver.find_element(By.CSS_SELECTOR, ".active").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
     self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.DOWN)
     self.driver.find_element(By.CSS_SELECTOR, ".select-dropdown:nth-child(1)").send_keys(Keys.TAB)
     self.driver.find_element(By.CSS_SELECTOR, "span:nth-child(2) input:nth-child(3)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/coaching/")
+    self.driver.get("https://training-and-development.herokuapp.com/shop/coaching/")
     self.driver.find_element(By.CSS_SELECTOR, ".active").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
-    self.driver.get("http://127.0.0.1:8000/shop/")
+    self.driver.get("https://training-and-development.herokuapp.com/shop/")
     self.driver.find_element(By.CSS_SELECTOR, ".carousel-item:nth-child(2)").click()
     self.driver.find_element(By.CSS_SELECTOR, ".active").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(5)").click()
     self.driver.find_element(By.CSS_SELECTOR, ".col:nth-child(2) .waves-button-input").click()
-    self.driver.get("http://127.0.0.1:8000/orders/create/")
+    self.driver.get("https://training-and-development.herokuapp.com/orders/create/")
     self.driver.find_element(By.ID, "id_first_name").send_keys(os.environ.get("PROFILE_FIRST_NAME"))
     self.driver.find_element(By.ID, "id_last_name").send_keys(os.environ.get("PROFILE_LAST_NAME"))
     self.driver.find_element(By.ID, "id_email").send_keys(os.environ.get("PROFILE_EMAIL"))
@@ -430,7 +499,7 @@ class TestTrainingBDDSuite():
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(9)").click()
   
   def test_useCase004EditProfileLoginEditProfileLogout(self):
-    self.driver.get("http://127.0.0.1:8000/")
+    self.driver.get("https://training-and-development.herokuapp.com/")
     self.driver.set_window_size(1680, 975)
     self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
     self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
@@ -448,7 +517,7 @@ class TestTrainingBDDSuite():
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
   
   def test_useCase005ChangePassword(self):
-    self.driver.get("http://127.0.0.1:8000/")
+    self.driver.get("https://training-and-development.herokuapp.com/")
     self.driver.set_window_size(1680, 975)
     self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
     self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
@@ -470,7 +539,7 @@ class TestTrainingBDDSuite():
     self.driver.find_element(By.LINK_TEXT, "Logout").click()
   
   def test_useCase006PasswordReset(self):
-    self.driver.get("http://127.0.0.1:8000/")
+    self.driver.get("https://training-and-development.herokuapp.com/")
     self.driver.set_window_size(1680, 975)
     self.driver.find_element(By.CSS_SELECTOR, ".container > a:nth-child(1)").click()
     self.driver.find_element(By.CSS_SELECTOR, "#nav-mobile > li:nth-child(2) > .black-text").click()
@@ -496,7 +565,7 @@ test_trainingBDDSuite.py ......                                                 
 ```
 
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Deployment
 ### GitHub
@@ -519,7 +588,7 @@ test_trainingBDDSuite.py ......                                                 
 ### Create the Initial Django Project
 
 * Create a Django **Project** called "Training" - Terminal: `django-admin startproject Training .` (created in the current folder)
-* Verify that the initial Django project works - Terminal: `python3 manage.py runserver 8000`, `http://127.0.0.1:8000/`
+* Verify that the initial Django project works - Terminal: `python3 manage.py runserver 8000`, `https://training-and-development.herokuapp.com/`
 
 ### Django Migrations (Version Control System for the Database Schema)
 
@@ -560,12 +629,12 @@ Link: https://docs.djangoproject.com/en/3.1/topics/migrations/
 * Add `DISABLE_COLLECTSTATIC = 1` to Review App, Staging App, and Production App Configuration Variables (temporary until AWS S3 Bucket configured).
 
 ##### Herokue Config Vars (minus `DISABLE_COLLECTSTATIC=1` which is a temporary variable)
-![Heroku Config Vars](documentation/Heroku%20Config%20Vars.png)
+![Heroku Config Vars](Documentation/Heroku%20Config%20Vars.png)
 
 #### PostgreSQL Configuration
 * Install PostgreSQL support: `pip3 install psycopg2-binary` and `pip3 install dj-database-url`.
 * Update the Heroku requirements file: `pip3 freeze > requirements.txt`
-* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABSE_URL` variable under Appliction -> Settings -> Config Vars. Copy this URL.
+* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABASE_URL` variable under Appliction -> Settings -> Config Vars. Copy this URL.
 * Add the URL to the '.env' file: `DATABASE_URL=<Database URL>`. Update 'settings.py':
 
 ```
@@ -584,7 +653,7 @@ python3 manage.py createsuperuser
 
 ```
 
-* Update the allowed hosts in 'settings.py': `ALLOWED_HOSTS = ['https://training-and-development.herokuapp.com/', 'localhost', '127.0.0.1']`.
+* Update the allowed hosts in 'settings.py': `ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]`.
 * VS Code: Create the commit message. Changes -> Stage All CHanges, Commit -> Commit All, Push.
 
 #### AWS S3 Bucket Configuration
@@ -593,7 +662,7 @@ python3 manage.py createsuperuser
 * Create the Bucket Policy.
 * Create the Cross-Origin Resource Sharing (CORS)
 * Access AWS IAM and create a user for the Training Project. Create a group, with the user attached. Download the CSV file with the credentials and save it in a safe place. Updated the '.env' file with the relevant variables.
-* Execute `python3 managae.py collectstatic` to upload static files to the AWS S3 Bucket.
+* Execute `python3 manage.py collectstatic` to upload static files to the AWS S3 Bucket.
 * Upload the 'media' folder and files manually.
 * Remove `DISABLE_COLLECTSTATIC` variable from Heroku Config Vars.
 
@@ -622,7 +691,7 @@ Running locally in Debug mode I received an error message stating “Suspicious 
 	* Resolution:
 		* Remvoed the Heroku Postgres add-on, and added a new one. Executed the steps to migrate the Django Models to the new database instance, with the new URL in the '.env' file.
 
-![Section Divider: Title and Business](documentation/section%20divider.png)
+![Section Divider: Title and Business](Documentation/section%20divider.png)
 
 ## Credits
 

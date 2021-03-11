@@ -2,6 +2,12 @@ from django.core.mail import send_mail
 from .models import Order
 
 
+"""
+Email notification upon completed order. Email settings configured in
+'Training/settings.py'.
+"""
+
+
 def order_created(order_id):
     """
     Send e-mail notifications.

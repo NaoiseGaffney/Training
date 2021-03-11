@@ -3,6 +3,13 @@ from .models import Category, Product
 from cart.forms import CartAddProductForm
 
 
+"""
+Product methods for:
+- Product List based on Category.
+- Prodcut Detail based on user selection of product (courses or coaching).
+"""
+
+
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
@@ -23,4 +30,5 @@ def product_detail(request, id, slug):
                                 slug=slug,
                                 available=True)
     cart_product_form = CartAddProductForm()
-    return render(request, 'shop/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
+    return render(request, 'shop/product/detail.html',
+                  {'product': product, 'cart_product_form': cart_product_form})

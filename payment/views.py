@@ -2,10 +2,18 @@ import braintree
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from orders.models import Order
-# from .tasks import payment_completed
 
 # Braintree Payment System
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
+
+
+"""
+Payment methods for:
+- Payment Processing using the Braintree Payment System. This is the key
+worker process for the payment.
+- Payment Done when the payment is successful.
+- Payment Canceled when the payment is canceled due to error.
+"""
 
 
 def payment_process(request):
