@@ -158,8 +158,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
     width: 350px !important;
 }
 
-/* All Buttons */
-button,
+/* All Submit / Update Buttons */
+a.button,
+button:focus,
+.update_button,
 input[type="submit"] {
     color: #fff;
     background: black;
