@@ -250,6 +250,77 @@ For the fourth Milestone Project for the Diploma in Full Stack Development at th
 ![Database Schema](Documentation/Training%20DB%20Schema.png)
 Please note that the there is currently no database link between the auth_user or account_profile to orders_orders. As a future feature, having the order form populated with data from the auth_user and account_profile when authtenticated would add a useful feature to the consumer.
 
+<details><summary>Please click to expand: Quick Databse Diagrams Description</summary>
+
+```
+account_profile
+--
+id PK int
+user_id int FK -< auth_user.id
+address varchar(80)
+post_code varchar(80)
+city varchar(80)
+ 
+auth_user
+--
+id PK int
+username varchar(150)
+password varchar(128)
+last_login datetime
+first_name varchar(150)
+last_name(150)
+email varchar(254)
+is_superuser bool
+is_staff bool
+is_active bool
+date_joined datetime
+ 
+orders_order
+--
+id PK int
+first_name varchar(50)
+last_name varchar(50)
+email varchar(254)
+address varchar(250)
+postal_code varchar(20)
+city varchar(100)
+created datetime
+updated datetime
+paid bool
+braintree_id varchar(150)
+ 
+orders_orderitem
+--
+id PK int
+price decimal
+quantity int
+order_id int FK >- orders_order.id
+product_id int FK >- shop_product.id
+rating int
+comment varchar(250)
+ 
+shop_category
+--
+id PK int
+name varchar(200)
+slug varchar(200)
+ 
+shop_product
+--
+id PK int
+name varchar(200)
+slug varchar(200)
+image varchar(100)
+description text
+price decimal
+available bool
+created datetime
+updated datetime
+category_id int FK >- shop_category.id
+```
+
+</display>
+
 Please note that the Django tables are not included in this diagram.
 
 ![Section Divider: Title and Business](Documentation/section%20divider.png)

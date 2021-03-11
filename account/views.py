@@ -38,7 +38,11 @@ def comment_edit(request, comment_id):
         print(request.POST, comment_id)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Success: rating and comment updated.')
             return redirect('dashboard')
+        else:
+            messages.error(request, 'Error: rating and comment NOT updated.')
+            
     form = OrderCommentForm(instance=order)
     context = {
         'form': form
