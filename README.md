@@ -319,7 +319,7 @@ updated datetime
 category_id int FK >- shop_category.id
 ```
 
-</display>
+</details>
 
 Please note that the Django tables are not included in this diagram.
 

@@ -16,10 +16,7 @@ import environ
 import braintree
 import dj_database_url
 
-# if os.environ.get('DEBUG'):
-root = environ.Path(__file__) - 3  # get root of the project
-env = environ.Env()
-environ.Env.read_env()  # reading .env file
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -97,21 +94,11 @@ WSGI_APPLICATION = 'Training.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-# }
-# if 'DATABASE_URL' in os.environ:
-#     DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-# else:
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
+
 
 
 # Password validation
