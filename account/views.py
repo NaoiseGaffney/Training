@@ -8,6 +8,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.contrib import messages
+from django.conf import settings
 
 
 """
@@ -63,6 +64,12 @@ def comment_delete(request, comment_id):
 
 
 def register(request):
+    """
+    Authenticated users cannot register again and are redirected to the Dashboard.
+    """
+    if request.user.is_authenticated:
+        messages.error(request, f'{request.user} already has registered and is logged in.')
+        return redirect('dashboard')
     """
     Register user using UserRegistrationForm.
     If request is GET, render 'account/register.html' to register a new user.
