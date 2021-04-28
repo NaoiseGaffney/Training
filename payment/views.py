@@ -2,6 +2,7 @@ import braintree
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from orders.models import Order
+from orders.tasks import order_created
 
 # Braintree Payment System
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
@@ -45,6 +46,9 @@ def payment_process(request):
 
 
 def payment_done(request):
+    order_id = request.session.get('order_id')
+    order = get_object_or_404(Order, id=order_id)
+    order_created(order.id)
     return render(request, 'payment/done.html')
 
 

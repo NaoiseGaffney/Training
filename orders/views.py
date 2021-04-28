@@ -8,7 +8,6 @@ from django.template.loader import render_to_string
 from cart.cart import Cart
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
-from .tasks import order_created
 
 
 """
@@ -30,7 +29,6 @@ def order_create(request):
                                          price=item['price'],
                                          quantity=item['quantity'])
             cart.clear()
-            order_created(order.id)
             request.session['order_id'] = order.id
             return redirect(reverse('payment:process'))
     else:
