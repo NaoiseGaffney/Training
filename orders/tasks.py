@@ -4,7 +4,7 @@ from .models import Order
 
 """
 Email notification upon completed order. Email settings configured in
-'Training/settings.py'.
+'Training/settings.py'. Called from 'payment/views.py payment_done()'.
 """
 
 
