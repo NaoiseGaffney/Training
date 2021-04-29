@@ -5,9 +5,32 @@
 {% block content %}
 
 <div class="container">
-    <h3>404 Page Not Found</h3>
-    <div style="background-image: url('aron-visuals-3jBU9TbKW7o-unsplash.jpg');"></div>
-    Photo by <a href="https://unsplash.com/@aronvisuals?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aron Visuals</a> on 
-    <a href="https://unsplash.com/s/photos/direction?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    <div class="row">
+        <div class="col s12 offset-m1 m10 offset-l1 l10">
+            <div class="card center">
+                <div class="card-image">
+                    <img src="/static/images/aron-visuals-3jBU9TbKW7o-unsplash.jpg" alt="compass in hand">
+                    <a href="{% url 'home' %}" target="_self" class="halfway-fab btn-floating pink pink-darken-1 pulse">
+                        <i class="material-icons">support</i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title pink-text text-darken-1">Client: 404 - Page Not Found</span>
+                    <p>Apologies, we are lost! Please click on the pink pulsating buoy to go to the Home Page, or click on Sign Out below.</p>
+                    <p>&nbsp;</p>
+                    <p>Training and Development - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'logout' %}">[ Sign Out <i class="material-icons">pan_tool</i> ]</a>
+                </div>
+                Photo by <a
+                    href="https://unsplash.com/@aronvisuals?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aron
+                    Visuals</a> on
+                <a
+                    href="https://unsplash.com/s/photos/direction?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
