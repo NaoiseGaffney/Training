@@ -7,12 +7,8 @@
     {% if request.user.is_authenticated %}
     <h3>You are already logged in.</h3>
     <span class="user">
-        {% if request.user.is_authenticated %}
         Hello {{ request.user.first_name }},
         <a href="{% url 'logout' %}">Logout</a> or access your <a href="{% url 'dashboard' %}">Dashboard</a>.
-        {% else %}
-        <a href="{% url 'login' %}">Log-in</a>
-        {% endif %}
     </span>
     {% else %}
     <h3>Log-in</h3>
