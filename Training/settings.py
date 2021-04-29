@@ -16,10 +16,10 @@ import environ
 import braintree
 import dj_database_url
 
-# if os.environ.get('DEBUG') == True:
-root = environ.Path(__file__) - 3  # get root of the project
-env = environ.Env()
-environ.Env.read_env()  # reading .env file
+if os.environ.get('DEBUG') == True:
+    root = environ.Path(__file__) - 3  # get root of the project
+    env = environ.Env()
+    environ.Env.read_env()  # reading .env file
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
