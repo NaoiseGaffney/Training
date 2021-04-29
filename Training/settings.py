@@ -16,7 +16,9 @@ import environ
 import braintree
 import dj_database_url
 
-if os.environ.get('DEBUG') == True:
+DEBUG = False
+
+if not 'DYNO' in os.environ:
     root = environ.Path(__file__) - 3  # get root of the project
     env = environ.Env()
     environ.Env.read_env()  # reading .env file
@@ -33,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+# DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
