@@ -60,6 +60,7 @@ def comment_delete(request, comment_id):
     comment.comment = ''
     comment.rating = 0
     comment.save()
+    messages.success(request, 'Success: rating and comment deleted.')
     return redirect('dashboard')
 
 
@@ -68,7 +69,7 @@ def register(request):
     Authenticated users cannot register again and are redirected to the Dashboard.
     """
     if request.user.is_authenticated:
-        messages.error(request, f'{request.user} already has registered and is logged in.')
+        messages.error(request, f'{request.user} is already registered and is logged in.')
         return redirect('dashboard')
     """
     Register user using UserRegistrationForm.
