@@ -8,11 +8,13 @@ from django.template.loader import render_to_string
 from cart.cart import Cart
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
+from account.forms import UserEditForm, ProfileEditForm
 
 
 """
 Order methods for:
-- Create order.
+- Create order. Three forms are created for authenticated and anonymous users.
+ Two are populated for authenticated users when placing an order.
 - View order details in the Admin View.
 """
 
@@ -32,8 +34,15 @@ def order_create(request):
             request.session['order_id'] = order.id
             return redirect(reverse('payment:process'))
     else:
-        form = OrderCreateForm()
-    return render(request, 'order/create.html', {'cart': cart, 'form': form})
+        if request.user.is_authenticated:
+            form = OrderCreateForm()
+            user_form = UserEditForm(instance=request.user)
+            profile_form = ProfileEditForm(instance=request.user.profile)
+        else:
+            form = OrderCreateForm()
+            user_form = UserEditForm()
+            profile_form = ProfileEditForm()
+    return render(request, 'order/create.html', {'cart': cart, 'user_form': user_form, 'profile_form': profile_form, 'form': form})
 
 
 @staff_member_required

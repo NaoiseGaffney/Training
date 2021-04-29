@@ -17,7 +17,7 @@ def order_detail(obj):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
-                    'address', 'postal_code', 'city', 'paid',
+                    'address', 'post_code', 'city', 'paid',
                     'created', 'updated', 'rating', 'comment']
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]

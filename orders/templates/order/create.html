@@ -19,7 +19,12 @@ Checkout
         <p>Total: ${{ cart.get_total_price }}</p>
     </div>
     <form method="post" class="order-form">
-        {{ form.as_p }}
+        {% if request.user.is_authenticated %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+        {% else %}
+            {{ form.as_p }}
+        {% endif %}
         <p class="padding"><input type="submit" value="Place order"></p>
         {% csrf_token %}
     </form>
