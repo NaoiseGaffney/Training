@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+500
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 offset-m1 m10 offset-l1 l10">
+            <div class="card center">
+                <div class="card-image">
+                    <img src="{% static 'img/aron-visuals-3jBU9TbKW7o-unsplash.jpg' %}" alt="compass in hand">
+                    <a href="{% url 'home' %}" target="_self" class="halfway-fab btn-floating pink pink-darken-1 pulse">
+                        <i class="material-icons">support</i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title pink-text text-darken-1">Server: 500 - Internal Server Error</span>
+                    <p>Apologies, something serious occurred and we're resolving the issue! This section is cordoned off
+                        for now. Please click on the pink pulsating buoy to go to the Home Page, or click on Sign Out
+                        below.</p>
+                    <p>&nbsp;</p>
+                    <p>Training and Development - 500 Internal Server Error: An internal server error occurred. If you
+                        entered the URL manually please check your spelling and try again.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'logout' %}">[ Sign Out <i class="material-icons">pan_tool</i> ]</a>
+                </div>
+                Photo by <a
+                    href="https://unsplash.com/@aronvisuals?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aron
+                    Visuals</a> on
+                <a
+                    href="https://unsplash.com/s/photos/direction?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
