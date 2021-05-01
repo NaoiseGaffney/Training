@@ -153,11 +153,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 black;
 }
 
-/* Ensuring the carousel images are large enough to see on desktops */
-.carousel .carousel-item {
-    width: 350px !important;
-}
-
 /* All Submit / Update Buttons */
 a.button,
 button:focus,
