@@ -26,6 +26,7 @@ class Order(models.Model):
         blank=True)  # Braintree Payment System
     rating = models.IntegerField(choices=CHOICES, blank=True, null=True)
     comment = models.CharField(max_length=250, blank=True, null=True)
+    username = models.CharField(max_length=250, blank=True, null=True)
 
     class Meta:
         ordering = ('-created',)

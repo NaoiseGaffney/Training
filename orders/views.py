@@ -25,6 +25,9 @@ def order_create(request):
         form = OrderCreateForm(request.POST)
         if form.is_valid():
             order = form.save()
+            order = get_object_or_404(Order, id=order.id)
+            order.username = str(request.user)
+            order.save()
             for item in cart:
                 OrderItem.objects.create(order=order,
                                          product=item['product'],
@@ -34,12 +37,11 @@ def order_create(request):
             request.session['order_id'] = order.id
             return redirect(reverse('payment:process'))
     else:
+        form = OrderCreateForm()
         if request.user.is_authenticated:
-            form = OrderCreateForm()
             user_form = UserEditForm(instance=request.user)
             profile_form = ProfileEditForm(instance=request.user.profile)
         else:
-            form = OrderCreateForm()
             user_form = UserEditForm()
             profile_form = ProfileEditForm()
     return render(request, 'order/create.html', {'cart': cart, 'user_form': user_form, 'profile_form': profile_form, 'form': form})

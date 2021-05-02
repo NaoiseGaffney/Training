@@ -32,7 +32,6 @@ def dashboard(request):
 
 
 def comment_edit(request, comment_id):
-    print("comment_id:", comment_id)
     order = get_object_or_404(Order, id=comment_id)
     if request.method == 'POST':
         form = OrderCommentForm(request.POST, instance=order)
