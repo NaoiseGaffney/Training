@@ -14,13 +14,17 @@
                 <div class="card-content">
                     <span class="card-title pink-text text-darken-1">Client: 404 - Page Not Found</span>
                     <p>Apologies, we are lost! Please click on <a href="{% url 'home' %}" target="_self">Home Page</a>, or click
-                        on Sign Out below.</p>
+                        on Sign In/Out below.</p>
                     <p>&nbsp;</p>
                     <p>Training and Development - 404 Not Found: The requested URL was not found on the server. If you
                         entered the URL manually please check your spelling and try again.</p>
                 </div>
                 <div class="card-action">
-                    <a href="{% url 'logout' %}">[ Sign Out <i class="material-icons">pan_tool</i> ]</a>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout' %}">[ Sign Out <i class="material-icons">logout</i> ]</a>
+                    {% else %}
+                    <a href="{% url 'login' %}">[ Sign In <i class="material-icons">login</i> ]</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
