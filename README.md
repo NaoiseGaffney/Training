@@ -168,18 +168,18 @@ A feature is some action that can be performed by a user of an application, or i
 	* Navigation Bar / Hamburger-Nav-Bar (Materialize CSS 1.0.0)
 		* Logo Link to Home / Index Page (Logo is my own)
 		* Courses & Coaching Drop-Dowm (Materialize CSS 1.0.0) -> *Django App - Shop*
-			* All Training (all categories) -> Carousel
-			* Courses (category) -> Courses Carousel
-			* Coaching (category) -> Coaching Carousel
+			* All Training (all categories) -> Cards (MaterializeCSS 1.0.0 Cards)
+			* Courses (category) -> Courses Cards (MaterializeCSS 1.0.0 Cards)
+			* Coaching (category) -> Coaching Cards (MaterializeCSS 1.0.0 Cards)
 	* Parallax - Mountain Success x 3 (Materialize CSS 1.0.0)
 	* Banner / Tagline for Professional Training and Development
 	* GaffCo Consulting description, course and coaching tabs with links and descriptions to courses and coaching sessions.
 	* Fixed Footer
 		* LinkedIn Profile Link
 		* Copyright Notice
-* **Django App - Shop:** All Training / Courses / Coaching Carousel.
-	* Views of available courses and coaching sessions in a carouesel.
-	* Carousel courses and coaching sessions are selectable to view in greater detail and are available to purchase.
+* **Django App - Shop:** All Training / Courses / Coaching Cards.
+	* Views of available courses and coaching sessions in a collection of cards.
+	* Courses and coaching sessions are selectable to view in greater detail and are available to purchase.
 	* Detailed view of course or coaching session.
 	* Ability to select number of courses and coaching sessions and add to cart.
 	* Submit cart -> *Django App - Cart*
@@ -190,21 +190,24 @@ A feature is some action that can be performed by a user of an application, or i
 	* Consumer can continue shopping, add further products/items.
 	* Consumer can checkout -> *Django App - Checkout*
 * **Django App - Checkout:** Fill in the checkout form to place the order.
-	* Checkout form to place the order and receive an e-mail confirmation -> *Django App - Payment*
+	* Checkout form to place the order.
+	* Consumer has the OrderForm autofilled based on UserForm and ProfileForm. Anonymous users must fill in the form manually. The form is saved as OrderForm. -> *Django App - Payment*
 * **Django App - Payment:** Fill in the credit-card details and click Pay to purchase the items.
 	* Consumer can fill in the credit-card details to purchase the items ordered.
-	* Consumer gets a payment done (success or failure) wiht a link to home -> *Django App - Home*
+	* Consumer gets a payment done (success or failure) with a link to Home if Anonymous or the Dashboard if authenticated.
+	* When the payment is successful a notification e-mail is sent to the provided e-mail address of the Consumer. -> *Django App - Home*
 * **Django App - Account:** Consumer Authentication and Authorisation.
 	* Consumer can register, login, edit character profile, change password, reset password (e-mail notification), and logout.
 	* Consumer Dashboard access.
+	* Consumer can view, add, update, and delete comments linked to purchases.
 
 ### Features Left to Implement
-* **NEW - Django App - Order Rating and Comments:**
+* **NEW - Django App - Order Rating and Comments:** -- IMPLEMENTED 30 April 2021. Added to current features.
 * **NEW - Django App - Courses:** Add online course content for some courses linked to YouTube videos.
 * **NEW - Django App - Accreditation:** Create accrediation views, course diplomas, and success trees for consumers.
 * **Existing - Django App - Account:** Add additional e-mail notifications. Add a subscription model to access online courses and coaching sessions.
 * **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
-* **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists.
+* **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists. -- IMPLEMENTED 30 April 2021. Added to current features.
 
 ![Section Divider: Title and Business](Documentation/section%20divider.png)
 
@@ -248,7 +251,32 @@ For the fourth Milestone Project for the Diploma in Full Stack Development at th
 
 ### Database Schema
 ![Database Schema](Documentation/Training%20DB%20Schema.png)
-Please note that the there is currently no database link between the auth_user or account_profile to orders_orders. As a future feature, having the order form populated with data from the auth_user and account_profile when authtenticated would add a useful feature to the consumer.
+Please note that the there is no database link between the auth\_user or account\_profile to orders\_orders. There is an application link between these database models (tables) via the Django Application orders to autofill the order and payment form before payment using both auth\_user and account\_profile to autofill the form. If the user is Anonymous the form fields are empty. Once the form is submitted when paying, it's saved as one form (OrderForm) attached to orders\_orders. The form field names are the same for UserForm + ProfileForm = OrderForm:
+
+```
+UserForm (partial auth\_user)
+ first_name
+ last_name
+ email
+
++
+
+ProfileForm (partial account\_profile)
+ address
+ post_code
+ city
+
+=
+
+OrderForm (partial orders\_orders)
+ first_name
+ last_name
+ email
+ address
+ post_code
+ city
+...additional fields related to the order...
+```
 
 <details><summary>Please click to expand: Quick Databse Diagrams Description</summary>
 
@@ -282,12 +310,14 @@ first_name varchar(50)
 last_name varchar(50)
 email varchar(254)
 address varchar(250)
-postal_code varchar(20)
+post_code varchar(20)
 city varchar(100)
 created datetime
 updated datetime
 paid bool
 braintree_id varchar(150)
+rating int
+comment varchar(250)
  
 orders_orderitem
 --
@@ -296,8 +326,6 @@ price decimal
 quantity int
 order_id int FK >- orders_order.id
 product_id int FK >- shop_product.id
-rating int
-comment varchar(250)
  
 shop_category
 --
@@ -690,6 +718,12 @@ Running locally in Debug mode I received an error message stating “Suspicious 
 		* Was testing it locally with the URL in 'settings.py'.
 	* Resolution:
 		* Remvoed the Heroku Postgres add-on, and added a new one. Executed the steps to migrate the Django Models to the new database instance, with the new URL in the '.env' file.
+
+* **Issue:** Accidentaly set `Debug = True` in Production on Heroku.
+	* Reason:
+		* Forgot to set the Heroku environment variable Debug to False..
+	* Resolution:
+		* Removed use of the variable in 'settings.py', and cleared the variable on Heroku. Added `Debug = False` to 'settings.py'. Added a check for the 'DYNO' environment variable, and if doesn't exist load the local '.env' file. On Heroku the Heroku variables are used instead.
 
 ![Section Divider: Title and Business](Documentation/section%20divider.png)
 
