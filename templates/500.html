@@ -7,17 +7,14 @@
 <div class="container">
     <div class="row">
         <div class="col s12 offset-m1 m10 offset-l1 l10">
-            <div class="card center">
+            <div class="card center large">
                 <div class="card-image">
                     <h3>An 'Internal Server Error' occurred...the error is logged and we are resolving the issue...</h3>
-                    <a href="{% url 'home' %}" target="_self" class="halfway-fab btn-floating pink pink-darken-1 pulse">
-                        <i class="material-icons">support</i>
-                    </a>
                 </div>
                 <div class="card-content">
                     <span class="card-title pink-text text-darken-1">Server: 500 - Internal Server Error</span>
                     <p>Apologies, something serious occurred and we're resolving the issue! This section is cordoned off
-                        for now. Please click on the pink pulsating buoy to go to the Home Page, or click on Sign Out
+                        for now. Please click on <a href="{% url 'home' %}" target="_self">Home Page</a>, or click on Sign Out
                         below.</p>
                     <p>&nbsp;</p>
                     <p>Training and Development - 500 Internal Server Error: An internal server error occurred. If you
