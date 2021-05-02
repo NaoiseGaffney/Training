@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 {% for ord in order %}
-                {% if ord.email == request.user.email %}
+                {% if ord.username == request.user %}
                 <tr>
                     <td>{{ord}}</td>
                     <td><a href="{% url 'comment_edit' ord.id %}">{{ ord.rating }} / {{ ord.comment }}</a></td>
