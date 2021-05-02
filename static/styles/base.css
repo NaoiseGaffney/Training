@@ -153,6 +153,24 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 black;
 }
 
+/* MaterializeCSS 1.0.0 overrides to provide a consistent look-and-feel.
+Adjusting the max-height and height to ensure the spacing of the cards
+is consistent as is the information in them. */
+.card.small .card-image+.card-content,
+.card.medium .card-image+.card-content,
+.card.large .card-image+.card-content {
+    max-height: 60%;
+}
+
+.card.large {
+    height: 600px;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+}
+
 /* All Submit / Update Buttons */
 a.button,
 button:focus,
