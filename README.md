@@ -12,43 +12,52 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
 
 <details><summary>Please click to expand: Table of Contents</summary>
 
-- [Business](#business)
-  * [External User's (Consumer) Goals](#external-user-s--consumer--goals)
-  * [Site Owner's Goals](#site-owner-s-goals)
-- [User Experience](#user-experience)
-  * [Persona Summary of the Consumer](#persona-summary-of-the-consumer)
-  * [Strategy Trade-Off](#strategy-trade-off)
-    + [Opportunity Matrices for Training and Development](#opportunity-matrices-for-training-and-development)
-  * [User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation](#user-stories--use-cases--and-tasks-mapped-to-information-architecture-and-navigation)
-  * [Wireframes](#wireframes)
-- [Features](#features)
-  * [Existing Features](#existing-features)
-  * [Features Left to Implement](#features-left-to-implement)
-- [Technologies Used](#technologies-used)
-  * [Database Schema](#database-schema)
-- [Testing](#testing)
-  * [Validation of HTML, CSS, JS, and Python Code](#validation-of-html--css--js--and-python-code)
-  * [Manual Beahviour Driven Development Testing](#manual-beahviour-driven-development-testing)
-  * [Automated Behaviour Driven Development Testing using Selenium IDE and PyTest](#automated-behaviour-driven-development-testing-using-selenium-ide-and-pytest)
-    + [BDD Test '.env' File](#bdd-test--env--file)
-    + [BDD PyTest Code](#bdd-pytest-code)
-    + [BDD Test Results - PASS](#bdd-test-results---pass)
-- [Deployment](#deployment)
-  * [GitHub](#github)
-  * [Configure Visual Studio Code environment](#configure-visual-studio-code-environment)
-  * [Create the Initial Django Project](#create-the-initial-django-project)
-  * [Django Migrations (Version Control System for the Database Schema)](#django-migrations--version-control-system-for-the-database-schema-)
-  * [Configure static and media for Django](#configure-static-and-media-for-django)
-  * [Install django-environ to read a '.env' file with both confidential and useful variables -> Heroku Variables and PyTest Variables](#install-django-environ-to-read-a--env--file-with-both-confidential-and-useful-variables----heroku-variables-and-pytest-variables)
-    + [Heroku Platform Configuration and Deployment](#heroku-platform-configuration-and-deployment)
-      - [Herokue Config Vars (minus `DISABLE_COLLECTSTATIC=1` which is a temporary variable)](#herokue-config-vars--minus--disable-collectstatic-1--which-is-a-temporary-variable-)
-    + [PostgreSQL Configuration](#postgresql-configuration)
-    + [AWS S3 Bucket Configuration](#aws-s3-bucket-configuration)
-- [Key Issues](#key-issues)
-- [Credits](#credits)
-  * [Content](#content)
-  * [Media](#media)
-  * [Acknowledgements](#acknowledgements)
+  * [Business](#business)
+    + [External User's (Consumer) Goals](#external-user-s--consumer--goals)
+    + [Site Owner's Goals](#site-owner-s-goals)
+  * [User Experience](#user-experience)
+    + [Persona Summary of the Consumer](#persona-summary-of-the-consumer)
+    + [Strategy Trade-Off](#strategy-trade-off)
+      - [Opportunity Matrices for Training and Development](#opportunity-matrices-for-training-and-development)
+    + [User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation](#user-stories--use-cases--and-tasks-mapped-to-information-architecture-and-navigation)
+    + [Wireframes](#wireframes)
+  * [Design Decisions](#design-decisions)
+    + [Design Decisions Overview](#design-decisions-overview)
+      - [Colour Scheme](#colour-scheme)
+      - [GaffCo Consulting Logo](#gaffco-consulting-logo)
+      - [Navigation](#navigation)
+      - [Forms and Fields](#forms-and-fields)
+      - [Buttons](#buttons)
+      - [Cards (Shop and Cart)](#cards--shop-and-cart-)
+      - [Favicon](#favicon)
+  * [Features](#features)
+    + [Existing Features](#existing-features)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Technologies Used](#technologies-used)
+    + [Database Schema](#database-schema)
+  * [Testing](#testing)
+    + [Validation of HTML, CSS, JS, and Python Code](#validation-of-html--css--js--and-python-code)
+    + [Manual Beahviour Driven Development Testing](#manual-beahviour-driven-development-testing)
+    + [Automated Behaviour Driven Development Testing using Selenium IDE and PyTest](#automated-behaviour-driven-development-testing-using-selenium-ide-and-pytest)
+      - [BDD Test '.env' File](#bdd-test--env--file)
+      - [BDD PyTest Code](#bdd-pytest-code)
+      - [BDD Test Results - PASS](#bdd-test-results---pass)
+  * [Deployment](#deployment)
+    + [GitHub](#github)
+    + [Configure Visual Studio Code environment](#configure-visual-studio-code-environment)
+    + [Create the Initial Django Project](#create-the-initial-django-project)
+    + [Django Migrations (Version Control System for the Database Schema)](#django-migrations--version-control-system-for-the-database-schema-)
+    + [Configure static and media for Django](#configure-static-and-media-for-django)
+    + [Install django-environ to read a '.env' file with both confidential and useful variables -> Heroku Variables and PyTest Variables](#install-django-environ-to-read-a--env--file-with-both-confidential-and-useful-variables----heroku-variables-and-pytest-variables)
+      - [Heroku Platform Configuration and Deployment](#heroku-platform-configuration-and-deployment)
+        * [Herokue Config Vars (minus `DISABLE_COLLECTSTATIC=1` which is a temporary variable)](#herokue-config-vars--minus--disable-collectstatic-1--which-is-a-temporary-variable-)
+      - [PostgreSQL Configuration](#postgresql-configuration)
+      - [AWS S3 Bucket Configuration](#aws-s3-bucket-configuration)
+  * [Key Issues](#key-issues)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -159,6 +168,60 @@ The wireframes cover Desktop and Tablet sized devices as one, as the design and 
 
 ![Section Divider: Title and Business](Documentation/section%20divider.png)
 
+## Design Decisions
+The design decisions cover the look-and-feel, typography, colour scheme, forms, buttons, navigation elements and more. They put "lipstick-on-the-pig", in other words make the Professional Communication and Presentation Skills E-Commerce Website application appealing to and easy-to-use for a Consumer. They make the functions come alive and provide information and interaction with the Consumer.
+
+### Design Decisions Overview
+Materialize 1.0.0 provides a clean, crisp look and is based on principles of Material Design. It also means that JavaScript is used to initialise the features, and doesn't rely on jQuery which improves performance, and jQuery doesn't need to be loaded. Material Icons are used too. They work well together with the CSS Framework Materialize 1.0.0.
+
+The Colour Scheme is hight contrast, easily viewable and works well for people with different types of colour blindness (Sim Daltonism is used to verify this). Google Lighthouse highlighted an initila issue with the label text contrast needing improvement, and that is amended.
+
+#### Colour Scheme
+Text is black (#000000), the background white (#FFFFFF), links are blue (#3367D6). The Fixed Footer top is black (#000000) on orange (#FF9800), and bottom is white (#FFFFFF) on black (#000000). The labels are dark grey (#333333) and amended on advice from running Google Lighthouse. Material icons are black (#000000).
+
+Mobile devices use a hamburger-menu-navigation bar with black text (#000000) on an orange (#FF9800) background.
+
+#### GaffCo Consulting Logo
+![GaffCo Consulting Logo](Documentation/PCC_Logo.png)
+
+The logo is discrete enough not to take away from the overall look-and-feel of the website/application, yet clear enough in its intent to highlight the name and the fact that this is all about Professional Communication Competence.
+
+Colours used for the left side are orange (#F7A350), blue (#42B9EE), and grey (#D4D5D7). The colour for the right is black (#000000). All colours stand out well on the white (#FFFFFF) background.
+
+#### Navigation
+![Navigation](Documentation/Navigation%20Menu.png)
+
+Navigation bar for large and medium screens has the logo (link to Home Page), Courses & Coaching menu (All Training, Courses, Coaching) with the black text to the left and the black icon to the right. This is similar for the Character (Dashboard) and Cart. When the Cart is empty the Material Icon add\_shopping\_cart is used, and when full it changes to the shopping\_cart icon.
+
+![](Documentation/Navigation%20Menu%20Mobile.png)
+
+The Navigation bar for mobile devices has black (#000000) text and icons over an orange (#FF9800) and has the all links on disaply instead of using a drop-down menu. All links and icons are the same as for the larger devices.
+
+#### Forms and Fields
+![Forms and Fields](Documentation/Forms%20and%20Fields.png)
+
+The Forms and Fields follow the same look-and-feel consistently across the website/application. The base is Materialize 1.0.0, each field has a descriptive label. The labels are dark grey (#333333) and amended on advice from running Google Lighthouse. Material icons are black (#000000).
+
+#### Buttons
+![Buttons](Documentation/Buttons.png)
+
+The buttons are mostly white (#FFFFFF) text on black (#000000) background, except for the Remove items button which is white (#FFFFFF) text on red (#F34336) background.
+
+#### Cards (Shop and Cart)
+![Shop Cards](Documentation/Shop%20Cards.png)
+
+Shop Cards are MaterializeCSS 1.0.0 cards of **medium** size, with modifications to the height and layout to contain all relevant information across all screen sizes. They are all uniform in size to create a consistent layout.
+
+![Order Cards](Documentation/Order%20Cards.png)
+
+Order Cards are MaterializeCSS 1.0.0 cards of **large** size, with modifications to the height and layout to contain all relevant information across all screen sizes. They are all uniform in size to create a consistent layout.
+
+#### Favicon
+
+Favicon is a miniature of the logo and is created using FavIcon online.
+
+![Section Divider: Title and Business](Documentation/section%20divider.png)
+
 ## Features
 
 A feature is some action that can be performed by a user of an application, or is some internal function of an application. The features support the User Experience mentioned above and are implemented based on the business goals, user stories and use cases.
@@ -199,14 +262,14 @@ A feature is some action that can be performed by a user of an application, or i
 * **Django App - Account:** Consumer Authentication and Authorisation.
 	* Consumer can register, login, edit character profile, change password, reset password (e-mail notification), and logout.
 	* Consumer Dashboard access.
-	* Consumer can view, add, update, and delete comments linked to purchases.
+	* Consumer can view, add, update, and delete comments linked to purchases. The e-mail address of the Conusmer (authenticated user) is used to reference the orders.
 
 ### Features Left to Implement
 * **NEW - Django App - Order Rating and Comments:** -- IMPLEMENTED 30 April 2021. Added to current features.
 * **NEW - Django App - Courses:** Add online course content for some courses linked to YouTube videos.
 * **NEW - Django App - Accreditation:** Create accrediation views, course diplomas, and success trees for consumers.
 * **Existing - Django App - Account:** Add additional e-mail notifications. Add a subscription model to access online courses and coaching sessions.
-* **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
+* **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken. Expand the order\_order model to include a user field (authenticated user) to reference the orders instead of the email address.
 * **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists. -- IMPLEMENTED 30 April 2021. Added to current features.
 
 ![Section Divider: Title and Business](Documentation/section%20divider.png)
