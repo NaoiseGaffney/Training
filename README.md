@@ -262,7 +262,7 @@ A feature is some action that can be performed by a user of an application, or i
 * **Django App - Account:** Consumer Authentication and Authorisation.
 	* Consumer can register, login, edit character profile, change password, reset password (e-mail notification), and logout.
 	* Consumer Dashboard access.
-	* Consumer can view, add, update, and delete comments linked to purchases. The e-mail address of the Conusmer (authenticated user) is used to reference the orders.
+	* Consumer can view, add, update, and delete comments linked to purchases. The username (updated from email address to username (added username to order model)) of the Consumer (authenticated user) is used to reference the orders.
 
 ### Features Left to Implement
 * **NEW - Django App - Order Rating and Comments:** -- IMPLEMENTED 30 April 2021. Added to current features.
@@ -381,6 +381,7 @@ paid bool
 braintree_id varchar(150)
 rating int
 comment varchar(250)
+username varchar(250)
  
 orders_orderitem
 --
