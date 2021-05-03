@@ -18,7 +18,7 @@ import dj_database_url
 
 DEBUG = False
 
-if not 'DYNO' in os.environ:
+if 'DYNO' not in os.environ:
     root = environ.Path(__file__) - 3  # get root of the project
     env = environ.Env()
     environ.Env.read_env()  # reading .env file
@@ -96,11 +96,9 @@ WSGI_APPLICATION = 'Training.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
-
 
 
 # Password validation
