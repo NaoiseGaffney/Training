@@ -42,7 +42,7 @@ def comment_edit(request, comment_id):
             return redirect('dashboard')
         else:
             messages.error(request, 'Error: rating and comment NOT updated.')
-            
+
     form = OrderCommentForm(instance=order)
     context = {
         'form': form
@@ -68,7 +68,9 @@ def register(request):
     Authenticated users cannot register again and are redirected to the Dashboard.
     """
     if request.user.is_authenticated:
-        messages.error(request, f'{request.user} is already registered and is logged in.')
+        messages.error(
+            request,
+            f'{request.user} is already registered and is logged in.')
         return redirect('dashboard')
     """
     Register user using UserRegistrationForm.

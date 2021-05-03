@@ -44,7 +44,12 @@ def order_create(request):
         else:
             user_form = UserEditForm()
             profile_form = ProfileEditForm()
-    return render(request, 'order/create.html', {'cart': cart, 'user_form': user_form, 'profile_form': profile_form, 'form': form})
+    return render(request,
+                  'order/create.html',
+                  {'cart': cart,
+                   'user_form': user_form,
+                   'profile_form': profile_form,
+                   'form': form})
 
 
 @staff_member_required
