@@ -8,7 +8,7 @@
 <div class="container">
     <div class="product-detail">
         <div>
-        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="Product Detail Image">
         <h3>{{ product.name }}</h3>
         <h5>
             <a href="{{ product.category.get_absolute_url }}">

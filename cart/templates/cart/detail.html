@@ -14,7 +14,7 @@ Your shopping cart
             <div class="card large">
                 <div class="card-image">
                     <a href="{{ product.get_absolute_url }}"><img
-                            src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"></a>
+                            src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="Product Detail Image"></a>
                 </div>
                 <div class="card-content">
                     <span class="card-title black-text grey lighten-4">{{ product.name }}</span>
