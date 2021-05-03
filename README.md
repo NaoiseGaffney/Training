@@ -265,12 +265,21 @@ A feature is some action that can be performed by a user of an application, or i
 	* Consumer can view, add, update, and delete comments linked to purchases. The username (updated from email address to username (added username to order model)) of the Consumer (authenticated user) is used to reference the orders.
 
 ### Features Left to Implement
-* **NEW - Django App - Order Rating and Comments:** -- IMPLEMENTED 30 April 2021. Added to current features.
-* **NEW - Django App - Courses:** Add online course content for some courses linked to YouTube videos.
-* **NEW - Django App - Accreditation:** Create accrediation views, course diplomas, and success trees for consumers.
-* **Existing - Django App - Account:** Add additional e-mail notifications. Add a subscription model to access online courses and coaching sessions.
-* **Existing - Django App - Dashboard:** Improve Character Profile with additional details like a photo and courses purchased, and courses taken. Expand the order\_order model to include a user field (authenticated user) to reference the orders instead of the email address.
-* **Existing - Django App - Payment:** Fill in payment details if consumer is authenticated and a character profile exists. -- IMPLEMENTED 30 April 2021. Added to current features.
+* **NEW - Django App - Order Rating and Comments:**
+	* CRUD functions added to comments and ratings view of orders placed in the dashboard. **-- IMPLEMENTED 30 April 2021. Added to current features.**
+* **NEW - Django App - Courses:**
+	* Add online course content for some courses linked to YouTube videos.
+* **NEW - Django App - Accreditation:**
+	* Create accrediation views, course diplomas, and success trees for consumers.
+* **Existing - Django App - Account:**
+	* Add additional e-mail notifications. Add a subscription model to access online courses and coaching sessions.
+* **Existing - Django App - Dashboard:**
+	* Improve Character Profile with additional details like a photo and courses purchased, and courses taken.
+	* Expand the order\_order model to include a user field (authenticated user) to reference the orders instead of the email address. **-- IMPLEMENTED 1 May 2021. Added to current features.**
+* **Existing - Django App - Payment:**
+	* Fill in payment details if consumer is authenticated and a character profile exists. **-- IMPLEMENTED 30 April 2021. Added to current features.**
+* **Existing - Django App - Products:**
+	* Create an admin-friendly user interface to CRUD the products list, instead of using the Admin Interface for this.
 
 ![Section Divider: Title and Business](Documentation/section%20divider.png)
 
@@ -423,7 +432,7 @@ Business Driven Development aims to overcome the common mismatch between the Bus
 BDD Testing is performed manually, and automated using Selenium IDE exported to PyTest code.
 
 ### Validation of HTML, CSS, JS, and Python Code
-Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 Online](http://pep8online.com/), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/) and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
+Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 Online](http://pep8online.com/), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/), and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
 
 ### Manual Beahviour Driven Development Testing
 Running the manual tasks validate the Use Case, and in turn the User Story. A test will either Pass or Fail.

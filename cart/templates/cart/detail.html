@@ -18,21 +18,17 @@ Your shopping cart
                 </div>
                 <div class="card-content">
                     <span class="card-title black-text grey lighten-4">{{ product.name }}</span>
-                    <span>
                         <form action="{% url 'cart:cart_add' product.id %}" method="post" style="display: inline;">
                             {{ item.update_quantity_form.quantity }}
                             {{ item.update_quantity_form.override }}
                             <input type="submit" value="Update">
                             {% csrf_token %}
                         </form>
-                    </span>
-                    <span>
                         <form action="{% url 'cart:cart_remove' product.id %}" method="post" style="display: inline;">
                             <input type="submit" value="Remove" class="halfway-fab waves-effect waves-light red"><i
                                 class="material-icons white-text">delete</i>
                             {% csrf_token %}
                         </form>
-                    </span>
                     <p class="padding">Item Price: ${{ item.price }}</p>
                     <p class="padding">Total Item Price: ${{ item.total_price }}</p>
                 </div>

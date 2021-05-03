@@ -160,6 +160,7 @@ is consistent as is the information in them. */
 .card.medium .card-image+.card-content,
 .card.large .card-image+.card-content {
     max-height: 60%;
+    overflow: visible;
 }
 
 .card.large {
