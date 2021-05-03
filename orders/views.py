@@ -25,7 +25,6 @@ def order_create(request):
         form = OrderCreateForm(request.POST)
         if form.is_valid():
             order = form.save()
-            order = get_object_or_404(Order, id=order.id)
             order.username = str(request.user)
             order.save()
             for item in cart:
