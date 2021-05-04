@@ -327,13 +327,13 @@ Please note that the there is no database link between the auth\_user or account
 
 ![Anonymous User Order Create Form](Documentation/AuthenticatedUserOrderCreateForm.png)
 
-The order details are filled in programatically, and added to the orders\_order model and DB Table. Please note that the field names are the same for the User, Profile and Orders forms and tables which makes this a simple approach to take.
+The order details are filled in programatically, and added to the orders\_order model and DB Table. Please note that the field names are the same for the User, Profile and Orders forms and tables which makes this a simple approach to take. `id` is the reference used for the tables.
 
 An anonymous user has no autofilled form fields, however, uses the OrderCreateForm based on the orders\_order model and DB table:
 
 ![Anonymous User Order Create Form](Documentation/AnonymousUserOrderCreateForm.png)
 
-The order details are filled in programatically, and added to the orders\_order model and DB Table.
+The order details are filled in programatically, and added to the orders\_order model and DB Table. `id` is the reference used for the tables.
 
 <details><summary>Please click to expand: Quick Database Diagrams Description</summary>
 
