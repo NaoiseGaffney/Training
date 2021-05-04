@@ -37,7 +37,7 @@ Professional Communication and Presentation Skills - 4th Milestone Project for t
     + [Database Schema](#database-schema)
   * [Testing](#testing)
     + [Validation of HTML, CSS, JS, and Python Code](#validation-of-html--css--js--and-python-code)
-    + [Manual Beahviour Driven Development Testing](#manual-beahviour-driven-development-testing)
+    + [Manual Behaviour Driven Development Testing](#manual-behaviour-driven-development-testing)
     + [Automated Behaviour Driven Development Testing using Selenium IDE and PyTest](#automated-behaviour-driven-development-testing-using-selenium-ide-and-pytest)
       - [BDD Test '.env' File](#bdd-test--env--file)
       - [BDD PyTest Code](#bdd-pytest-code)
@@ -81,7 +81,7 @@ User experience (UX) design is the design process used to create applications an
 
 ### Persona Summary of the Consumer
 ![Persona Summary](Documentation/persona_summary.png)
-This site is aimed at individuals at age 18 and above, and businessess seeking professional courses and coaching on presentation and communication skills. Consumers can view the courses and coaching sessions on offer to select the ones most suitable to their requirements to increase their knowledge, improve their skills and give them the confidence to put the new knowledge and skills to good use.
+This site is aimed at individuals at age 18 and above, and businesses seeking professional courses and coaching on presentation and communication skills. Consumers can view the courses and coaching sessions on offer to select the ones most suitable to their requirements to increase their knowledge, improve their skills and give them the confidence to put the new knowledge and skills to good use.
 
 ### Strategy Trade-Off
 UX Design is driven by business goals and user needs, and features developed are aligned to these. However, each feature requires time and effort, and often time is constrained as is effort as the greater the effort the higher the cost. Therefore some features are prioritised or mandatory, while others are optional and developed pending time and ultimately cost.
@@ -89,11 +89,11 @@ UX Design is driven by business goals and user needs, and features developed are
 The selected features are driven by the opportunity matrix, which helps us understand what is both more important and viable to create. In this case all features mentioned below are implemented as the features made sense to provide in this initial release. Additional and future features are documented under the Features section, and not documented here.
 
 #### Opportunity Matrices for Training and Development
-![Opportunty Matrix - Account Management](Documentation/OppMatrix_Account.png)
+![Opportunity Matrix - Account Management](Documentation/OppMatrix_Account.png)
 
-![Opportunty Matrix - Shop to Pay](Documentation/OppMatrix_ShopToPay.png)
+![Opportunity Matrix - Shop to Pay](Documentation/OppMatrix_ShopToPay.png)
 
-[Initial Plans for MS4](Documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time contraints and continuous assessments changed the initial plan.
+[Initial Plans for MS4](Documentation/MS4.pdf) scribbled on a several A4 pages (PDF). This gave me purpose and direction for the project. However, time constraints and continuous assessments changed the initial plan.
 
 ### User Stories, Use Cases, and Tasks Mapped to Information Architecture and Navigation
 
@@ -109,7 +109,7 @@ The User Experience links the Business goals of the external user (consumer) and
 
 A user story has one or more use cases with one or more tasks with steps associated with it, describing how the user story, and subsequent fulfilment of the external user's and site owner's business goals are realised: Business Goals -> User Story -> Use Case(s) -> Task(s).
 
-Information Architecture is hierarchical (home -> shop, home -> character, home -> cart) and sequential (shop -> cart -> orders -> payment). The navigation bar provides the same options for anymous and logged in consumers.
+Information Architecture is hierarchical (home -> shop, home -> character, home -> cart) and sequential (shop -> cart -> orders -> payment). The navigation bar provides the same options for anonymous and logged in consumers.
 
 ---
 
@@ -118,14 +118,14 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 		* **Task 1:** Access the home / index page [Training and Development](https://training-and-development.herokuapp.com/). Scroll through the content on the page.
 		* **Task 2:** Click on the LinkedIn Profile link to access further details about the owner of GaffCo Consulting.
 	* **Use Case 001-002 - Register, Login, Logout:** As a consumer I want to register, login, and logout to access further future content and details.
-		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 1:** Access the character dashboard via the navigation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 		* **Task 2:** Click on [Register Here](https://training-and-development.herokuapp.com/account/register/) to create an account. Fill in the details in the form and click on "Create my account" button.
 		* **Task 3:** Click on [Log-in](https://training-and-development.herokuapp.com/account/login/), enter your username and password, and click on the "Log-in" button.
 		* **Task 4:** Perform the relevant actions on the website.
 		* **Task 5:** Click on [Logout](https://training-and-development.herokuapp.com/account/logout/) when done.
 	* **Use Case 001-003 - View and Purchase Courses and Coaching Sessions:** As a consumer I want to view and purchase courses and coaching sessions to increase my knowledge and improve my skills.
 		* **Task 1:** Access the home / index page [Training and Development](https://training-and-development.herokuapp.com/).
-		* **Task 2:** Click on "Courses & Coaching" in the naviagation bar and select either "All Training" or "Courses" or "Coaching".
+		* **Task 2:** Click on "Courses & Coaching" in the navigation bar and select either "All Training" or "Courses" or "Coaching".
 		* **Task 3:** Use the carousel to find a course or coaching session you want to view the details of, and potentially purchase.
 		* **Task 4:** Select (click on) on the course or coaching session you want further details on, and potentially want to purchase.
 		* **Task 5:** Review the details of the course or coaching session. If required, updated the number of course seats or coaching sessions, and click on "Add to cart".
@@ -134,17 +134,17 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 		* **Task 8:** Fill in the credit-card payment form and click on the "Pay" button.
 		* **Task 9:** Continue shopping, or click on [Home](https://training-and-development.herokuapp.com/), or close the browser.
 	* **Use Case 001-004 - Edit / Update the Character (Consumer) Profile:** As a consumer I want to edit / update my Character (Consumer) Profile for future features and content.
-		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 1:** Access the character dashboard via the navigation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 		* **Task 2:** Click on [Log-in](https://training-and-development.herokuapp.com/account/login/), enter your username and password, and click on the "Log-in" button.
 		* **Task 3:** Click on [edit your profile](https://training-and-development.herokuapp.com/account/edit/).
 		* **Task 4:** Update the Character Profile form and click on "Save changes" when done. A Django message pop-up provides feedback on whether the update is successful or not. Click on [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 	* **Use Case 001-005 - Change Password:** As a consumer I want to change my password.
-		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 1:** Access the character dashboard via the navigation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 		* **Task 2:** Click on [Log-in](https://training-and-development.herokuapp.com/account/login/), enter your username and password, and click on the "Log-in" button.
 		* **Task 3:** Click on [change your password](https://training-and-development.herokuapp.com/account/password_change/), enter your current password, your new password, your new password a second time, and click on the "Change" button.
 		* **Task 4:** Click on the [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/) and [Logout](https://training-and-development.herokuapp.com/account/logout/).
 	* **Use Case 001-006 - Password Reset:** As a consumer I want to reset my password as I have forgotten my current password and want to gain access to my account.
-		* **Task 1:** Access the character dashboard via the naviagation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
+		* **Task 1:** Access the character dashboard via the navigation bar menu [Character Dashboard](https://training-and-development.herokuapp.com/account/dashboard/).
 		* **Task 2:** Click on [Forgotten your password?](https://training-and-development.herokuapp.com/account/password_reset/).
 		* **Task 3:** Enter your e-mail address (same one used to register) and click on the "Send e-mail" button.
 		* **Task 4:** Once you receive your password reset e-mail, click on the link to reset your password.
@@ -153,9 +153,9 @@ Information Architecture is hierarchical (home -> shop, home -> character, home 
 ---
 
 * **User Story 002 (Admin):** As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.
-	* **Use Case 002-001 - Authentication and Authorization:** As an admin I want to manage users and groups on the site. - [Authentication and Authorization](https://training-and-development.herokuapp.com/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. 
+	* **Use Case 002-001 - Authentication and Authorisation:** As an admin I want to manage users and groups on the site. - [Authentication and Authorisation](https://training-and-development.herokuapp.com/admin/auth/) CRUD functions for Groups (not currently used) and Users. Using Django authorisation. 
 	* **Use Case 002-002 - Account:** As an admin I want to manage Character Profiles. - [Account](https://training-and-development.herokuapp.com/admin/account/). Consumer updates to their Character Profile is managed here.
-	* **Use Case 002-003 - Shop:** As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](https://training-and-development.herokuapp.com/admin/shop/).
+	* **Use Case 002-003 - Shop:** As an admin I want to manage the product categories and products provided to the Consumers. - [Shop](https://training-and-development.herokuapp.com/admin/shop/).
 	* **Use Case 002-004 - Orders:** As an admin I want to manage the orders placed by Consumers. - [Orders](https://training-and-development.herokuapp.com/admin/orders/)
 
 ---
@@ -174,7 +174,7 @@ The design decisions cover the look-and-feel, typography, colour scheme, forms, 
 ### Design Decisions Overview
 Materialize 1.0.0 provides a clean, crisp look and is based on principles of Material Design. It also means that JavaScript is used to initialise the features, and doesn't rely on jQuery which improves performance, and jQuery doesn't need to be loaded. Material Icons are used too. They work well together with the CSS Framework Materialize 1.0.0.
 
-The Colour Scheme is hight contrast, easily viewable and works well for people with different types of colour blindness (Sim Daltonism is used to verify this). Google Lighthouse highlighted an initila issue with the label text contrast needing improvement, and that is amended.
+The Colour Scheme is hight contrast, easily viewable and works well for people with different types of colour blindness (Sim Daltonism is used to verify this). Google Lighthouse highlighted an initial issue with the label text contrast needing improvement, and that is amended.
 
 #### Colour Scheme
 Text is black (#000000), the background white (#FFFFFF), links are blue (#3367D6). The Fixed Footer top is black (#000000) on orange (#FF9800), and bottom is white (#FFFFFF) on black (#000000). The labels are dark grey (#333333) and amended on advice from running Google Lighthouse. Material icons are black (#000000).
@@ -195,7 +195,7 @@ Navigation bar for large and medium screens has the logo (link to Home Page), Co
 
 ![](Documentation/Navigation%20Menu%20Mobile.png)
 
-The Navigation bar for mobile devices has black (#000000) text and icons over an orange (#FF9800) and has the all links on disaply instead of using a drop-down menu. All links and icons are the same as for the larger devices.
+The Navigation bar for mobile devices has black (#000000) text and icons over an orange (#FF9800) and has the all links on display instead of using a drop-down menu. All links and icons are the same as for the larger devices.
 
 #### Forms and Fields
 ![Forms and Fields](Documentation/Forms%20and%20Fields.png)
@@ -230,7 +230,7 @@ A feature is some action that can be performed by a user of an application, or i
 * **Django App - Home:** Home / Index Page provides an introduction to GaffCo Consulting, and overview of the courses and coaching sessions that are provided.
 	* Navigation Bar / Hamburger-Nav-Bar (Materialize CSS 1.0.0)
 		* Logo Link to Home / Index Page (Logo is my own)
-		* Courses & Coaching Drop-Dowm (Materialize CSS 1.0.0) -> *Django App - Shop*
+		* Courses & Coaching Drop-Down (Materialize CSS 1.0.0) -> *Django App - Shop*
 			* All Training (all categories) -> Cards (MaterializeCSS 1.0.0 Cards)
 			* Courses (category) -> Courses Cards (MaterializeCSS 1.0.0 Cards)
 			* Coaching (category) -> Coaching Cards (MaterializeCSS 1.0.0 Cards)
@@ -270,7 +270,7 @@ A feature is some action that can be performed by a user of an application, or i
 * **NEW - Django App - Courses:**
 	* Add online course content for some courses linked to YouTube videos.
 * **NEW - Django App - Accreditation:**
-	* Create accrediation views, course diplomas, and success trees for consumers.
+	* Create accreditation views, course diplomas, and success trees for consumers.
 * **Existing - Django App - Account:**
 	* Add additional e-mail notifications. Add a subscription model to access online courses and coaching sessions.
 * **Existing - Django App - Dashboard:**
@@ -325,32 +325,17 @@ For the fourth Milestone Project for the Diploma in Full Stack Development at th
 ![Database Schema](Documentation/Training%20DB%20Schema.png)
 Please note that the there is no database link between the auth\_user or account\_profile to orders\_orders. There is an application link between these database models (tables) via the Django Application orders to autofill the order and payment form before payment using both auth\_user and account\_profile to autofill the form. If the user is Anonymous the form fields are empty. Once the form is submitted when paying, it's saved as one form (OrderForm) attached to orders\_orders. The form field names are the same for UserForm + ProfileForm = OrderForm:
 
-```
-UserForm (partial auth\_user)
- first_name
- last_name
- email
+![Anonymous User Order Create Form](Documentation/AuthenticatedUserOrderCreateForm.png)
 
-+
+The order details are filled in programatically, and added to the orders\_order model and DB Table. Please note that the field names are the same for the User, Profile and Orders forms and tables which makes this a simple approach to take.
 
-ProfileForm (partial account\_profile)
- address
- post_code
- city
+An anonymous user has no autofilled form fields, however, uses the OrderCreateForm based on the orders\_order model and DB table:
 
-=
+![Anonymous User Order Create Form](Documentation/AnonymousUserOrderCreateForm.png)
 
-OrderForm (partial orders\_orders)
- first_name
- last_name
- email
- address
- post_code
- city
-...additional fields related to the order...
-```
+The order details are filled in programatically, and added to the orders\_order model and DB Table.
 
-<details><summary>Please click to expand: Quick Databse Diagrams Description</summary>
+<details><summary>Please click to expand: Quick Database Diagrams Description</summary>
 
 ```
 account_profile
@@ -434,7 +419,7 @@ BDD Testing is performed manually, and automated using Selenium IDE exported to 
 ### Validation of HTML, CSS, JS, and Python Code
 Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 Online](http://pep8online.com/), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/), and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
 
-### Manual Beahviour Driven Development Testing
+### Manual Behaviour Driven Development Testing
 Running the manual tasks validate the Use Case, and in turn the User Story. A test will either Pass or Fail.
 
 | User Story                                                                                                                                                                                                   | Use Case                                                                                                                                                                                                                                                                      | Pass / Fail |
@@ -446,9 +431,9 @@ Running the manual tasks validate the Use Case, and in turn the User Story. A te
 |                                                                                                                                                                                                              | Use Case 001-005 - Change Password: As a consumer I want to change my password.                                                                                                                                                                                               | Pass        |
 |                                                                                                                                                                                                              | Use Case 001-006 - Password Reset: As a consumer I want to reset my password as I have forgotten my current password and want to gain access to my account.                                                                                                                   | Pass        |
 |                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                               |             |
-| User Story 002 (Admin): As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.                                                               | Use Case 002-001 - Authentication and Authorisation: As an admin I want to manage users and groups on the site. - [Authentication and Authorization](https://training-and-development.herokuapp.com/admin/auth/) CRUD functions for Groups (not currently ised) and Users. Using Django authorization. | Pass        |
+| User Story 002 (Admin): As an administrator I want to create, read, update and delete database items from the admin view to maintain the site.                                                               | Use Case 002-001 - Authentication and Authorisation: As an admin I want to manage users and groups on the site. - [Authentication and Authorisation](https://training-and-development.herokuapp.com/admin/auth/) CRUD functions for Groups (not currently used) and Users. Using Django authorisation. | Pass        |
 |                                                                                                                                                                                                              | Use Case 002-002 - Account: As an admin I want to manage Character Profiles. - [Account](https://training-and-development.herokuapp.com/admin/account/). Consumer updates to their Character Profile is managed here.                                                                                  | Pass        |
-|                                                                                                                                                                                                              | Use Case 002-003 - Shop: As an admin I want to manage the product categories and prodcuts provided to the Consumers. - [Shop](https://training-and-development.herokuapp.com/admin/shop/).                                                                                                             | Pass        |
+|                                                                                                                                                                                                              | Use Case 002-003 - Shop: As an admin I want to manage the product categories and products provided to the Consumers. - [Shop](https://training-and-development.herokuapp.com/admin/shop/).                                                                                                             | Pass        |
 |                                                                                                                                                                                                              | Use Case 002-004 - Orders: As an admin I want to manage the orders placed by Consumers. - [Orders](https://training-and-development.herokuapp.com/admin/orders/4                                                                                                                                       | Pass        |
 
 
@@ -735,7 +720,7 @@ Link: https://docs.djangoproject.com/en/3.1/topics/migrations/
 #### PostgreSQL Configuration
 * Install PostgreSQL support: `pip3 install psycopg2-binary` and `pip3 install dj-database-url`.
 * Update the Heroku requirements file: `pip3 freeze > requirements.txt`
-* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABASE_URL` variable under Appliction -> Settings -> Config Vars. Copy this URL.
+* Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). Heroku adds a `DATABASE_URL` variable under Application -> Settings -> Config Vars. Copy this URL.
 * Add the URL to the '.env' file: `DATABASE_URL=<Database URL>`. Update 'settings.py':
 
 ```
@@ -755,11 +740,11 @@ python3 manage.py createsuperuser
 ```
 
 * Update the allowed hosts in 'settings.py': `ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]`.
-* VS Code: Create the commit message. Changes -> Stage All CHanges, Commit -> Commit All, Push.
+* VS Code: Create the commit message. Changes -> Stage All Changes, Commit -> Commit All, Push.
 
 #### AWS S3 Bucket Configuration
 * Create an account on AWS.
-* Add and configure the AWS S3 Bucket: `trainingdjango`, All all public access. ACL: Everyone Objects -> List.
+* Add and configure the AWS S3 Bucket: `trainingdjango`, All public access. ACL: Everyone Objects -> List.
 * Create the Bucket Policy.
 * Create the Cross-Origin Resource Sharing (CORS)
 * Access AWS IAM and create a user for the Training Project. Create a group, with the user attached. Download the CSV file with the credentials and save it in a safe place. Updated the '.env' file with the relevant variables.
@@ -784,17 +769,17 @@ Running locally in Debug mode I received an error message stating “Suspicious 
 	* Reason:
 		* Complicated and detailed (element styling) CSS making it look good on one screen size and not another.
 	* Resolution:
-		* Started from scratch, creating a new 'base.css' with minimum CSS. Used additional Materialize CSS 1.0.0 features too. This aided in a consitent flow across different devices.
+		* Started from scratch, creating a new 'base.css' with minimum CSS. Used additional Materialize CSS 1.0.0 features too. This aided in a consistent flow across different devices.
 
-* **Issue:** Accidentaly committed 'settings-py' with the PostgreSQL DATABASE_URL.
+* **Issue:** Accidentally committed 'settings-py' with the PostgreSQL DATABASE_URL.
 	* Reason:
 		* Was testing it locally with the URL in 'settings.py'.
 	* Resolution:
-		* Remvoed the Heroku Postgres add-on, and added a new one. Executed the steps to migrate the Django Models to the new database instance, with the new URL in the '.env' file.
+		* Removed the Heroku Postgres add-on, and added a new one. Executed the steps to migrate the Django Models to the new database instance, with the new URL in the '.env' file.
 
-* **Issue:** Accidentaly set `Debug = True` in Production on Heroku.
+* **Issue:** Accidentally set `Debug = True` in Production on Heroku.
 	* Reason:
-		* Forgot to set the Heroku environment variable Debug to False..
+		* Forgot to set the Heroku environment variable Debug to False.
 	* Resolution:
 		* Removed use of the variable in 'settings.py', and cleared the variable on Heroku. Added `Debug = False` to 'settings.py'. Added a check for the 'DYNO' environment variable, and if doesn't exist load the local '.env' file. On Heroku the Heroku variables are used instead.
 
