@@ -161,6 +161,7 @@ is consistent as is the information in them. */
 .card.large .card-image+.card-content {
     max-height: 60%;
     overflow: visible;
+    width: 100%;
 }
 
 .card.large {

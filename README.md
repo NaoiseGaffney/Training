@@ -327,7 +327,7 @@ Please note that the there is no database link between the auth\_user or account
 
 ![Anonymous User Order Create Form](Documentation/AuthenticatedUserOrderCreateForm.png)
 
-The order details are filled in programatically, and added to the orders\_order model and DB Table. Please note that the field names are the same for the User, Profile and Orders forms and tables which makes this a simple approach to take. `id` is the reference used for the tables.
+The order details are filled in programatically, and added to the orders\_order model and DB Table. Please note that the field names are the same for the User, Profile and Orders forms and tables which makes this a simple approach to take. `id` is the reference used for the tables. The username of the authenticated user (`order.username = str(request.user)`) is added to orders\_order DB table and used as a reference when displaying the purchased orders on the user Dashboard.
 
 An anonymous user has no autofilled form fields, however, uses the OrderCreateForm based on the orders\_order model and DB table:
 
