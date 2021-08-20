@@ -11,3 +11,4 @@ Training/.env
 chromedriver*
 Documentation/Continuous Delivery and Deployment.pptx
 Documentation/~$Continuous Delivery and Deployment.pptx
+.test
